@@ -1,0 +1,13 @@
+id,situacao,ordem,falante,en,pt,fonte,licenca,autor,leitura
+tecnologia-d01,7,1,A,"Hey Riley, do you have a few minutes to look at my pull request?","Oi, Riley, você tem uns minutos para olhar o meu pull request?",projeto,CC BY-SA 4.0,,
+tecnologia-d02,7,2,B,"Sure, Jordan. What does it change?","Claro, Jordan. O que ele muda?",projeto,CC BY-SA 4.0,,
+tecnologia-d03,7,3,A,It fixes the login bug. The cache wasn't being cleared.,Ele corrige o bug do login. O cache não estava sendo limpo.,projeto,CC BY-SA 4.0,,
+tecnologia-d04,7,4,B,Nice. Did you write the tests yourself?,Legal. Foi você que escreveu os testes?,projeto,CC BY-SA 4.0,,
+tecnologia-d05,7,5,A,"The AI wrote the first drafts, and I fixed two of them.","A IA escreveu as primeiras versões, e eu corrigi duas delas.",projeto,CC BY-SA 4.0,,
+tecnologia-d06,7,6,B,Good. I think we should agree on how we use AI in this project.,Bom. Acho que a gente devia combinar como usa IA neste projeto.,projeto,CC BY-SA 4.0,,
+tecnologia-d07,7,7,A,Makes sense. What do you suggest?,Faz sentido. O que você sugere?,projeto,CC BY-SA 4.0,,
+tecnologia-d08,7,8,B,"We use it for tests and docs, but a person reviews every line.","A gente usa para testes e documentação, mas uma pessoa revisa cada linha.",projeto,CC BY-SA 4.0,,
+tecnologia-d09,7,9,A,"And no customer data in the prompts, right?","E nada de dados de clientes nos prompts, certo?",projeto,CC BY-SA 4.0,,
+tecnologia-d10,7,10,B,Right. Can you add that to the README?,Isso. Você pode colocar isso no README?,projeto,CC BY-SA 4.0,,
+tecnologia-d11,7,11,A,Sure. I'll update it and deploy the fix this afternoon.,Claro. Vou atualizar e fazer o deploy da correção hoje à tarde.,projeto,CC BY-SA 4.0,,
+tecnologia-d12,7,12,B,"Sounds good. Approved, with one nit in the schema file.","Combinado. Aprovado, com um detalhe pequeno no arquivo do schema.",projeto,CC BY-SA 4.0,,

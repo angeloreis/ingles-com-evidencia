@@ -1,0 +1,13 @@
+id,en,pt,silaba,situacao,fonte,licenca,autor,leitura
+tecnologia-01,Could you review my pull request when you have a minute?,Você pode revisar o meu pull request quando tiver um minuto?,re·VIEW,7,projeto,CC BY-SA 4.0,,
+tecnologia-02,I found the bug. The cache wasn't being cleared.,Achei o bug. O cache não estava sendo limpo.,,7,projeto,CC BY-SA 4.0,,
+tecnologia-03,We'll deploy the fix to production this afternoon.,Vamos fazer o deploy da correção em produção hoje à tarde.,de·PLOY,7,projeto,CC BY-SA 4.0,,
+tecnologia-04,This query is slow because the table has no index.,Esta consulta está lenta porque a tabela não tem índice.,QUE·ry,7,projeto,CC BY-SA 4.0,,
+tecnologia-05,We need to update the schema before we add the new column.,Precisamos atualizar o schema antes de adicionar a coluna nova.,SCHE·ma,7,projeto,CC BY-SA 4.0,,
+tecnologia-06,We're moving the database to PostgreSQL next month.,Vamos migrar o banco de dados para o PostgreSQL no mês que vem.,DA·ta·base,7,projeto,CC BY-SA 4.0,,We're moving the database to post gress Q L next month.
+tecnologia-07,"The app runs on Linux, behind Nginx.","O aplicativo roda em Linux, atrás do Nginx.",LI·nux,7,projeto,CC BY-SA 4.0,,
+tecnologia-08,I used AI to write the first draft of the test suite.,Usei IA para escrever a primeira versão da suíte de testes.,,7,projeto,CC BY-SA 4.0,,
+tecnologia-09,"The AI suggested a different algorithm, but I checked it myself.","A IA sugeriu outro algoritmo, mas eu mesmo conferi.",AL·go·rithm,7,projeto,CC BY-SA 4.0,,"The AI suggested a different algorhythm, but I checked it myself."
+tecnologia-10,Which framework are you using for the front end?,Qual framework você está usando no front-end?,FRAME·work,7,projeto,CC BY-SA 4.0,,
+tecnologia-11,Let me debug it and get back to you.,Deixa eu depurar isso e já te dou um retorno.,de·BUG,7,projeto,CC BY-SA 4.0,,Let me dee-bug it and get back to you.
+tecnologia-12,We host the API on Azure.,Hospedamos a API no Azure.,A·zure,7,projeto,CC BY-SA 4.0,,

@@ -1,0 +1,15 @@
+id,situacao,ordem,falante,en,pt,fonte,licenca,autor,leitura
+entrevista-d01,8,1,A,"Hi Ariel, thanks for joining. Can you hear me well?","Oi, Ariel, que bom que você entrou. Está me ouvindo bem?",projeto,CC BY-SA 4.0,,
+entrevista-d02,8,2,B,"Yes, loud and clear. Thanks for having me.","Sim, perfeitamente. Agradeço o convite.",projeto,CC BY-SA 4.0,,
+entrevista-d03,8,3,A,"So, tell me a little about yourself.","Então, me fale um pouco sobre você.",projeto,CC BY-SA 4.0,,
+entrevista-d04,8,4,B,"I've been a back-end developer for five years, mostly with Python and PostgreSQL.","Trabalho com desenvolvimento back-end há cinco anos, principalmente com Python e PostgreSQL.",projeto,CC BY-SA 4.0,,"I've been a back-end developer for five years, mostly with Python and post gress Q L."
+entrevista-d05,8,5,A,Can you tell me about a project you're proud of?,Você pode me contar de um projeto de que se orgulha?,projeto,CC BY-SA 4.0,,
+entrevista-d06,8,6,B,"Sure. Our reports were too slow, so I rewrote the main queries. The load time dropped by half.","Claro. Nossos relatórios estavam lentos demais, então reescrevi as consultas principais. O tempo de carregamento caiu pela metade.",projeto,CC BY-SA 4.0,,
+entrevista-d07,8,7,A,Nice. This role is fully remote. Where are you based?,Legal. Esta vaga é totalmente remota. Onde você mora?,projeto,CC BY-SA 4.0,,
+entrevista-d08,8,8,B,I'm in Brazil. I can overlap with your team until 2 p.m. Eastern.,"Estou no Brasil. Consigo ter horário em comum com o seu time até as 14h, no horário do leste dos EUA.",projeto,CC BY-SA 4.0,,
+entrevista-d09,8,9,A,Have you used Go in production?,Você já usou Go em produção?,projeto,CC BY-SA 4.0,,
+entrevista-d10,8,10,B,"To be honest, not in production. I've built a small side project with it, and I learn quickly.","Para falar a verdade, em produção não. Fiz um projeto pessoal pequeno com Go, e aprendo rápido.",projeto,CC BY-SA 4.0,,
+entrevista-d11,8,11,A,Good to know. What are your salary expectations?,Bom saber. Qual é a sua expectativa salarial?,projeto,CC BY-SA 4.0,,
+entrevista-d12,8,12,B,"I'm looking for 60 to 70 thousand dollars a year, depending on the benefits.","Estou buscando de 60 a 70 mil dólares por ano, dependendo dos benefícios.",projeto,CC BY-SA 4.0,,
+entrevista-d13,8,13,A,That works. Do you have any questions for me?,Isso cabe. Você tem alguma pergunta para mim?,projeto,CC BY-SA 4.0,,
+entrevista-d14,8,14,B,Yes. What does a typical week look like for the team?,Sim. Como é uma semana típica do time?,projeto,CC BY-SA 4.0,,

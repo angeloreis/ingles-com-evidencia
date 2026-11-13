@@ -11,15 +11,14 @@ Use em listas `pp-frases` dentro de cada situação de treino (imigração, rest
   <li class="pp-frase">
     <p class="pp-frase__en" lang="en">I'm here on <mark class="pp-marca">vacation</mark> for two weeks.</p>
     <p class="pp-frase__pt">Estou aqui de férias por duas semanas.</p>
-    <p class="pp-frase__silaba">Sílaba forte: va·<b>CA</b>·tion</p>
-    <button type="button" class="pp-botao" data-audio="ice-imigracao-01.mp3">Ouvir</button>
+    <p class="pp-frase__silaba">Sílaba forte: <span lang="en">va·<b>CA</b>·tion</span></p>
+    <button type="button" class="pp-botao" data-audio="ice-imigracao-01.mp3" disabled>Ouvir</button>
   </li>
 </ul>
 ```
 
 - A frase em inglês, a tradução e, quando houver palavra difícil, a sílaba forte dela.
-- O áudio: só o nome do arquivo gerado pelo kit (`ice-<id>.mp3`); o JavaScript procura em `audio/` a partir da raiz do site. No site, esse HTML é gerado por `scripts/paginas.py`.
-- O áudio: o site toca o arquivo gerado pelo kit. Sem arquivo, o botão fica `disabled` com "Sem áudio aqui".
+- O áudio: só o nome do arquivo gerado pelo kit (`ice-<id>.mp3`); o JavaScript procura em `audio/` a partir da raiz do site. O botão nasce `disabled` e o JavaScript o habilita quando o arquivo existe; sem arquivo, ele continua `disabled`, com "Sem áudio aqui". No site, esse HTML é gerado por `scripts/paginas.py`.
 
 ## Faça e não faça
 

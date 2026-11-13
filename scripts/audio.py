@@ -76,11 +76,16 @@ def baixar_modelos(pasta: Path, arquivos: tuple[dict, ...] = (MODELO, VOZES)) ->
     return tuple(caminhos)
 
 
+def _texto_lido(linha: dict) -> str:
+    """O texto que a voz lê: a coluna `leitura`, quando a escrita engana a voz; senão o `en`."""
+    return (linha.get("leitura") or "").strip() or linha["en"]
+
+
 def itens_de_audio(raiz: Path) -> list[ItemAudio]:
     raiz = Path(raiz)
-    itens = [ItemAudio(l["id"], l["en"], VOZ_PRINCIPAL) for l in _ler_csvs(raiz / "kit" / "dados")]
+    itens = [ItemAudio(l["id"], _texto_lido(l), VOZ_PRINCIPAL) for l in _ler_csvs(raiz / "kit" / "dados")]
     for l in _ler_csvs(raiz / "kit" / "dialogos"):
-        itens.append(ItemAudio(l["id"], l["en"], VOZ_PARCEIRA if l["falante"] == "B" else VOZ_PRINCIPAL))
+        itens.append(ItemAudio(l["id"], _texto_lido(l), VOZ_PARCEIRA if l["falante"] == "B" else VOZ_PRINCIPAL))
     return itens
 
 

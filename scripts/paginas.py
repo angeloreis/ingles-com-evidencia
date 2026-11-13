@@ -12,6 +12,7 @@ from html import escape
 from pathlib import Path
 
 from scripts.planos import RE_LINK, TRILHAS, dados_do_plano
+from scripts.situacoes import SITUACOES
 
 
 def nome_audio(id_: str) -> str:
@@ -32,11 +33,11 @@ def _texto_md(texto: str) -> str:
 
 
 def silaba_html(silaba: str) -> str:
-    """'va·CA·tion' → 'va·<b>CA</b>·tion': a parte em maiúsculas é a sílaba forte."""
+    """'va·CA·tion' → '<span lang="en">va·<b>CA</b>·tion</span>': a parte em maiúsculas é a sílaba forte."""
     partes = []
     for parte in silaba.split("·"):
         partes.append(f"<b>{_e(parte)}</b>" if parte.isupper() else _e(parte))
-    return "·".join(partes)
+    return f'<span lang="en">{"·".join(partes)}</span>'
 
 
 def _frase_li(linha: dict, falante: str | None = None) -> str:
@@ -47,7 +48,7 @@ def _frase_li(linha: dict, falante: str | None = None) -> str:
     partes.append(f'<p class="pp-frase__pt">{_e(linha["pt"])}</p>')
     if linha.get("silaba"):
         partes.append(f'<p class="pp-frase__silaba">Sílaba forte: {silaba_html(linha["silaba"])}</p>')
-    partes.append(f'<button type="button" class="pp-botao" data-audio="{nome_audio(linha["id"])}">Ouvir</button>')
+    partes.append(f'<button type="button" class="pp-botao" data-audio="{nome_audio(linha["id"])}" disabled>Ouvir</button>')
     partes.append("</li>")
     return "\n".join(partes)
 
@@ -63,7 +64,7 @@ def trecho_dialogo(linhas: list[dict]) -> str:
         '<ul class="pp-frases">',
         *(_frase_li(l, l["falante"]) for l in ordenadas),
         "</ul>",
-        f'<button type="button" class="pp-botao pp-botao--largo" data-audio-sequencia="{sequencia}">'
+        f'<button type="button" class="pp-botao pp-botao--largo" data-audio-sequencia="{sequencia}" disabled>'
         "Ouvir o diálogo inteiro</button>",
     ]) + "\n"
 
@@ -146,4 +147,8 @@ def gerar_tudo(raiz: Path) -> list[Path]:
                 antigo.unlink()
     _gravar(raiz / "conteudo" / "dados" / "cartas.json",
             json.dumps(cartas(baralho), ensure_ascii=False, indent=2) + "\n", gravados)
+    com_cartas = sorted({int(l["situacao"]) for l in baralho if l.get("situacao")})
+    titulos = {str(n): SITUACOES[n][1] for n in com_cartas}
+    _gravar(raiz / "conteudo" / "dados" / "situacoes.json",
+            json.dumps(titulos, ensure_ascii=False, indent=2) + "\n", gravados)
     return gravados

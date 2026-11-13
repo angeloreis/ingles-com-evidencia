@@ -28,7 +28,7 @@ Prefere o Anki? Baixe o [baralho desta situação](https://github.com/angeloreis
 
 ## Treinar com IA no modo de voz
 
-Copie o roteiro, abra uma IA que converse por voz e cole como primeira mensagem.
+Copie o roteiro, abra uma IA que converse por voz e cole como primeira mensagem. Não cole na conversa dados pessoais seus nem dados da empresa.
 
 <div class="pp-roteiro">
 <span class="pp-roteiro__rotulo">Treinar com IA no modo de voz</span>

@@ -1,4 +1,5 @@
 import json
+import re
 
 import pytest
 
@@ -75,3 +76,32 @@ def test_link_do_plano_so_aceita_caminho_simples(tmp_path, conteudo, link):
         escritor.writerow([1, 1, 1, "Treinar", 20, link])
     erros = validar_plano(p, "destravar", conteudo)
     assert len(erros) == 1 and "o link só pode ter" in erros[0].mensagem
+
+
+# Semanas 2 a 6 da trilha Destravar a fala (plano da 1B, Tarefa 15).
+LEITURAS = {2: {"guia/como-usar/", "guia/shadowing/"}, 3: {"guia/fluencia/"}, 4: {"guia/frases-chave/"},
+            5: {"guia/medo-de-falar/"}, 6: {"guia/ia-modo-de-voz/"}}
+
+
+def test_semanas_1_a_6_do_destravar():
+    passos = dados_do_plano(RAIZ / "kit/planos/destravar.csv", "destravar")["passos"]
+    assert {p["semana"] for p in passos} == set(range(1, 7))
+    for semana in range(1, 7):
+        da_semana = [p for p in passos if p["semana"] == semana]
+        assert {p["dia"] for p in da_semana} == set(range(1, 7)), semana
+
+        def com(trecho):
+            return [p for p in da_semana if trecho in p["passo"]]
+
+        assert len(com("Conversa real")) == 1, semana
+        gravar = com("Gravar a sua voz")
+        assert len(gravar) == 1 and gravar[0]["link"] == "trilhas/destravar/ficha/", semana
+        assert com("4/3/2") and com("Shadowing"), semana
+        if semana >= 2:
+            assert len(com("Roteiro de IA")) >= 2, semana
+            assert LEITURAS[semana] <= {p["link"] for p in da_semana}, semana
+    for p in passos:
+        for n in re.findall(r"situacao=([0-9]+)", p["link"]):
+            assert n in {"6", "7", "8"}, p
+        if p["link"].startswith("situacoes/"):
+            assert p["link"].split("/")[1] in {"telefonar", "tecnologia", "entrevista"}, p

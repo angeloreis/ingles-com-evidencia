@@ -20,9 +20,9 @@ class Esquema:
         return self.obrigatorias + self.grupo + self.opcionais
 
 
-BARALHO = Esquema("baralho", ("id", "en", "pt", "fonte", "licenca"), ("situacao", "faixa"), ("silaba", "autor"))
+BARALHO = Esquema("baralho", ("id", "en", "pt", "fonte", "licenca"), ("situacao", "faixa"), ("silaba", "autor", "leitura"))
 DIALOGO = Esquema("diálogo", ("id", "situacao", "ordem", "falante", "en", "pt", "fonte", "licenca"), (),
-                  ("autor",))
+                  ("autor", "leitura"))
 
 # Mantidos para quem já importava os nomes da Fase 0.
 OBRIGATORIAS = BARALHO.obrigatorias

@@ -89,3 +89,47 @@ def test_sha256_certo_baixa(tmp_path, servidor):
     arquivo = {"arquivo": "modelo.bin", "url": f"{servidor}/modelo.bin", "sha256": certo}
     (caminho,) = baixar_modelos(tmp_path / "modelos", (arquivo,))
     assert caminho.read_bytes() == b"conteudo do modelo"
+
+
+def test_itens_de_audio_usam_a_leitura(tmp_path):
+    (tmp_path / "kit" / "dados").mkdir(parents=True)
+    (tmp_path / "kit" / "dialogos").mkdir()
+    (tmp_path / "kit" / "dados" / "s.csv").write_text(
+        "id,en,pt,situacao,fonte,licenca,leitura\n"
+        "t-01,We moved to PostgreSQL.,Mudamos para o PostgreSQL.,7,projeto,CC BY-SA 4.0,We moved to post gres Q L.\n"
+        "t-02,Hello,Olá,7,projeto,CC BY-SA 4.0,\n", encoding="utf-8")
+    (tmp_path / "kit" / "dialogos" / "d.csv").write_text(
+        "id,situacao,ordem,falante,en,pt,fonte,licenca,leitura\n"
+        "t-d01,7,1,A,Hi.,Oi.,projeto,CC BY-SA 4.0,\n"
+        "t-d02,7,2,B,I use regex.,Eu uso regex.,projeto,CC BY-SA 4.0,I use rej ex.\n", encoding="utf-8")
+    assert itens_de_audio(tmp_path) == [
+        ItemAudio("t-01", "We moved to post gres Q L.", "af_heart"),
+        ItemAudio("t-02", "Hello", "af_heart"),
+        ItemAudio("t-d01", "Hi.", "af_heart"),
+        ItemAudio("t-d02", "I use rej ex.", "am_michael"),
+    ]
+
+
+# --- Revisão final da Fase 1B: leituras conferidas com o Oxford (IPA americano) ---------------
+import csv as _csv
+
+from scripts import RAIZ as _RAIZ
+
+
+def _linha(arquivo, ident):
+    with open(_RAIZ / "kit" / arquivo, encoding="utf-8", newline="") as f:
+        return next(l for l in _csv.DictReader(f) if l["id"] == ident)
+
+
+@pytest.mark.parametrize("arquivo, ident, trecho", [
+    ("dados/situacao-08.csv", "entrevista-06", "A-synchronously"),  # /eɪˈsɪŋkrənəs/, não "uh-sink"
+    ("dados/situacao-07.csv", "tecnologia-09", "algorhythm"),       # /ˈælɡərɪðəm/, com ð e não θ
+])
+def test_leitura_segue_o_dicionario(arquivo, ident, trecho):
+    assert trecho in _linha(arquivo, ident)["leitura"]
+
+
+def test_dialogo_da_situacao_7_concorda_o_pronome():
+    fala = _linha("dialogos/situacao-07.csv", "tecnologia-d05")
+    assert fala["en"] == "The AI wrote the first drafts, and I fixed two of them."
+    assert fala["pt"] == "A IA escreveu as primeiras versões, e eu corrigi duas delas."

@@ -185,3 +185,15 @@ def test_cabecalho_coluna_sem_nome_e_repetida(tmp_path, cab, trecho):
 def test_digito_de_outro_alfabeto_nao_vale(tmp_path):
     e = erros(tmp_path, montar({**BASE, "situacao": "６"}))
     assert len(e) == 1 and "situacao" in e[0].mensagem
+
+
+# --- Fase 1B, Tarefa 1: texto de leitura para a voz ----------------------
+
+def test_leitura_e_coluna_opcional(tmp_path):
+    cab = CAB + ["leitura"]
+    baralho = montar({**BASE, "leitura": "Can we schedule a call for Monday?"},
+                     {**BASE, "id": "reuniao-02"}, cab=cab)
+    assert erros(tmp_path, baralho) == []
+    dialogo = montar({**FALA, "leitura": "Hi, it's Ana."},
+                     {**FALA, "id": "telefonar-d02", "ordem": "2", "falante": "B"}, cab=CAB_DIALOGO + ["leitura"])
+    assert erros_dialogo(tmp_path, dialogo) == []

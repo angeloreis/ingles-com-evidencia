@@ -6,7 +6,7 @@ O conteúdo do projeto está sob a licença [CC BY-SA 4.0](LICENSE) e o código 
 
 ## Dados
 
-- 24 frase(s) escritas pelo projeto (projeto), sob CC BY-SA 4.0.
+- 74 frase(s) escritas pelo projeto (projeto), sob CC BY-SA 4.0.
 
 ## Áudio
 

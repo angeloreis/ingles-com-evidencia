@@ -22,8 +22,8 @@ def test_trecho_frases_escapa_e_marca_ingles():
 
 
 def test_silaba_html():
-    assert silaba_html("va·CA·tion") == "va·<b>CA</b>·tion"
-    assert "Sílaba forte: SCHED·ule".replace("SCHED", "<b>SCHED</b>") in trecho_frases([{**FRASE, "silaba": "SCHED·ule"}])
+    assert silaba_html("va·CA·tion") == '<span lang="en">va·<b>CA</b>·tion</span>'
+    assert 'Sílaba forte: <span lang="en"><b>SCHED</b>·ule</span>' in trecho_frases([{**FRASE, "silaba": "SCHED·ule"}])
 
 
 def test_trecho_dialogo_em_ordem_com_sequencia():
@@ -88,3 +88,36 @@ def test_trecho_semanas_escapa_o_texto_do_passo():
 def test_trecho_semanas_recusa_link_fora_do_formato():
     with pytest.raises(ValueError, match="link"):
         trecho_semanas(_semana_com("Treinar", "treinar/?situacao=6) [clique](javascript:alert(1)"))
+
+
+# --- Fase 1B, Tarefa 2: títulos das situações no treino ------------------
+
+def test_titulos_das_situacoes_com_cartas(tmp_path):
+    import json
+
+    from scripts.situacoes import SITUACOES
+
+    (tmp_path / "kit" / "dados").mkdir(parents=True)
+    (tmp_path / "kit" / "dados" / "s.csv").write_text(
+        "id,en,pt,situacao,fonte,licenca\n"
+        "e-01,Tell me about yourself.,Fale de você.,8,projeto,CC BY-SA 4.0\n"
+        "t-01,Hello,Olá,6,projeto,CC BY-SA 4.0\n", encoding="utf-8")
+    gravados = gerar_tudo(tmp_path)
+    caminho = tmp_path / "conteudo" / "dados" / "situacoes.json"
+    assert caminho in gravados
+    texto = caminho.read_text(encoding="utf-8")
+    assert json.loads(texto) == {"6": SITUACOES[6][1], "8": SITUACOES[8][1]}
+    assert list(json.loads(texto)) == ["6", "8"]
+
+
+# --- Fase 1B, Tarefa 4 (M8): sem JavaScript ou antes do manifesto, "Ouvir" fica desabilitado ---
+
+def test_ouvir_nasce_desabilitado():
+    import re
+
+    falas = [{"id": "d-01", "ordem": "1", "falante": "A", "en": "Hi.", "pt": "Oi."}]
+    for html in (trecho_frases([FRASE]), trecho_dialogo(falas)):
+        botoes = re.findall(r"<button[^>]*>", html)
+        assert botoes
+        for b in botoes:
+            assert "data-audio" in b and " disabled" in b, b

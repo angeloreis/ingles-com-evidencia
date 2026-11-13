@@ -49,6 +49,12 @@ MODELO = genanki.Model(
 )
 
 
+DESCRICAO = ("Do projeto aberto Inglês com Evidência: "
+             '<a href="https://angeloreis.github.io/ingles-com-evidencia/">'
+             "https://angeloreis.github.io/ingles-com-evidencia/</a>. "
+             "Frases e áudio sob a licença CC BY-SA 4.0; os créditos de cada frase estão no verso da carta.")
+
+
 class Nota(genanki.Note):
     @property
     def guid(self):
@@ -65,7 +71,7 @@ def _credito(linha: dict) -> str:
 def gerar_baralho(situacao: int, linhas: list[dict], pasta_audio: Path, destino: Path) -> Path:
     slug, titulo = SITUACOES[situacao]
     nome = f"Inglês com Evidência::Destravar a fala::{situacao:02d} {titulo}"
-    baralho = genanki.Deck(BARALHO_BASE_ID + situacao, nome)
+    baralho = genanki.Deck(BARALHO_BASE_ID + situacao, nome, description=DESCRICAO)
     midias = []
     for linha in linhas:
         audio = Path(pasta_audio) / nome_audio(linha["id"])

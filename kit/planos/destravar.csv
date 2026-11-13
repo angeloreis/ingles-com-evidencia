@@ -12,3 +12,73 @@ semana,dia,ordem,passo,minutos,link
 1,5,2,Reler as notas culturais e repetir as frases que você errou,10,situacoes/telefonar/
 1,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
 1,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+2,1,1,Ouvir e repetir em voz alta as frases da situação 7,10,situacoes/tecnologia/
+2,1,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
+2,1,3,Gravar a sua voz lendo as frases da situação 7 e anotar a data na ficha,5,trilhas/destravar/ficha/
+2,2,1,"Shadowing do diálogo da situação 7: ouvir e falar junto, três vezes",10,situacoes/tecnologia/#dialogo
+2,2,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
+2,2,3,Ler o capítulo 1 do guia: como usar o guia e o que significam os selos,5,guia/como-usar/
+2,3,1,Treinar as cartas da situação 6 (revisão),10,treinar/?situacao=6
+2,3,2,"Técnica 4/3/2: contar o que você fez no trabalho nesta semana em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+2,3,3,Ler o capítulo 8 do guia: shadowing,5,guia/shadowing/
+2,4,1,Shadowing do diálogo da situação 7,10,situacoes/tecnologia/#dialogo
+2,4,2,Roteiro de IA: a reunião diária do time no modo de voz,15,situacoes/tecnologia/#treinar-com-ia-no-modo-de-voz
+2,5,1,Treinar as cartas da situação 7,10,treinar/?situacao=7
+2,5,2,Roteiro de IA: marcar uma reunião no modo de voz (revisão da situação 6),15,situacoes/telefonar/#treinar-com-ia-no-modo-de-voz
+2,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
+2,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+3,1,1,"Ler em voz alta os termos da tabela de pronúncia da situação 7, marcando a sílaba forte",10,situacoes/tecnologia/#pronuncia-dos-termos
+3,1,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
+3,1,3,Gravar a sua voz lendo os termos e as frases da situação 7 e anotar a data na ficha,5,trilhas/destravar/ficha/
+3,2,1,"Técnica 4/3/2: explicar um projeto em que você trabalhou em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+3,2,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
+3,3,1,Shadowing do diálogo da situação 7,10,situacoes/tecnologia/#dialogo
+3,3,2,Roteiro de IA: a reunião diária do time no modo de voz,15,situacoes/tecnologia/#treinar-com-ia-no-modo-de-voz
+3,4,1,"Técnica 4/3/2 com ajuste: anotar as palavras que faltaram, procurar como se diz e contar de novo o mesmo projeto",12,trilhas/destravar/ficha/
+3,4,2,Ler o capítulo 9 do guia: fluência na fala,5,guia/fluencia/
+3,4,3,Treinar as cartas da situação 7,10,treinar/?situacao=7
+3,5,1,Treinar as cartas da situação 6 (revisão),10,treinar/?situacao=6
+3,5,2,"Roteiro de IA: a reunião diária do time no modo de voz, contando o projeto da técnica 4/3/2",15,situacoes/tecnologia/#treinar-com-ia-no-modo-de-voz
+3,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
+3,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+4,1,1,Ouvir e repetir em voz alta as frases da situação 8,10,situacoes/entrevista/
+4,1,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
+4,1,3,Gravar a sua voz lendo as frases da situação 8 e anotar a data na ficha,5,trilhas/destravar/ficha/
+4,2,1,"Shadowing do diálogo da situação 8: ouvir e falar junto, três vezes",10,situacoes/entrevista/#dialogo
+4,2,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
+4,2,3,Ler o capítulo 6 do guia: frases-chave e blocos prontos,5,guia/frases-chave/
+4,3,1,"Técnica 4/3/2: apresentar-se para uma vaga (quem você é, o que faz e o que procura) em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+4,3,2,Treinar as cartas da situação 6 (revisão),10,treinar/?situacao=6
+4,4,1,Anotar três experiências reais do seu trabalho e contar cada uma em inglês com as frases da situação 8,10,situacoes/entrevista/
+4,4,2,Roteiro de IA: entrevista com recrutador no modo de voz,15,situacoes/entrevista/#treinar-com-ia-no-modo-de-voz
+4,5,1,Treinar as cartas da situação 8,10,treinar/?situacao=8
+4,5,2,Roteiro de IA: marcar uma reunião no modo de voz (revisão da situação 6),15,situacoes/telefonar/#treinar-com-ia-no-modo-de-voz
+4,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
+4,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+5,1,1,Reler as notas culturais da situação 8 (salário e perguntas no fim) e repetir as frases,10,situacoes/entrevista/#notas-culturais
+5,1,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
+5,1,3,Gravar a sua voz se apresentando como numa entrevista e anotar a data na ficha,5,trilhas/destravar/ficha/
+5,2,1,Shadowing do diálogo da situação 8,10,situacoes/entrevista/#dialogo
+5,2,2,"Roteiro de IA: entrevista no modo de voz, pedindo à IA perguntas difíceis e uma sobre salário",15,situacoes/entrevista/#treinar-com-ia-no-modo-de-voz
+5,3,1,"Técnica 4/3/2: contar um problema difícil que você resolveu no trabalho em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+5,3,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
+5,4,1,"Preparar respostas curtas e verdadeiras para três perguntas difíceis (uma ferramenta que você não usou, um erro seu e a faixa de salário) e dizer em voz alta",10,situacoes/entrevista/
+5,4,2,Ler o capítulo 10 do guia: medo de falar e confiança,5,guia/medo-de-falar/
+5,4,3,Treinar as cartas da situação 8,10,treinar/?situacao=8
+5,5,1,"Roteiro de IA: entrevista no modo de voz; no fim, pedir à IA que aponte o que soou inseguro",15,situacoes/entrevista/#treinar-com-ia-no-modo-de-voz
+5,5,2,Refazer em voz alta as frases que a IA apontou,10,situacoes/entrevista/
+5,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
+5,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+6,1,1,Treinar todas as cartas (situações 6 a 8),15,treinar/
+6,1,2,"Gravar a sua voz lendo as frases da situação 6, comparar com a gravação da semana 1 e anotar a data na ficha",10,trilhas/destravar/ficha/
+6,2,1,Shadowing do diálogo da situação 6,10,situacoes/telefonar/#dialogo
+6,2,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
+6,2,3,Ler o capítulo 11 do guia: treinar com IA no modo de voz,5,guia/ia-modo-de-voz/
+6,3,1,"Técnica 4/3/2: explicar o seu trabalho em 4, 3 e 2 minutos, como na semana 1, e comparar os tempos na ficha",12,trilhas/destravar/ficha/
+6,3,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
+6,4,1,Shadowing do diálogo da situação 7,10,situacoes/tecnologia/#dialogo
+6,4,2,Roteiro de IA: a reunião diária do time no modo de voz,15,situacoes/tecnologia/#treinar-com-ia-no-modo-de-voz
+6,5,1,"Roteiro de IA: entrevista simulada completa no modo de voz, da apresentação às perguntas no fim",20,situacoes/entrevista/#treinar-com-ia-no-modo-de-voz
+6,5,2,Anotar as frases que a IA apontou e repetir em voz alta,5,situacoes/entrevista/
+6,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
+6,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/

@@ -1,9 +1,12 @@
+import re
+
 from scripts.construir import main
 
 
 def test_dados_do_repositorio_passam(capsys):
     assert main([]) == 0
-    assert "Tudo certo: 2 arquivo(s), 24 linha(s)." in capsys.readouterr().out
+    # a contagem cresce a cada situação publicada; o que importa é passar sem problemas
+    assert re.search(r"Tudo certo: [0-9]+ arquivo\(s\), [0-9]+ linha\(s\)\.", capsys.readouterr().out)
 
 
 def test_pasta_com_erro_devolve_1(tmp_path, capsys):

@@ -1,4 +1,4 @@
-"""Roda as etapas do kit: valida os CSVs e, nas próximas etapas, gera páginas, áudio e baralhos.
+"""Roda as etapas do kit: valida os CSVs, os planos e o guia; gera páginas, áudio e baralhos.
 
 Uso: python -m scripts.construir [--dados PASTA] [--dialogos PASTA] [--planos PASTA] [--conteudo PASTA] [--audio] [--baralhos]
 """
@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 from scripts import RAIZ
+from scripts.guia import conferir_guia
 from scripts.paginas import gerar_tudo
 from scripts.planos import TRILHAS, gravar_dados, validar_plano
 from scripts.validar import BARALHO, DIALOGO, Relatorio, validar_pasta
@@ -49,6 +50,8 @@ def main(argv: list[str] | None = None) -> int:
     planos = {t: args.planos / f"{t}.csv" for t in TRILHAS if (args.planos / f"{t}.csv").exists()}
     for trilha, csv_plano in planos.items():
         relatorio.erros.extend(validar_plano(csv_plano, trilha, args.conteudo))
+    relatorio.erros.extend(conferir_guia(args.conteudo / "guia",
+                                         args.conteudo.parent / "docs" / "pesquisa" / "referencias.md"))
     if relatorio.erros:
         for erro in relatorio.erros:
             print(f"{os.path.relpath(erro.arquivo)}:{erro.linha}: {erro.mensagem}", file=sys.stderr)

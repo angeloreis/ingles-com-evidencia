@@ -94,5 +94,197 @@
     "silaba": "",
     "situacao": 6,
     "audio": "ice-telefonar-12.mp3"
+  },
+  {
+    "id": "tecnologia-01",
+    "en": "Could you review my pull request when you have a minute?",
+    "pt": "Você pode revisar o meu pull request quando tiver um minuto?",
+    "silaba": "re·VIEW",
+    "situacao": 7,
+    "audio": "ice-tecnologia-01.mp3"
+  },
+  {
+    "id": "tecnologia-02",
+    "en": "I found the bug. The cache wasn't being cleared.",
+    "pt": "Achei o bug. O cache não estava sendo limpo.",
+    "silaba": "",
+    "situacao": 7,
+    "audio": "ice-tecnologia-02.mp3"
+  },
+  {
+    "id": "tecnologia-03",
+    "en": "We'll deploy the fix to production this afternoon.",
+    "pt": "Vamos fazer o deploy da correção em produção hoje à tarde.",
+    "silaba": "de·PLOY",
+    "situacao": 7,
+    "audio": "ice-tecnologia-03.mp3"
+  },
+  {
+    "id": "tecnologia-04",
+    "en": "This query is slow because the table has no index.",
+    "pt": "Esta consulta está lenta porque a tabela não tem índice.",
+    "silaba": "QUE·ry",
+    "situacao": 7,
+    "audio": "ice-tecnologia-04.mp3"
+  },
+  {
+    "id": "tecnologia-05",
+    "en": "We need to update the schema before we add the new column.",
+    "pt": "Precisamos atualizar o schema antes de adicionar a coluna nova.",
+    "silaba": "SCHE·ma",
+    "situacao": 7,
+    "audio": "ice-tecnologia-05.mp3"
+  },
+  {
+    "id": "tecnologia-06",
+    "en": "We're moving the database to PostgreSQL next month.",
+    "pt": "Vamos migrar o banco de dados para o PostgreSQL no mês que vem.",
+    "silaba": "DA·ta·base",
+    "situacao": 7,
+    "audio": "ice-tecnologia-06.mp3"
+  },
+  {
+    "id": "tecnologia-07",
+    "en": "The app runs on Linux, behind Nginx.",
+    "pt": "O aplicativo roda em Linux, atrás do Nginx.",
+    "silaba": "LI·nux",
+    "situacao": 7,
+    "audio": "ice-tecnologia-07.mp3"
+  },
+  {
+    "id": "tecnologia-08",
+    "en": "I used AI to write the first draft of the test suite.",
+    "pt": "Usei IA para escrever a primeira versão da suíte de testes.",
+    "silaba": "",
+    "situacao": 7,
+    "audio": "ice-tecnologia-08.mp3"
+  },
+  {
+    "id": "tecnologia-09",
+    "en": "The AI suggested a different algorithm, but I checked it myself.",
+    "pt": "A IA sugeriu outro algoritmo, mas eu mesmo conferi.",
+    "silaba": "AL·go·rithm",
+    "situacao": 7,
+    "audio": "ice-tecnologia-09.mp3"
+  },
+  {
+    "id": "tecnologia-10",
+    "en": "Which framework are you using for the front end?",
+    "pt": "Qual framework você está usando no front-end?",
+    "silaba": "FRAME·work",
+    "situacao": 7,
+    "audio": "ice-tecnologia-10.mp3"
+  },
+  {
+    "id": "tecnologia-11",
+    "en": "Let me debug it and get back to you.",
+    "pt": "Deixa eu depurar isso e já te dou um retorno.",
+    "silaba": "de·BUG",
+    "situacao": 7,
+    "audio": "ice-tecnologia-11.mp3"
+  },
+  {
+    "id": "tecnologia-12",
+    "en": "We host the API on Azure.",
+    "pt": "Hospedamos a API no Azure.",
+    "silaba": "A·zure",
+    "situacao": 7,
+    "audio": "ice-tecnologia-12.mp3"
+  },
+  {
+    "id": "entrevista-01",
+    "en": "I've been working as a back-end developer for five years.",
+    "pt": "Trabalho com desenvolvimento back-end há cinco anos.",
+    "silaba": "de·VEL·op·er",
+    "situacao": 8,
+    "audio": "ice-entrevista-01.mp3"
+  },
+  {
+    "id": "entrevista-02",
+    "en": "Right now I'm on a team that builds payment systems.",
+    "pt": "Hoje estou num time que desenvolve sistemas de pagamento.",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-02.mp3"
+  },
+  {
+    "id": "entrevista-03",
+    "en": "Let me give you a concrete example.",
+    "pt": "Deixa eu dar um exemplo concreto.",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-03.mp3"
+  },
+  {
+    "id": "entrevista-04",
+    "en": "In my last project, I cut the page load time in half.",
+    "pt": "No meu último projeto, reduzi pela metade o tempo de carregamento da página.",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-04.mp3"
+  },
+  {
+    "id": "entrevista-05",
+    "en": "I'm in Brazil, and I can overlap with your team from 9 a.m. to 1 p.m. Eastern.",
+    "pt": "Estou no Brasil e consigo ter horário em comum com o seu time das 9h às 13h, no horário do leste dos EUA.",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-05.mp3"
+  },
+  {
+    "id": "entrevista-06",
+    "en": "I'm used to working asynchronously, with clear written updates.",
+    "pt": "Tenho costume de trabalhar de forma assíncrona, com atualizações claras por escrito.",
+    "silaba": "a·SYN·chro·nous·ly",
+    "situacao": 8,
+    "audio": "ice-entrevista-06.mp3"
+  },
+  {
+    "id": "entrevista-07",
+    "en": "My salary expectation is between 60 and 70 thousand dollars a year.",
+    "pt": "Minha expectativa salarial fica entre 60 e 70 mil dólares por ano.",
+    "silaba": "SAL·a·ry",
+    "situacao": 8,
+    "audio": "ice-entrevista-07.mp3"
+  },
+  {
+    "id": "entrevista-08",
+    "en": "Does that fit the budget for this role?",
+    "pt": "Isso cabe no orçamento desta vaga?",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-08.mp3"
+  },
+  {
+    "id": "entrevista-09",
+    "en": "Sorry, could you repeat the question?",
+    "pt": "Desculpe, você pode repetir a pergunta?",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-09.mp3"
+  },
+  {
+    "id": "entrevista-10",
+    "en": "I haven't used that tool yet, but I learn new tools quickly.",
+    "pt": "Ainda não usei essa ferramenta, mas aprendo ferramentas novas rápido.",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-10.mp3"
+  },
+  {
+    "id": "entrevista-11",
+    "en": "Could you tell me more about the team I would join?",
+    "pt": "Você pode me contar mais sobre o time em que eu entraria?",
+    "silaba": "",
+    "situacao": 8,
+    "audio": "ice-entrevista-11.mp3"
+  },
+  {
+    "id": "entrevista-12",
+    "en": "What does a typical week look like for this team?",
+    "pt": "Como é uma semana típica neste time?",
+    "silaba": "TYP·i·cal",
+    "situacao": 8,
+    "audio": "ice-entrevista-12.mp3"
   }
 ]

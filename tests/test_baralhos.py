@@ -57,3 +57,13 @@ def test_frase_sem_audio_e_erro(tmp_path, audio):
     (audio / "ice-telefonar-02.mp3").unlink()
     with pytest.raises(RuntimeError, match="sem áudio: telefonar-02"):
         gerar_baralho(6, LINHAS, audio, tmp_path / "dist")
+
+
+# Fase 1B, Tarefa 4 (M17): quem abre o baralho no Anki sabe de onde veio e sob qual licença.
+def test_baralho_tem_descricao(tmp_path, audio):
+    apkg = gerar_baralho(6, LINHAS, audio, tmp_path / "dist")
+    con, _ = abrir(apkg, tmp_path / "x")
+    decks = json.loads(con.execute("select decks from col").fetchone()[0]).values()
+    desc = next(d["desc"] for d in decks if d["name"].startswith("Inglês com Evidência::"))
+    for parte in ("Inglês com Evidência", "https://angeloreis.github.io/ingles-com-evidencia/", "CC BY-SA 4.0"):
+        assert parte in desc
