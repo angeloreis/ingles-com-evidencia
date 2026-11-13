@@ -31,9 +31,20 @@ extra_javascript = [
 ]
 nav = [
   { "Início" = "index.md" },
+  { "Guia" = [
+    { "Visão geral" = "guia/index.md" },
+    { "1. Como usar este guia" = "guia/como-usar.md" },
+    { "6. Frases-chave e blocos prontos" = "guia/frases-chave.md" },
+    { "8. Shadowing" = "guia/shadowing.md" },
+    { "9. Fluência na fala" = "guia/fluencia.md" },
+    { "10. Medo de falar e confiança" = "guia/medo-de-falar.md" },
+    { "11. Treinar com IA no modo de voz" = "guia/ia-modo-de-voz.md" },
+  ] },
   { "Situações" = [
     { "Visão geral" = "situacoes/index.md" },
     { "Telefonar e marcar reunião" = "situacoes/telefonar.md" },
+    { "Programação, IA e frameworks" = "situacoes/tecnologia.md" },
+    { "Entrevista para trabalho remoto" = "situacoes/entrevista.md" },
   ] },
   { "Trilhas e planos" = [
     { "Visão geral" = "trilhas/index.md" },
