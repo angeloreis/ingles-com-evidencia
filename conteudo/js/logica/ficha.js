@@ -4,6 +4,9 @@
 (function (ICE) {
   "use strict";
 
+  /* Objeto de verdade: typeof null também é "object" (M11 da 1A). */
+  function objeto(x) { return x !== null && typeof x === "object"; }
+
   var ERRO_TEMPO = "Use só números: até 2 algarismos nos minutos e de 0 a 59 nos segundos.";
 
   function segundos(valor) {
@@ -23,7 +26,7 @@
       if (texto === null || texto === undefined) return vazio;
       try {
         var estado = JSON.parse(texto);
-        if (!estado || estado.versao !== 1 || typeof estado.semanas !== "object") return vazio;
+        if (!objeto(estado) || estado.versao !== 1 || !objeto(estado.semanas)) return vazio;
         return estado;
       } catch (e) {
         return vazio;

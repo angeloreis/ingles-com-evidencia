@@ -18,14 +18,17 @@
   /* "va·CA·tion" com a sílaba em maiúsculas em negrito, sem usar innerHTML. */
   function silaba(texto) {
     var p = el("p", "pp-frase__silaba", "Sílaba forte: ");
+    var palavra = el("span");
+    palavra.lang = "en";
     texto.split("·").forEach(function (parte, i) {
-      if (i > 0) p.appendChild(document.createTextNode("·"));
-      p.appendChild(parte === parte.toUpperCase() && /[A-Z]/.test(parte) ? el("b", "", parte) : document.createTextNode(parte));
+      if (i > 0) palavra.appendChild(document.createTextNode("·"));
+      palavra.appendChild(parte === parte.toUpperCase() && /[A-Z]/.test(parte) ? el("b", "", parte) : document.createTextNode(parte));
     });
+    p.appendChild(palavra);
     return p;
   }
 
-  function montar(alvo, cartas, manifesto) {
+  function montar(alvo, cartas, manifesto, titulos) {
     var guarda = ICE.armazenamento.disponivel();
     var estado = ICE.treino.ler(ICE.armazenamento.ler(ICE.treino.CHAVE));
     var hoje = ICE.datas.iso(new Date());
@@ -44,7 +47,10 @@
     var rotulo = el("label", "ice-treino__filtro", "Cartas de ");
     var seletor = el("select");
     seletor.appendChild(new Option("todas as situações", "0"));
-    situacoes.forEach(function (s) { seletor.appendChild(new Option("Situação " + s, String(s))); });
+    situacoes.forEach(function (s) {
+      var titulo = titulos && typeof titulos[String(s)] === "string" ? ": " + titulos[String(s)] : "";
+      seletor.appendChild(new Option("Situação " + s + titulo, String(s)));
+    });
     seletor.value = String(escolhida);
     rotulo.appendChild(seletor);
     alvo.appendChild(rotulo);
@@ -134,8 +140,9 @@
     alvo.textContent = "Carregando as cartas…";
     Promise.all([
       ICE.json("dados/cartas.json"),
-      ICE.json("audio/manifesto.json").catch(function () { return null; })
-    ]).then(function (r) { montar(alvo, r[0], r[1]); }, function () {
+      ICE.json("audio/manifesto.json").catch(function () { return null; }),
+      ICE.json("dados/situacoes.json").catch(function () { return null; })
+    ]).then(function (r) { montar(alvo, r[0], r[1], r[2]); }, function () {
       alvo.textContent = "Não foi possível carregar as cartas. Confira a conexão e recarregue a página.";
     });
   });

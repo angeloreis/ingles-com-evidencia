@@ -178,7 +178,9 @@ def _fora_do_ingles(html):
 def test_ingles_entre_aspas_marcado_com_lang_en(site):
     achados = []
     for caminho, html in paginas(site).items():
-        for trecho in re.findall(r'"([^"]{1,200})"', _fora_do_ingles(html)):
+        # aspas em volta de um trecho todo marcado com lang="en" ficam vazias; sem tirá-las, a aspa
+        # de fechamento casa com a próxima citação e o "time" (equipe) do meio parece inglês
+        for trecho in re.findall(r'"([^"]{1,200})"', _fora_do_ingles(html).replace('""', "")):
             if INGLES.search(trecho):
                 achados.append(f"{caminho}: {trecho}")
     assert achados == []
@@ -190,3 +192,69 @@ def test_notas_da_situacao_6_em_ingles_marcado_e_traduzido(site):
     for termo in ["calendar invite", "shadowing", "Eastern Time", "Pacific"]:
         assert termo in html and termo not in fora, termo
     assert "como está indo a sua semana" in fora
+
+
+# --- Fase 1B ---------------------------------------------------------------
+
+def secoes_do_menu(html):
+    return re.findall(r'id="__nav_\d+_label"[^>]*>\s*<span class="md-ellipsis">\s*([^<]+?)\s*</span>', html)
+
+
+def test_guia_no_menu(site):
+    assert (site / "guia/index.html").is_file() and (site / "guia/como-usar/index.html").is_file()
+    secoes = secoes_do_menu((site / "index.html").read_text(encoding="utf-8"))
+    assert "Guia" in secoes and secoes.index("Guia") < secoes.index("Situações"), secoes
+
+
+def test_tabelas_com_o_tamanho_do_texto():
+    # o tema põe as tabelas em 0.64rem (12,8 px); o projeto pede 17 px ou mais (tabela dos selos, pronúncia)
+    ponte = (RAIZ / "conteudo/estilos/ponte.css").read_text(encoding="utf-8")
+    regra = re.search(r"\[data-md-color-scheme\] \.md-typeset table:not\(\[class\]\)\s*\{([^}]*)\}", ponte)
+    assert regra and "font-size: var(--corpo-tamanho);" in regra.group(1)
+
+
+def test_avisos_com_o_tamanho_do_texto():
+    # os avisos (!!! note, !!! info) também saem com 12,8 px no tema
+    ponte = (RAIZ / "conteudo/estilos/ponte.css").read_text(encoding="utf-8")
+    regra = re.search(r"\[data-md-color-scheme\] \.md-typeset \.admonition\s*\{([^}]*)\}", ponte)
+    assert regra and "font-size: var(--corpo-tamanho);" in regra.group(1)
+
+
+def test_situacao_7_publicada(site):
+    html = (site / "situacoes/tecnologia/index.html").read_text(encoding="utf-8")
+    assert html.count('class="pp-frase"') >= 20
+    assert "data-audio-sequencia" in html and "pp-roteiro" in html
+    tabela = html.split('id="pronuncia-dos-termos"', 1)[1].split("</table>", 1)[0]
+    linhas = re.findall(r"<tr>(.*?)</tr>", tabela, re.S)[1:]
+    assert len(linhas) >= 10
+    for linha in linhas:
+        assert 'href="https://' in linha and 'lang="en"' in linha, linha
+
+
+def test_situacao_8_publicada(site):
+    html = (site / "situacoes/entrevista/index.html").read_text(encoding="utf-8")
+    assert html.count('class="pp-frase"') >= 18
+    assert "data-audio-sequencia" in html and "pp-roteiro" in html
+
+
+def _artigo(html):
+    """Só o conteúdo da página, sem o menu (que liga todas as páginas)."""
+    return re.search(r"<article.*?</article>", html, re.S).group(0)
+
+
+def test_entrada_cita_o_que_esta_no_ar(site):
+    inicio = _artigo((site / "index.html").read_text(encoding="utf-8"))
+    assert 'href="guia/"' in inicio
+    assert "a primeira semana já está no ar" not in inicio
+    situacoes = _artigo((site / "situacoes/index.html").read_text(encoding="utf-8"))
+    for slug in ("telefonar", "tecnologia", "entrevista"):
+        assert f'href="{slug}/"' in situacoes, slug
+    sobre = _artigo((site / "sobre/index.html").read_text(encoding="utf-8"))
+    assert 'href="../guia/shadowing/"' in sobre  # M15: o capítulo 8 indica a fala real
+
+
+def test_filtro_do_treino_cabe_na_tela():
+    # com os títulos das situações (Tarefa 2), a opção mais longa deixava o seletor com 498 px a 320 px
+    ponte = (RAIZ / "conteudo/estilos/ponte.css").read_text(encoding="utf-8")
+    regra = re.search(r"\.ice-treino__filtro select\s*\{([^}]*)\}", ponte)
+    assert regra and "max-width: 100%;" in regra.group(1)

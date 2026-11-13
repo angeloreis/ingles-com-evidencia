@@ -62,6 +62,16 @@
   overflow-wrap: break-word;
 }
 
+/* Tabelas: o tema reduz a letra para 12,8 px; aqui ficam com o tamanho do texto corrido. */
+[data-md-color-scheme] .md-typeset table:not([class]) {
+  font-size: var(--corpo-tamanho);
+}
+
+/* Avisos (!!! note, !!! info): o tema também os reduz para 12,8 px. */
+[data-md-color-scheme] .md-typeset .admonition {
+  font-size: var(--corpo-tamanho);
+}
+
 /* Faixa no topo da página: respiro antes do título. */
 .md-typeset .pp-faixa {
   margin-bottom: var(--espaco-6);
@@ -115,6 +125,12 @@
   align-items: center;
   gap: var(--espaco-2);
   margin-bottom: var(--espaco-4);
+}
+
+/* O seletor cresce até a opção mais longa ("Situação 7: Conversar sobre programação…");
+   sem o limite, passava da largura da tela no celular. */
+.ice-treino__filtro select {
+  max-width: 100%;
 }
 
 .ice-treino__filtro select,

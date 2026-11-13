@@ -3,6 +3,9 @@
 (function (ICE) {
   "use strict";
 
+  /* Objeto de verdade: typeof null também é "object" (M11 da 1A). */
+  function objeto(x) { return x !== null && typeof x === "object"; }
+
   ICE.plano = {
     chave: function (trilha) { return "ice:plano:" + trilha + ":v1"; },
 
@@ -11,7 +14,7 @@
       if (texto === null || texto === undefined) return vazio;
       try {
         var estado = JSON.parse(texto);
-        if (!estado || estado.versao !== 1 || typeof estado.feitos !== "object") return vazio;
+        if (!objeto(estado) || estado.versao !== 1 || !objeto(estado.feitos)) return vazio;
         return estado;
       } catch (e) {
         return vazio;
@@ -44,6 +47,17 @@
         var marcados = feitos[chave] || [];
         return dias[chave].every(function (ordem) { return marcados.indexOf(ordem) >= 0; });
       }).length;
+    },
+
+    /* A maior semana com passos publicados; 0 se o plano ainda não tem passos. */
+    ultimaSemana: function (plano) {
+      return plano.passos.reduce(function (maior, p) { return Math.max(maior, p.semana); }, 0);
+    },
+
+    /* A semana vem depois da última publicada, e o plano ainda não está completo. */
+    depoisDoPublicado: function (plano, semana) {
+      var ultima = ICE.plano.ultimaSemana(plano);
+      return ultima > 0 && ultima < plano.semanas && semana > ultima;
     },
 
     totalDeDias: function (plano) {

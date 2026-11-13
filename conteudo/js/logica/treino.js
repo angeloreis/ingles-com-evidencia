@@ -4,6 +4,9 @@
 (function (ICE) {
   "use strict";
 
+  /* Objeto de verdade: typeof null também é "object" (M11 da 1A). */
+  function objeto(x) { return x !== null && typeof x === "object"; }
+
   var INTERVALOS = { 1: 1, 2: 3, 3: 7, 4: 14, 5: 30 }; // dias até a carta voltar
   var LIMITE_NOVAS = 10; // cartas novas por dia
 
@@ -21,7 +24,7 @@
       if (texto === null || texto === undefined) return estadoVazio();
       try {
         var estado = JSON.parse(texto);
-        if (!estado || estado.versao !== 1 || typeof estado.cartas !== "object" || !estado.novas) {
+        if (!objeto(estado) || estado.versao !== 1 || !objeto(estado.cartas) || !objeto(estado.novas)) {
           return estadoVazio();
         }
         return estado;

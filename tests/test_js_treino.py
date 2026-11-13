@@ -54,3 +54,13 @@ def test_ler_tolerante(ctx):
     assert vazio == {"versao": 1, "cartas": {}, "novas": {"dia": None, "quantidade": 0}}
     for texto in ["{quebrado", None, '{"versao": 99}']:
         assert chamar(ctx, "ICE.treino.ler", texto) == vazio
+
+
+# Fase 1B, Tarefa 3 (M11): estado salvo com campo null abre como primeira visita.
+@pytest.mark.parametrize("texto", [
+    '{"versao": 1, "cartas": null, "novas": {"dia": null, "quantidade": 0}}',
+    '{"versao": 1, "cartas": {}, "novas": null}',
+    '{"versao": 1, "cartas": {}, "novas": 3}',
+])
+def test_ler_treino_com_campo_nulo(ctx, texto):
+    assert chamar(ctx, "ICE.treino.ler", texto) == avaliar(ctx, "ICE.treino.estadoVazio()")

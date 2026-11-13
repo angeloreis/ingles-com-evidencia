@@ -49,3 +49,8 @@ def test_todos_os_scripts_do_site_tem_sintaxe_valida():
     for arquivo in arquivos:
         fonte = arquivo.read_text(encoding="utf-8")
         assert ctx.eval(f"(function () {{ new Function({_json.dumps(fonte)}); return true; }})()"), arquivo
+
+
+# Fase 1B, Tarefa 3 (M1): a Action roda em UTC; o conftest fixa o fuso do Brasil.
+def test_fuso_dos_testes_e_o_do_brasil(ctx):
+    assert avaliar(ctx, "new Date(2026, 10, 13, 23, 30).getTimezoneOffset()") == 180

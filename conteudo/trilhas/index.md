@@ -10,7 +10,7 @@ Cada trilha é um plano de estudo dia a dia. O site mostra o passo de hoje, e vo
 
 ## Destravar a fala
 
-Para quem entende inglês, mas trava na hora de falar. São 12 semanas, com 20 a 30 minutos por dia.
+Para quem entende inglês, mas trava na hora de falar. São 12 semanas, com 20 a 30 minutos por dia; as semanas 1 a 6 estão no ar, e as outras entram aos poucos.
 
 - [Hoje](destravar/hoje.md): os passos do dia.
 - [Todas as semanas](destravar/index.md): o plano inteiro, para quem prefere seguir sem a página "Hoje".

@@ -71,15 +71,41 @@
       alvo.appendChild(rotulo);
     }
 
+    /* Semana atual depois da última publicada: repetir a última ou seguir no treino (M9 da 1A). */
+    function depoisDaUltima(ultima) {
+      var faltam = ultima + 1 === plano.semanas
+        ? "A semana " + plano.semanas + " ainda não foi publicada."
+        : "As semanas " + (ultima + 1) + " a " + plano.semanas + " ainda não foram publicadas.";
+      alvo.appendChild(el("p", "ice-carta__pt",
+        faltam + " Enquanto isso, repita a semana " + ultima + " ou siga no treino de cartas."));
+      var acoes = el("div", "ice-carta__acoes");
+      var repetir = botao("Repetir a semana " + ultima, true);
+      repetir.addEventListener("click", function () {
+        estado.inicio = ICE.plano.inicioParaSemana(hoje, ultima);
+        Object.keys(estado.feitos).forEach(function (chaveDia) {
+          if (chaveDia.indexOf("s" + ultima + "d") === 0) delete estado.feitos[chaveDia];
+        });
+        salvar();
+        desenhar();
+      });
+      acoes.appendChild(repetir);
+      var treinar = el("a", "pp-botao", "Treinar as cartas");
+      treinar.href = ICE.url("treinar/");
+      acoes.appendChild(treinar);
+      alvo.appendChild(acoes);
+    }
+
     function dia() {
       var pos = ICE.plano.posicao(estado.inicio, hoje, plano.semanas);
       if (pos.terminou) {
+        if (ICE.plano.depoisDoPublicado(plano, pos.semana)) { depoisDaUltima(ICE.plano.ultimaSemana(plano)); return; }
         alvo.appendChild(el("p", "ice-carta__pt", "Você chegou ao fim das " + plano.semanas + " semanas."));
         return;
       }
       alvo.appendChild(el("h2", "", "Semana " + pos.semana + ", dia " + pos.dia));
       var passos = ICE.plano.passosDoDia(plano, pos.semana, pos.dia);
       if (!passos.length) {
+        if (ICE.plano.depoisDoPublicado(plano, pos.semana)) { depoisDaUltima(ICE.plano.ultimaSemana(plano)); return; }
         var semanaTem = plano.passos.some(function (p) { return p.semana === pos.semana; });
         alvo.appendChild(el("p", "ice-carta__pt",
           semanaTem ? "Dia de descanso." : "Esta semana do plano ainda não foi publicada."));

@@ -73,3 +73,35 @@ def test_ficha_tempo_invalido_avisa_em_vez_de_sumir(ctx, minutos, segs):
     resultado = chamar(ctx, "ICE.ficha.tempo", minutos, segs)
     assert resultado["segundos"] is None
     assert resultado["erro"]
+
+
+# Fase 1B, Tarefa 3 (M11): estado salvo com campo null abre como primeira visita.
+def test_ler_plano_com_campo_nulo(ctx):
+    assert chamar(ctx, "ICE.plano.ler", '{"versao": 1, "inicio": null, "feitos": null}') == \
+        {"versao": 1, "inicio": None, "feitos": {}}
+
+
+def test_ler_ficha_com_campo_nulo(ctx):
+    assert chamar(ctx, "ICE.ficha.ler", '{"versao": 1, "semanas": null}') == {"versao": 1, "semanas": {}}
+
+
+# Fase 1B, Tarefa 5 (M9): depois da última semana publicada, "Hoje" sugere o que fazer.
+def test_ultima_semana(ctx):
+    assert chamar(ctx, "ICE.plano.ultimaSemana", PLANO) == 1
+    passo = {"passo": "A", "minutos": 5, "link": "", "dia": 1, "ordem": 1}
+    plano = {"trilha": "destravar", "semanas": 12,
+             "passos": [{**passo, "semana": 1}, {**passo, "semana": 3}]}
+    assert chamar(ctx, "ICE.plano.ultimaSemana", plano) == 3
+    assert chamar(ctx, "ICE.plano.ultimaSemana", {"passos": []}) == 0
+
+
+# Revisão final da 1B: semana depois da última publicada, também quando passou das 12 semanas.
+def test_depois_do_publicado(ctx):
+    passo = {"passo": "A", "minutos": 20, "link": "", "dia": 1, "ordem": 1}
+    seis = {"trilha": "destravar", "semanas": 12, "passos": [{**passo, "semana": s} for s in range(1, 7)]}
+    doze = {"trilha": "destravar", "semanas": 12, "passos": [{**passo, "semana": s} for s in range(1, 13)]}
+    assert chamar(ctx, "ICE.plano.depoisDoPublicado", seis, 6) is False
+    assert chamar(ctx, "ICE.plano.depoisDoPublicado", seis, 8) is True
+    assert chamar(ctx, "ICE.plano.depoisDoPublicado", seis, 13) is True
+    assert chamar(ctx, "ICE.plano.depoisDoPublicado", doze, 13) is False
+    assert chamar(ctx, "ICE.plano.depoisDoPublicado", {"semanas": 12, "passos": []}, 13) is False

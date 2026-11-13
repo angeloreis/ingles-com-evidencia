@@ -24,7 +24,7 @@ O site usa três fontes, todas sob a SIL Open Font License 1.1, servidas pelo pr
 
 ## Áudio
 
-Os áudios das frases e dos diálogos são **voz sintética**, gerada pelo projeto com o modelo aberto Kokoro (licença Apache 2.0). Servem para ouvir a pronúncia e treinar; para ouvir a fala natural de pessoas, o guia indica conteúdos externos.
+Os áudios das frases e dos diálogos são **voz sintética**, gerada pelo projeto com o modelo aberto Kokoro (licença Apache 2.0). Servem para ouvir a pronúncia e treinar; para ouvir a fala natural de pessoas, o [capítulo 8 do guia](guia/shadowing.md) indica conteúdos gratuitos, com o texto da fala ao lado.
 
 ## Privacidade
 

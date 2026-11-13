@@ -12,7 +12,7 @@ Cursos de inglês prometem muita coisa. Aqui, cada técnica que eles vendem é c
 
 ### Destravar a fala
 
-Para quem entende inglês, assiste vídeos sem legenda, mas trava na hora de falar. São 12 semanas, com 20 a 30 minutos por dia; a primeira semana já está no ar.
+Para quem entende inglês, assiste vídeos sem legenda, mas trava na hora de falar. São 12 semanas, com 20 a 30 minutos por dia; as semanas 1 a 6 já estão no ar.
 
 <p><a class="pp-botao pp-botao--primario" href="trilhas/destravar/hoje.md">Começar a trilha Destravar a fala</a></p>
 
@@ -24,26 +24,17 @@ Para quem está começando e sabe pouco além do <span lang="en">"verb to be"</s
 
 São duas partes, abertas e gratuitas:
 
-- **O guia:** um capítulo por técnica, com o que os cursos dizem, o que a pesquisa diz, um selo de evidência e como praticar.
+- **[O guia](guia/index.md):** um capítulo por técnica, com o que os cursos dizem, o que a pesquisa diz, um selo de evidência e como praticar.
 - **O kit de prática:** situações de treino para viagem e para trabalho remoto, frases com tradução e áudio, treino de cartas e um plano para cada dia.
 
 Ler o guia, ouvir as frases, treinar as cartas e seguir o plano do dia funcionam no navegador do celular, sem instalar nada e sem criar conta. Quem usa o Anki pode baixar os baralhos também.
 
-## O que significam os selos
+## Os selos
 
-Cada técnica do guia recebe um selo, de acordo com o que a pesquisa mostra:
-
-- <span class="pp-carimbo pp-carimbo--reto" data-nivel="3"><span class="pp-carimbo__barras" aria-hidden="true"><i></i><i></i><i></i></span>Evidência forte</span>
-  Metanálises ou muitos estudos controlados com resultado na mesma direção.
-- <span class="pp-carimbo pp-carimbo--reto" data-nivel="2"><span class="pp-carimbo__barras" aria-hidden="true"><i></i><i></i><i></i></span>Evidência moderada</span>
-  Vários estudos a favor, com limitações, como amostras pequenas ou contexto restrito.
-- <span class="pp-carimbo pp-carimbo--reto" data-nivel="1"><span class="pp-carimbo__barras" aria-hidden="true"><i></i><i></i><i></i></span>Evidência fraca</span>
-  Poucos estudos, estudos indiretos ou resultados mistos.
-- <span class="pp-carimbo pp-carimbo--reto" data-nivel="0"><span class="pp-carimbo__barras" aria-hidden="true"><i></i><i></i><i></i></span>Sem evidência</span>
-  Nenhum estudo, ou estudos contra a promessa.
+Cada técnica do guia recebe um selo de evidência, de "evidência forte" a "sem evidência", de acordo com o que a pesquisa mostra. O [capítulo 1 do guia](guia/como-usar.md) explica o que cada selo quer dizer e como as referências são conferidas.
 
 !!! info "O site está em construção"
 
-    Já estão no ar a situação "Telefonar para colegas e marcar reunião" e a primeira semana da trilha Destravar a fala. Os capítulos do guia e as outras situações vão entrando aos poucos, cada um com as referências da pesquisa conferidas.
+    Já estão no ar seis capítulos do guia, as três situações de trabalho (telefonar e marcar reunião, conversar sobre programação, IA e frameworks, e entrevista para trabalho remoto) e as semanas 1 a 6 da trilha Destravar a fala. Os outros capítulos, as situações de viagem e a trilha Do zero ao A2 vão entrando aos poucos, cada um com as referências da pesquisa conferidas.
 
 <p><a class="pp-botao" href="sobre.md">Conhecer o projeto</a></p>
