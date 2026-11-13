@@ -89,6 +89,8 @@ Tudo publicado como **site** (GitHub Pages), porque boa parte do público não �
 
 **Escolha:** voz sintética aberta para frases e diálogos. Para shadowing com fala natural, o guia indica conteúdos externos **só com link**, sem copiar áudio. **Antes de gerar qualquer áudio**, conferir a licença do modelo e de cada voz usada. Se o Kokoro não servir, trocar por outro modelo com licença que permita uso comercial e registrar a troca neste documento.
 
+*Decidido na Fase 1A (13/11/2026):* modelo Kokoro-82M v1.0 (Apache 2.0) pela biblioteca `kokoro-onnx` (MIT), arquivo fp32 com sha256 conferido. Vozes `af_heart` (frases e pessoa A dos diálogos) e `am_michael` (pessoa B), na velocidade 0.9. Arquivos `ice-<id>.mp3`, gravados pelo `soundfile` sem ffmpeg. A conversão de texto em fonemas usa o espeak-ng (GPL-3.0) só durante a geração.
+
 ## 5. O que foi decidido
 
 ### 5.1 Guia
@@ -186,6 +188,8 @@ Um CSV por baralho em `kit/dados/`, UTF-8, com cabeçalho. Colunas:
 
 O `id` alimenta o identificador da nota no Anki, para que uma correção de tradução atualize a carta de quem já importou o baralho, em vez de duplicar.
 
+Os diálogos ficam em `kit/dialogos/`, um CSV por situação, com as colunas `id`, `situacao`, `ordem`, `falante` (`A` ou `B`), `en`, `pt`, `fonte`, `licenca` e `autor`; os ids são únicos entre baralhos e diálogos, porque viram nome de arquivo de áudio. *(Fase 1A.)*
+
 Os planos ficam em `kit/planos/<trilha>.csv`, uma linha por passo: `semana`, `dia`, `ordem`, `passo`, `minutos`, `link` (página do site ou baralho usado). O script gera a partir deles as páginas "Hoje" e a lista de semanas, e confere se a soma dos minutos de cada dia bate com o limite da trilha.
 
 #### Scripts
@@ -196,8 +200,9 @@ Os planos ficam em `kit/planos/<trilha>.csv`, uma linha por passo: `semana`, `di
 
 #### Anki
 
-- O guia ensina a instalar e importar no **AnkiDroid** (Android, gratuito) e no **AnkiWeb** (navegador, gratuito). O **AnkiMobile** do iPhone é pago, e o guia diz isso com clareza, apontando o AnkiWeb como alternativa gratuita.
-- O uso básico não depende do Anki: no site, cada situação já tem as frases com áudio e o plano do dia.
+- *Decidido pelo mantenedor na Fase 1A (13/11/2026):* o AnkiWeb não importa baralhos pelo navegador (é preciso o Anki no computador ou o AnkiDroid, e depois sincronizar). Por isso o **site tem o próprio treino de cartas**: português na frente, a pessoa fala em inglês, confere a resposta e ouve o áudio. As cartas voltam em 1, 3, 7, 14 ou 30 dias (caixas de Leitner), com até 10 cartas novas por dia, e o progresso fica só no aparelho.
+- O **Anki é opcional**: os baralhos saem nas Releases para quem usa o AnkiDroid (Android, gratuito) ou o Anki no computador. O AnkiMobile do iPhone é pago, e o site diz isso, apontando o treino de cartas como alternativa gratuita.
+- O uso básico não depende do Anki: no site, cada situação já tem as frases com áudio, o treino de cartas e o plano do dia.
 
 ### 5.3 Site
 
@@ -210,6 +215,7 @@ Os planos ficam em `kit/planos/<trilha>.csv`, uma linha por passo: `semana`, `di
 - **Áudio:** o botão "Ouvir" toca o arquivo gerado. Sem arquivo, o botão aparece desabilitado com "Sem áudio aqui".
 - **Busca** do próprio Zensical, conferindo se funciona bem em português. *Conferido na Fase 0:* acha com e sem acento ("evidencia" acha "evidência", "licenca" acha "licença"). Pendência conhecida: o contador de resultados aparece em inglês ("4 results"), porque a interface da busca do Zensical 0.1.1 ainda não é traduzida.
 - **Tema:** o site começa seguindo o tema do aparelho (claro ou escuro); o botão alterna entre automático, claro e escuro, e a escolha vale para todas as páginas. *Decidido na Fase 0:* com só duas opções (claro e escuro), o tema gravava o esquema do primeiro acesso e deixava de acompanhar o aparelho.
+- **Trechos gerados nas páginas:** frases, diálogos e lista de semanas são gerados de `kit/` para `kit/gerado/` e entram nas páginas escritas à mão com `--8<-- "kit/gerado/arquivo.md"` (`pymdownx.snippets`); trecho ausente derruba o build. Link em HTML cru dentro de uma página aponta para o `.md` de origem (`../treinar.md?situacao=6`), porque o Zensical reescreve esses links a partir do arquivo de origem e confere no modo estrito. *Decidido na Fase 1A.*
 - **Sem link do repositório no cabeçalho** (`repo_url`): o tema buscaria dados na API do GitHub pelo navegador de quem visita. O link fica na página "Sobre e créditos". *Decidido na Fase 0, por privacidade.*
 - **Acessibilidade:** contraste WCAG AA nos dois temas, foco visível, textos alternativos, nenhuma informação só por cor.
 
@@ -219,13 +225,18 @@ Os planos ficam em `kit/planos/<trilha>.csv`, uma linha por passo: `semana`, `di
 ingles-com-evidencia/
 ├── .github/workflows/site.yml  testes e publicação no GitHub Pages
 ├── conteudo/                 textos do site (guia, situações, trilhas, sobre)
-│   └── estilos/              tokens.css (gerado), bundle.css, ponte.css, fontes.css e fontes/
+│   ├── estilos/              tokens.css (gerado), bundle.css, ponte.css, fontes.css e fontes/
+│   ├── js/                   núcleo, lógica pura (testada no pytest) e scripts de página
+│   ├── dados/                cartas.json e planos em JSON (gerados)
+│   └── audio/                MP3 e manifesto (gerados, fora do git)
 ├── design/passaporte/        fonte do design system: tokens.json, guia de componentes, origem das fontes
 ├── docs/                     documentos do projeto, fora do site
 │   └── superpowers/          specs/ (este documento) e plans/ (planos por fase)
 ├── kit/
 │   ├── dados/                CSVs dos baralhos
-│   └── planos/               CSVs dos planos das trilhas
+│   ├── dialogos/             CSVs dos diálogos
+│   ├── planos/               CSVs dos planos das trilhas
+│   └── gerado/               trechos HTML e Markdown incluídos nas páginas (gerados)
 ├── scripts/                  construir.py, validar.py, estilos.py
 ├── tests/                    testes (pytest)
 ├── zensical.toml             com docs_dir = "conteudo"
@@ -247,7 +258,7 @@ Cada fase termina com a validação do mantenedor antes da próxima.
 | Fase | Entrega | Pronto quando |
 |---|---|---|
 | 0. Esqueleto | Repositório, licenças, Zensical com Passaporte, Action do Pages, `construir.py` validando um CSV de exemplo | O site está no ar com a página inicial, no celular e no computador, nos dois temas |
-| 1. Destravar a fala e trabalho | Situações 6, 7 e 8; capítulos 1, 6, 8, 9, 10 e 11; semanas 1 a 6 do plano, usando só essas situações; baralhos dessas situações | Uma pessoa consegue seguir a semana 1 inteira só pelo site e pelo AnkiWeb |
+| 1. Destravar a fala e trabalho | Situações 6, 7 e 8; capítulos 1, 6, 8, 9, 10 e 11; semanas 1 a 6 do plano, usando só essas situações; baralhos dessas situações | Uma pessoa consegue seguir a semana 1 inteira só pelo site (critério revisto na Fase 1A, porque o AnkiWeb não importa baralhos). Dividida em **1A, o motor** (áudio, baralhos, treino de cartas, "Hoje", ficha e a situação 6 como piloto) e **1B, o conteúdo** (situações 7 e 8, capítulos e semanas 1 a 6) |
 | 2. Viagem | Situações 1 a 5; capítulos 2, 3, 4, 5, 7, 12 e 13; semanas 7 a 12 do plano | Todas as situações e capítulos publicados, com referências conferidas |
 | 3. Do zero ao A2 | Pronúncia, faixas da NGSL (começando pelas primeiras 500), leituras, plano por fases | Uma pessoa iniciante consegue seguir as duas primeiras semanas sem ajuda |
 | 4. Extras | Ideias para depois: baralho temático "inglês para fãs de doramas", versão para imprimir da ficha de progresso | A decidir |
