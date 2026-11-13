@@ -1,0 +1,81 @@
+/* Passaporte: componentes. Carregar depois de tokens.css. Prefixo pp-. */
+
+/* Faixa */
+.pp-faixa{display:flex;justify-content:space-between;align-items:center;gap:var(--espaco-3);min-height:var(--alvo-toque);padding:var(--espaco-3) var(--espaco-4);background:var(--passaporte);color:var(--sobre-passaporte);border-bottom:2px dashed var(--linha);font-family:var(--font-etiqueta);font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.08em;text-transform:uppercase}
+.pp-faixa > *{min-width:0;overflow-wrap:anywhere}
+
+/* Carimbo */
+.pp-carimbo{display:inline-flex;align-items:center;gap:var(--espaco-2);align-self:flex-start;padding:6px 10px;border:2px solid currentColor;border-radius:var(--raio-carimbo);background:transparent;color:var(--evidencia-nenhuma);font-family:var(--font-etiqueta);font-size:12px;font-weight:600;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;transform:rotate(-3deg)}
+.pp-carimbo[data-nivel="3"]{color:var(--evidencia-forte)}
+.pp-carimbo[data-nivel="2"]{color:var(--evidencia-moderada)}
+.pp-carimbo[data-nivel="1"]{color:var(--evidencia-fraca)}
+.pp-carimbo--reto{transform:none}
+.pp-carimbo__barras{display:inline-flex;gap:3px;align-items:flex-end}
+.pp-carimbo__barras i{display:block;width:5px;border-radius:1px;background:currentColor;opacity:.25}
+.pp-carimbo__barras i:nth-child(1){height:7px}
+.pp-carimbo__barras i:nth-child(2){height:11px}
+.pp-carimbo__barras i:nth-child(3){height:15px}
+.pp-carimbo[data-nivel="3"] .pp-carimbo__barras i,
+.pp-carimbo[data-nivel="2"] .pp-carimbo__barras i:nth-child(-n+2),
+.pp-carimbo[data-nivel="1"] .pp-carimbo__barras i:nth-child(1){opacity:1}
+
+/* Botão */
+.pp-botao{display:inline-flex;align-items:center;justify-content:center;gap:var(--espaco-2);min-height:var(--alvo-toque);padding:0 var(--espaco-4);border:2px solid var(--passaporte);border-radius:var(--raio);background:transparent;color:var(--passaporte);font-family:var(--font-texto);font-size:16px;font-weight:700;line-height:1.2;text-decoration:none;cursor:pointer}
+.pp-botao:hover{text-decoration:underline;text-underline-offset:3px}
+.pp-botao--primario{background:var(--passaporte);color:var(--sobre-passaporte)}
+.pp-botao--largo{width:100%;min-height:var(--alvo-toque-grande)}
+.pp-botao[disabled]{opacity:.55;cursor:not-allowed;text-decoration:none}
+.pp-botao:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
+@media (max-width:768px){.pp-botao--primario{width:100%;min-height:var(--alvo-toque-grande)}}
+
+/* Seção do guia */
+.pp-secao{display:flex;flex-direction:column;gap:var(--espaco-1);max-width:var(--largura-texto)}
+.pp-secao__rotulo{font-family:var(--font-etiqueta);font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pp-secao__texto{margin:0;font-family:var(--font-texto);font-size:17px;line-height:1.55;color:var(--tinta)}
+
+/* Palavra-chave marcada */
+.pp-marca{background:none;color:var(--passaporte);text-decoration:underline 2px;text-underline-offset:4px}
+
+/* Frase */
+.pp-frases{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--espaco-3)}
+.pp-frase{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px var(--espaco-3);align-items:center;padding:var(--espaco-3) var(--espaco-3) var(--espaco-3) var(--espaco-4);background:var(--superficie);border:1px solid var(--linha);border-radius:var(--raio);color:var(--tinta)}
+.pp-frase__en{grid-column:1;margin:0;font-family:var(--font-texto);font-size:17px;font-weight:700;line-height:1.45;overflow-wrap:anywhere}
+.pp-frase__pt{grid-column:1;margin:0;font-family:var(--font-texto);font-size:15px;line-height:1.5;color:var(--tinta-suave)}
+.pp-frase__silaba{grid-column:1;margin:0;font-family:var(--font-etiqueta);font-size:13px;font-weight:500;line-height:1.4;color:var(--tinta-suave)}
+.pp-frase__silaba b{color:var(--tinta)}
+.pp-frase .pp-botao{grid-column:2;grid-row:1 / span 3}
+@media (max-width:420px){
+  .pp-frase{grid-template-columns:minmax(0,1fr)}
+  .pp-frase .pp-botao{grid-column:1;grid-row:auto;width:100%;margin-top:var(--espaco-2)}
+}
+
+/* Roteiro de IA */
+.pp-roteiro{display:flex;flex-direction:column;gap:var(--espaco-3);padding:var(--espaco-4);background:var(--superficie);border:1px dashed var(--linha);border-radius:var(--raio);color:var(--tinta)}
+.pp-roteiro__rotulo{font-family:var(--font-etiqueta);font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pp-roteiro__texto{margin:0;font-family:var(--font-etiqueta);font-size:14px;font-weight:500;line-height:1.55;overflow-wrap:anywhere}
+
+/* Passos do dia */
+.pp-progresso{height:8px;border-radius:999px;background:var(--linha);overflow:hidden}
+.pp-progresso > span{display:block;height:100%;background:var(--passaporte)}
+.pp-passos{list-style:none;margin:0;padding:0;counter-reset:pp-passo;display:flex;flex-direction:column;gap:var(--espaco-3)}
+.pp-passos li{counter-increment:pp-passo;position:relative}
+.pp-passos input{position:absolute;opacity:0;width:1px;height:1px}
+.pp-passos label{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:var(--espaco-3);min-height:var(--alvo-toque-grande);padding:var(--espaco-2) var(--espaco-4);background:var(--superficie);border:1px solid var(--linha);border-radius:var(--raio);color:var(--tinta);font-family:var(--font-texto);font-size:17px;line-height:1.4;cursor:pointer}
+.pp-passos label::before{content:counter(pp-passo);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px solid var(--passaporte);color:var(--passaporte);font-family:var(--font-etiqueta);font-size:13px;font-weight:600}
+.pp-passos input:checked + label::before{content:"✓";background:var(--passaporte);color:var(--sobre-passaporte)}
+.pp-passos input:checked + label .pp-passos__texto{text-decoration:line-through;color:var(--tinta-suave)}
+.pp-passos input:focus-visible + label{outline:3px solid var(--foco);outline-offset:2px}
+.pp-passos__tempo{font-family:var(--font-etiqueta);font-size:13px;font-weight:500;color:var(--tinta-suave);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Tabela que vira cartões */
+.pp-tabela{width:100%;border-collapse:collapse;font-family:var(--font-texto);font-size:16px;line-height:1.5;color:var(--tinta)}
+.pp-tabela th{text-align:left;padding:var(--espaco-2) var(--espaco-3);border-bottom:2px solid var(--linha);font-family:var(--font-etiqueta);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pp-tabela td{padding:var(--espaco-3);border-bottom:1px solid var(--linha);vertical-align:top}
+@media (max-width:768px){
+  .pp-tabela thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .pp-tabela,.pp-tabela tbody,.pp-tabela tr,.pp-tabela td{display:block;width:100%}
+  .pp-tabela tr{margin-bottom:var(--espaco-3);padding:var(--espaco-3) var(--espaco-4);background:var(--superficie);border:1px solid var(--linha);border-radius:var(--raio)}
+  .pp-tabela td{padding:var(--espaco-1) 0;border:0}
+  .pp-tabela td + td{margin-top:var(--espaco-2)}
+  .pp-tabela td::before{content:attr(data-rotulo);display:block;font-family:var(--font-etiqueta);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+}

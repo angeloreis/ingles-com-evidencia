@@ -1,0 +1,80 @@
+/* Gerado por scripts/estilos.py a partir de design/passaporte/tokens.json. Não edite à mão. */
+
+:root, [data-md-color-scheme="default"] {
+  --fundo: #f1f5f3;
+  --superficie: #ffffff;
+  --linha: #d3ded9;
+  --tinta: #0f231e;
+  --tinta-suave: #4f655d;
+  --passaporte: #0e5a49;
+  --sobre-passaporte: #ffffff;
+  --foco: var(--passaporte);
+  --evidencia-forte: #0e7a5a;
+  --evidencia-moderada: #9a6400;
+  --evidencia-fraca: #b23a2e;
+  --evidencia-nenhuma: var(--tinta-suave);
+}
+
+[data-md-color-scheme="slate"] {
+  --fundo: #0c1613;
+  --superficie: #13211d;
+  --linha: #24372f;
+  --tinta: #e2ece8;
+  --tinta-suave: #93a89f;
+  --passaporte: #5cc6a7;
+  --sobre-passaporte: #06130f;
+  --foco: var(--passaporte);
+  --evidencia-forte: #5cc6a7;
+  --evidencia-moderada: #f0b44c;
+  --evidencia-fraca: #ff8b7b;
+  --evidencia-nenhuma: var(--tinta-suave);
+}
+
+:root {
+  --font-titulo: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-texto: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-etiqueta: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --titulo-1-tamanho: 32px;
+  --titulo-1-altura: 1.1;
+  --titulo-1-peso: 800;
+  --titulo-1-espacamento: -0.01em;
+  --titulo-2-tamanho: 24px;
+  --titulo-2-altura: 1.2;
+  --titulo-2-peso: 800;
+  --titulo-3-tamanho: 20px;
+  --titulo-3-altura: 1.25;
+  --titulo-3-peso: 700;
+  --corpo-tamanho: 17px;
+  --corpo-altura: 1.55;
+  --corpo-peso: 400;
+  --corpo-forte-tamanho: 17px;
+  --corpo-forte-altura: 1.45;
+  --corpo-forte-peso: 700;
+  --apoio-tamanho: 15px;
+  --apoio-altura: 1.5;
+  --apoio-peso: 400;
+  --etiqueta-tamanho: 13px;
+  --etiqueta-altura: 1.4;
+  --etiqueta-peso: 600;
+  --etiqueta-espacamento: 0.08em;
+  --carimbo-tamanho: 12px;
+  --carimbo-altura: 1.2;
+  --carimbo-peso: 600;
+  --carimbo-espacamento: 0.08em;
+  --pronuncia-tamanho: 13px;
+  --pronuncia-altura: 1.4;
+  --pronuncia-peso: 500;
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 12px;
+  --espaco-4: 16px;
+  --espaco-6: 24px;
+  --espaco-8: 32px;
+  --raio-carimbo: 4px;
+  --raio: 6px;
+  --raio-painel: 12px;
+  --alvo-toque: 48px;
+  --alvo-toque-grande: 56px;
+  --largura-texto: 68ch;
+  --quebra-celular: 768px;
+}
