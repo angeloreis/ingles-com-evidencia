@@ -44,3 +44,29 @@ def test_job_publicar_pode_ler_o_repositorio():
     # o checkout do job publicar falha.
     publicar = ler(".github/workflows/site.yml").split("  publicar:", 1)[1]
     assert "contents: read" in publicar
+
+
+def _job(nome):
+    wf = ler(".github/workflows/site.yml")
+    inicio = wf.index(f"\n  {nome}:\n")
+    proximo = [i for i in (wf.find("\n  verificar:\n", inicio + 1), wf.find("\n  publicar:\n", inicio + 1),
+                           wf.find("\n  baralhos:\n", inicio + 1)) if i > 0]
+    return wf[inicio:min(proximo) if proximo else len(wf)]
+
+
+def test_publicar_gera_audio_antes_do_build():
+    publicar = _job("publicar")
+    assert publicar.index("scripts.construir --audio") < publicar.index("zensical build")
+    assert "actions/cache@v5" in publicar
+
+
+def test_job_baralhos_so_em_tag():
+    baralhos = _job("baralhos")
+    for trecho in ["startsWith(github.ref, 'refs/tags/v')", "contents: write", "gh release create",
+                   "scripts.construir --audio --baralhos", "needs: verificar"]:
+        assert trecho in baralhos
+
+
+def test_concurrency_so_no_publicar():
+    wf = ler(".github/workflows/site.yml")
+    assert wf.count("concurrency:") == 1 and "concurrency:" in _job("publicar")
