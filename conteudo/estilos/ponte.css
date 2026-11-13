@@ -1,0 +1,125 @@
+/* Liga o design system Passaporte (tokens.css) às variáveis do tema do Zensical.
+   Use só variáveis do tokens.css e do próprio tema. */
+
+/* Cores: o atributo data-md-color-scheme fica no <body>, onde valem os tokens do tema. */
+[data-md-color-scheme] {
+  --md-default-bg-color: var(--fundo);
+  --md-default-fg-color: var(--tinta);
+  --md-typeset-color: var(--tinta);
+  --md-default-fg-color--light: var(--tinta-suave);
+  --md-primary-fg-color: var(--passaporte);
+  --md-accent-fg-color: var(--passaporte);
+  --md-typeset-a-color: var(--passaporte);
+  --md-primary-bg-color: var(--sobre-passaporte);
+  --md-accent-bg-color: var(--sobre-passaporte);
+  --md-code-bg-color: var(--superficie);
+  --md-footer-bg-color: var(--superficie);
+}
+
+/* Fontes servidas pelo próprio site (fontes.css). */
+:root {
+  --md-text-font: "Figtree";
+  --md-code-font: "IBM Plex Mono";
+}
+
+/* Títulos: o seletor com o atributo vence a regra do tema escuro que pinta títulos de branco. */
+[data-md-color-scheme] .md-typeset h1,
+[data-md-color-scheme] .md-typeset h2,
+[data-md-color-scheme] .md-typeset h3 {
+  font-family: var(--font-titulo);
+  color: var(--tinta);
+}
+
+[data-md-color-scheme] .md-typeset h1 {
+  margin-bottom: var(--espaco-6);
+  font-size: var(--titulo-1-tamanho);
+  line-height: var(--titulo-1-altura);
+  font-weight: var(--titulo-1-peso);
+  letter-spacing: var(--titulo-1-espacamento);
+}
+
+/* O link permanente do título da página não tem uso e, no celular, quebra para uma linha vazia. */
+.md-typeset h1 .headerlink {
+  display: none;
+}
+
+[data-md-color-scheme] .md-typeset h2 {
+  font-size: var(--titulo-2-tamanho);
+  line-height: var(--titulo-2-altura);
+  font-weight: var(--titulo-2-peso);
+}
+
+[data-md-color-scheme] .md-typeset h3 {
+  font-size: var(--titulo-3-tamanho);
+  line-height: var(--titulo-3-altura);
+  font-weight: var(--titulo-3-peso);
+}
+
+/* Texto corrido: 17 px e sem rolagem para os lados com palavra ou link longo. */
+.md-typeset {
+  font-size: var(--corpo-tamanho);
+  line-height: var(--corpo-altura);
+  overflow-wrap: break-word;
+}
+
+/* Faixa no topo da página: respiro antes do título. */
+.md-typeset .pp-faixa {
+  margin-bottom: var(--espaco-6);
+}
+
+/* Carimbo no começo de um item de lista: o texto do item vem na linha de baixo. */
+.md-typeset li > .pp-carimbo:first-child {
+  display: flex;
+  width: fit-content;
+  margin-bottom: var(--espaco-2);
+}
+
+/* Botões do Passaporte dentro do texto: o tema pinta todo link com a cor da marca,
+   o que apagaria o texto do botão primário sobre o próprio fundo. */
+.md-typeset a.pp-botao,
+.md-typeset a.pp-botao:hover,
+.md-typeset a.pp-botao:focus {
+  color: var(--passaporte);
+  text-decoration: none;
+}
+
+.md-typeset a.pp-botao:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.md-typeset a.pp-botao--primario,
+.md-typeset a.pp-botao--primario:hover,
+.md-typeset a.pp-botao--primario:focus {
+  color: var(--sobre-passaporte);
+}
+
+/* Foco visível em tudo. */
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+/* Botões do cabeçalho (menu, tema, busca) e o botão flutuante do índice:
+   o tema os desenha com 36-38 px; o Passaporte pede 48 px de área de toque.
+   O ícone tem 24 px, então 12 px de folga em cada lado. */
+.md-header__button,
+.md-sidebar-button {
+  min-width: var(--alvo-toque);
+  min-height: var(--alvo-toque);
+}
+
+.md-header__button.md-icon {
+  padding: calc((var(--alvo-toque) - 24px) / 2);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Gaveta do menu (celular e tablet): áreas de toque de 48 px. */
+@media screen and (max-width: 76.234375em) {
+  .md-nav__link {
+    min-height: var(--alvo-toque);
+    display: flex;
+    align-items: center;
+  }
+}

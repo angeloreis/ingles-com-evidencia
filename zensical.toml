@@ -1,0 +1,63 @@
+# Configuração do site Inglês com Evidência (Zensical).
+# Só a pasta conteudo/ é publicada; docs/ guarda os documentos do projeto.
+
+[project]
+site_name = "Inglês com Evidência"
+site_description = "Guia aberto e gratuito que confere com a pesquisa as técnicas vendidas pelos cursos de inglês, com um kit para praticar."
+site_url = "https://angeloreis.github.io/ingles-com-evidencia/"
+copyright = "Conteúdo sob CC BY-SA 4.0 · código sob MIT"
+docs_dir = "conteudo"
+# Sem repo_url: o cabeçalho do tema buscaria dados na API do GitHub pelo
+# navegador de quem visita. O link para o repositório fica na página Sobre.
+extra_css = [
+  "estilos/fontes.css",
+  "estilos/tokens.css",
+  "estilos/bundle.css",
+  "estilos/ponte.css",
+]
+nav = [
+  { "Início" = "index.md" },
+  { "Sobre e créditos" = "sobre.md" },
+]
+
+[project.theme]
+language = "pt-BR"
+# As fontes vêm de conteudo/estilos/fontes.css, não do Google Fonts.
+font = false
+features = [
+  "navigation.instant",
+  "navigation.top",
+  "navigation.footer",
+  "search.highlight",
+]
+
+# Tema: começa seguindo o aparelho; o botão alterna entre
+# automático → claro → escuro → automático.
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Mudar para o tema claro"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/sun"
+toggle.name = "Mudar para o tema escuro"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/moon"
+toggle.name = "Seguir o tema do aparelho"
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+md_in_html = {}
+toc.permalink = true
