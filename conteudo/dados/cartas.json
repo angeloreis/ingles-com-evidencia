@@ -1,0 +1,98 @@
+[
+  {
+    "id": "telefonar-01",
+    "en": "Hi, this is Alex from the data team.",
+    "pt": "Oi, aqui é o Alex, do time de dados.",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-01.mp3"
+  },
+  {
+    "id": "telefonar-02",
+    "en": "Is now a good time to talk?",
+    "pt": "Agora é um bom momento para conversar?",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-02.mp3"
+  },
+  {
+    "id": "telefonar-03",
+    "en": "I'd like to set up a quick meeting about the new release.",
+    "pt": "Eu queria marcar uma reunião rápida sobre a nova versão.",
+    "silaba": "re·LEASE",
+    "situacao": 6,
+    "audio": "ice-telefonar-03.mp3"
+  },
+  {
+    "id": "telefonar-04",
+    "en": "Are you available on Thursday afternoon?",
+    "pt": "Você está disponível na quinta à tarde?",
+    "silaba": "a·VAIL·a·ble",
+    "situacao": 6,
+    "audio": "ice-telefonar-04.mp3"
+  },
+  {
+    "id": "telefonar-05",
+    "en": "How about 3 p.m. Eastern Time?",
+    "pt": "Que tal às 15h, no horário do leste dos Estados Unidos?",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-05.mp3"
+  },
+  {
+    "id": "telefonar-06",
+    "en": "What time zone are you in?",
+    "pt": "Em que fuso horário você está?",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-06.mp3"
+  },
+  {
+    "id": "telefonar-07",
+    "en": "Does that work for you?",
+    "pt": "Isso funciona para você?",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-07.mp3"
+  },
+  {
+    "id": "telefonar-08",
+    "en": "Can we push it to next week?",
+    "pt": "Podemos passar para a semana que vem?",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-08.mp3"
+  },
+  {
+    "id": "telefonar-09",
+    "en": "Sorry, could you say that again a bit more slowly?",
+    "pt": "Desculpe, você pode repetir um pouco mais devagar?",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-09.mp3"
+  },
+  {
+    "id": "telefonar-10",
+    "en": "I'll send you a calendar invite with the link.",
+    "pt": "Vou te mandar um convite na agenda com o link.",
+    "silaba": "CAL·en·dar",
+    "situacao": 6,
+    "audio": "ice-telefonar-10.mp3"
+  },
+  {
+    "id": "telefonar-11",
+    "en": "Let me check my calendar and get back to you.",
+    "pt": "Deixa eu olhar minha agenda e já te dou um retorno.",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-11.mp3"
+  },
+  {
+    "id": "telefonar-12",
+    "en": "Thanks for your time. Talk to you on Thursday!",
+    "pt": "Obrigado pelo seu tempo. Falamos na quinta!",
+    "silaba": "",
+    "situacao": 6,
+    "audio": "ice-telefonar-12.mp3"
+  }
+]

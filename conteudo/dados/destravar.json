@@ -1,0 +1,111 @@
+{
+  "trilha": "destravar",
+  "titulo": "Destravar a fala",
+  "semanas": 12,
+  "passos": [
+    {
+      "semana": 1,
+      "dia": 1,
+      "ordem": 1,
+      "passo": "Ouvir e repetir em voz alta as frases da situação 6",
+      "minutos": 10,
+      "link": "situacoes/telefonar/"
+    },
+    {
+      "semana": 1,
+      "dia": 1,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 6",
+      "minutos": 10,
+      "link": "treinar/?situacao=6"
+    },
+    {
+      "semana": 1,
+      "dia": 1,
+      "ordem": 3,
+      "passo": "Gravar a sua voz lendo as frases e anotar a data na ficha",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 1,
+      "dia": 2,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo: ouvir e falar junto, três vezes",
+      "minutos": 10,
+      "link": "situacoes/telefonar/"
+    },
+    {
+      "semana": 1,
+      "dia": 2,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 6",
+      "minutos": 10,
+      "link": "treinar/?situacao=6"
+    },
+    {
+      "semana": 1,
+      "dia": 3,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 6",
+      "minutos": 10,
+      "link": "treinar/?situacao=6"
+    },
+    {
+      "semana": 1,
+      "dia": 3,
+      "ordem": 2,
+      "passo": "Técnica 4/3/2: explicar o seu trabalho em inglês em 4, 3 e 2 minutos e anotar os tempos",
+      "minutos": 12,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 1,
+      "dia": 4,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo",
+      "minutos": 10,
+      "link": "situacoes/telefonar/"
+    },
+    {
+      "semana": 1,
+      "dia": 4,
+      "ordem": 2,
+      "passo": "Roteiro de IA: marcar uma reunião no modo de voz",
+      "minutos": 15,
+      "link": "situacoes/telefonar/"
+    },
+    {
+      "semana": 1,
+      "dia": 5,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 6",
+      "minutos": 10,
+      "link": "treinar/?situacao=6"
+    },
+    {
+      "semana": 1,
+      "dia": 5,
+      "ordem": 2,
+      "passo": "Reler as notas culturais e repetir as frases que você errou",
+      "minutos": 10,
+      "link": "situacoes/telefonar/"
+    },
+    {
+      "semana": 1,
+      "dia": 6,
+      "ordem": 1,
+      "passo": "Conversa real: uma ligação curta com alguém que fale inglês",
+      "minutos": 20,
+      "link": ""
+    },
+    {
+      "semana": 1,
+      "dia": 6,
+      "ordem": 2,
+      "passo": "Registrar a semana na ficha de progresso",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    }
+  ]
+}

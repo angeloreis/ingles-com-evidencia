@@ -74,6 +74,163 @@
   margin-bottom: var(--espaco-2);
 }
 
+/* Listas do Passaporte (frases, passos): sem o recuo e os marcadores das listas do texto. */
+/* O tema usa [dir=ltr] .md-typeset ul/ol; o [dir] aqui precisa vencer essa especificidade. */
+[dir] .md-typeset .pp-frases,
+[dir] .md-typeset .pp-passos {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+[dir] .md-typeset .pp-frases > li,
+[dir] .md-typeset .pp-passos > li {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Diálogo: quem fala, antes da frase em inglês. */
+.pp-frase__falante {
+  display: block;
+  font-family: var(--font-etiqueta);
+  font-size: var(--etiqueta-tamanho);
+  font-weight: var(--etiqueta-peso);
+  letter-spacing: var(--etiqueta-espacamento);
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* Componentes do kit montados pelo JavaScript (treino, Hoje, ficha). */
+.pp-aviso-armazenamento {
+  margin: 0 0 var(--espaco-4);
+  padding: var(--espaco-3) var(--espaco-4);
+  border-left: 4px solid var(--evidencia-moderada);
+  background: var(--superficie);
+}
+
+.ice-treino__filtro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-4);
+}
+
+.ice-treino__filtro select,
+.ice-ficha select,
+.ice-ficha input {
+  min-height: var(--alvo-toque);
+  padding: 0 var(--espaco-3);
+  border: 2px solid var(--passaporte);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  color: var(--tinta);
+  font: inherit;
+}
+
+.ice-ficha__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  margin-bottom: var(--espaco-6);
+}
+
+.ice-ficha__campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.ice-ficha__marcar {
+  flex-direction: row;
+  align-items: center;
+  min-height: var(--alvo-toque);
+}
+
+.ice-ficha__marcar input {
+  width: 24px;
+  height: 24px;
+}
+
+.ice-ficha__tempo {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.ice-ficha__tempo legend {
+  margin-bottom: var(--espaco-1);
+  padding: 0;
+}
+
+.ice-ficha__tempo-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-4);
+}
+
+.ice-ficha__unidade {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.ice-ficha .ice-ficha__unidade input {
+  width: 4.5em;
+  text-align: center;
+}
+
+.ice-ficha [aria-invalid="true"] {
+  border-color: var(--evidencia-fraca);
+}
+
+.ice-ficha__erro {
+  margin: var(--espaco-2) 0 0;
+  color: var(--evidencia-fraca);
+  font-size: var(--apoio-tamanho);
+}
+
+.ice-ficha__status {
+  margin: 0;
+  min-height: 1.5em;
+}
+
+.ice-hoje__rodape {
+  margin-top: var(--espaco-6);
+  color: var(--tinta-suave);
+  font-size: var(--apoio-tamanho);
+}
+
+.ice-carta {
+  padding: var(--espaco-6) var(--espaco-4);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-painel);
+  background: var(--superficie);
+}
+
+.ice-carta__progresso,
+.ice-carta__dica {
+  color: var(--tinta-suave);
+  font-size: var(--apoio-tamanho);
+}
+
+.ice-carta__pt,
+.ice-carta__en {
+  font-family: var(--font-titulo);
+  font-size: var(--titulo-3-tamanho);
+  line-height: var(--titulo-3-altura);
+  font-weight: var(--titulo-3-peso);
+}
+
+.ice-carta__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-3);
+  margin-top: var(--espaco-4);
+}
+
 /* Botões do Passaporte dentro do texto: o tema pinta todo link com a cor da marca,
    o que apagaria o texto do botão primário sobre o próprio fundo. */
 .md-typeset a.pp-botao,

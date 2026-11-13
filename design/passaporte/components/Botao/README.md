@@ -9,9 +9,10 @@ Use `pp-botao--primario` uma vez por tela, para o que a pessoa veio fazer ("Marc
 ```html
 <button type="button" class="pp-botao pp-botao--primario">Marcar o próximo passo</button>
 <button type="button" class="pp-botao">Ouvir</button>
-<a class="pp-botao" href="/situacoes/restaurante/">Próxima situação</a>
+<a class="pp-botao" href="../restaurante/">Próxima situação</a>
 ```
 
+- Links sempre com caminho relativo (`../restaurante/`), nunca começando com `/`: o site fica numa subpasta do GitHub Pages.
 - Um verbo que diga o que acontece. Depois da ação, troque o texto para confirmar ("Copiado").
 - `pp-botao--largo` força a largura toda também no computador.
 - Desabilitado: atributo `disabled` e o motivo no texto ("Sem áudio aqui").

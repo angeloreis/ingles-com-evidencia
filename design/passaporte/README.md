@@ -25,7 +25,7 @@ Passaporte é o visual do site **Inglês com Evidência**, um guia aberto e grat
 - Um `titulo-1` por página, seções em `titulo-2`, cartões e blocos em `titulo-3`.
 - `etiqueta` e `carimbo` vão sempre em maiúsculas, com o espaçamento do estilo.
 - Sílaba forte em `pronuncia`, com a sílaba tônica em negrito e maiúsculas: va·**CA**·tion.
-- As fontes vêm do Google Fonts: Archivo 700 e 800, Figtree 400 e 700, IBM Plex Mono 500 e 600. Sem elas, as pilhas caem nas fontes do sistema.
+- As fontes (Archivo, Figtree e IBM Plex Mono) são servidas pelo próprio site, nunca pelo Google Fonts; origem e licenças em [fontes.md](fontes.md). Sem elas, as pilhas caem nas fontes do sistema.
 
 ## Espaço, forma e celular primeiro
 

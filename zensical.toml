@@ -15,10 +15,39 @@ extra_css = [
   "estilos/bundle.css",
   "estilos/ponte.css",
 ]
+# Ordem importa: núcleo, lógica pura, depois as páginas.
+extra_javascript = [
+  "js/nucleo.js",
+  "js/logica/datas.js",
+  "js/logica/audio.js",
+  "js/logica/treino.js",
+  "js/logica/plano.js",
+  "js/logica/ficha.js",
+  "js/paginas/audio.js",
+  "js/paginas/roteiro.js",
+  "js/paginas/treino.js",
+  "js/paginas/hoje.js",
+  "js/paginas/ficha.js",
+]
 nav = [
   { "Início" = "index.md" },
+  { "Situações" = [
+    { "Visão geral" = "situacoes/index.md" },
+    { "Telefonar e marcar reunião" = "situacoes/telefonar.md" },
+  ] },
+  { "Trilhas e planos" = [
+    { "Visão geral" = "trilhas/index.md" },
+    { "Destravar a fala: hoje" = "trilhas/destravar/hoje.md" },
+    { "Destravar a fala: semanas" = "trilhas/destravar/index.md" },
+    { "Destravar a fala: ficha" = "trilhas/destravar/ficha.md" },
+  ] },
+  { "Treinar cartas" = "treinar.md" },
   { "Sobre e créditos" = "sobre.md" },
 ]
+
+[project.extra]
+# Sem "Made with Zensical" no rodapé: o site é todo em português.
+generator = false
 
 [project.theme]
 language = "pt-BR"
@@ -60,4 +89,9 @@ toggle.name = "Seguir o tema do aparelho"
 admonition = {}
 attr_list = {}
 md_in_html = {}
+# Trechos gerados em kit/gerado/ entram nas páginas com --8<-- "kit/gerado/arquivo.md";
+# trecho ausente derruba o build.
+pymdownx.snippets.base_path = ["."]
+pymdownx.snippets.check_paths = true
 toc.permalink = true
+toc.permalink_title = "Link para esta seção"

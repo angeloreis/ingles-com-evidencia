@@ -22,12 +22,16 @@ O site usa três fontes, todas sob a SIL Open Font License 1.1, servidas pelo pr
 - **Figtree**, no texto ([licença](estilos/fontes/LICENCAS/figtree-OFL.txt)).
 - **IBM Plex Mono**, nas etiquetas ([licença](estilos/fontes/LICENCAS/ibm-plex-mono-OFL.txt)).
 
+## Áudio
+
+Os áudios das frases e dos diálogos são **voz sintética**, gerada pelo projeto com o modelo aberto Kokoro (licença Apache 2.0). Servem para ouvir a pronúncia e treinar; para ouvir a fala natural de pessoas, o guia indica conteúdos externos.
+
 ## Privacidade
 
 - O site não usa rastreadores nem anúncios.
 - As fontes são servidas pelo próprio site, sem passar pelo Google Fonts.
-- Quando houver progresso salvo (o plano do dia e a ficha semanal), ele vai ficar só no seu aparelho, sem login.
+- O progresso do plano do dia, do treino de cartas e da ficha semanal fica só no seu aparelho (no armazenamento do navegador), sem login. Trocar de aparelho ou limpar o navegador apaga esse progresso.
 
 ## Código e erros
 
-O código e os textos estão no [repositório do projeto no GitHub](https://github.com/angeloreis/ingles-com-evidencia). Achou um erro no inglês ou no texto? [Abra uma issue](https://github.com/angeloreis/ingles-com-evidencia/issues) contando a página e o trecho.
+O código e os textos estão no [repositório do projeto no GitHub](https://github.com/angeloreis/ingles-com-evidencia). A lista completa de fontes, licenças e autores de cada frase está nos [créditos](https://github.com/angeloreis/ingles-com-evidencia/blob/main/CREDITOS.md). Achou um erro no inglês ou no texto? [Abra uma issue](https://github.com/angeloreis/ingles-com-evidencia/issues) contando a página e o trecho.
