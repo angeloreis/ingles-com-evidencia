@@ -22,7 +22,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("fontes/ibm-plex-mono-latin-500-normal.woff2") format("woff2");
+  src: url("fontes/IBMPlexMono-Medium-Latin1.woff2") format("woff2");
 }
 
 @font-face {
@@ -30,5 +30,5 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fontes/ibm-plex-mono-latin-600-normal.woff2") format("woff2");
+  src: url("fontes/IBMPlexMono-SemiBold-Latin1.woff2") format("woff2");
 }

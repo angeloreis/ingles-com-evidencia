@@ -30,6 +30,18 @@ def test_cada_familia_do_passaporte_tem_font_face():
     assert css().count("font-display: swap;") == 4
 
 
+def test_ibm_plex_mono_vem_dos_arquivos_da_propria_ibm():
+    # A licença da IBM reserva o nome "Plex": um recorte de terceiros não pode
+    # usar o nome, então os arquivos são os publicados pela IBM (@ibm/plex-mono).
+    urls = re.findall(r'url\("([^"]+)"\)', css())
+    assert sorted(u for u in urls if "lex" in u.lower()) == [
+        "fontes/IBMPlexMono-Medium-Latin1.woff2",
+        "fontes/IBMPlexMono-SemiBold-Latin1.woff2",
+    ]
+    licenca = (ESTILOS / "fontes/LICENCAS/ibm-plex-mono-OFL.txt").read_text(encoding="utf-8")
+    assert 'Reserved Font Name "Plex"' in licenca
+
+
 def test_cada_fonte_tem_licenca_ofl():
     for nome in ["archivo", "figtree", "ibm-plex-mono"]:
         texto = (ESTILOS / f"fontes/LICENCAS/{nome}-OFL.txt").read_text(encoding="utf-8")
