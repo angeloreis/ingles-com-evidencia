@@ -129,7 +129,16 @@ Cada capítulo segue a mesma estrutura, com os componentes do Passaporte:
 | Fraca | Poucos estudos, estudos indiretos ou resultados mistos |
 | Sem evidência | Nenhum estudo, ou estudos contra a promessa |
 
+O selo vale para a técnica como o guia propõe praticá-la: fica um nível abaixo do que o critério daria quando os estudos tratam de algo mais amplo do que a prática proposta ou medem só uma relação, e não o efeito de usar a técnica. O capítulo 1 conta essa regra ao leitor (decidido na revisão final da 1B).
+
 **Referências de partida (a conferir uma a uma antes de citar):** Cepeda et al. (2006), sobre prática espaçada; Karpicke e Roediger (2008), sobre recordação ativa; Atkinson e Raugh (1975), sobre a técnica da palavra-chave; Nation (2006), sobre tamanho de vocabulário para ouvir e ler; Browne, Culligan e Phillips (NGSL); Montero Perez, Van Den Noortgate e Desmet (2013), metanálise sobre legendas; Hamada, sobre shadowing; Nation (1989) e De Jong e Perfetti (2011), sobre a técnica 4/3/2; Horwitz, Horwitz e Cope (1986), sobre ansiedade em língua estrangeira; Swain (1985), sobre produção oral. **Nenhuma referência entra no guia sem que o resumo do estudo tenha sido lido.** Se uma delas não disser o que se espera, o texto muda, não a referência.
+
+*Decidido na Fase 1B (13/11/2026):*
+- **Registro de leitura** em `docs/pesquisa/referencias.md`: uma entrada por estudo citado, com o link, a data da leitura, o que o resumo diz (com palavras próprias) e onde é usado. Os resumos foram lidos em bases abertas (OpenAlex e Crossref); o ano citado é o do volume impresso.
+- **Conferência no `construir`** (`scripts/guia.py`): cada capítulo de técnica tem o carimbo antes da primeira seção, as três seções na ordem, "Armadilhas" e "Referências" por último; toda citação tem referência, toda referência é citada, tem link https e tem entrada completa no registro. Capítulo publicado entra na lista `CAPITULOS`. Capítulo com mais de uma técnica (o 9) traz, abaixo do título, um carimbo reto por técnica.
+- **Referências trocadas:** Nation (1989) e Horwitz, Horwitz e Cope (1986) ficaram de fora, porque o resumo não está aberto (as bases abertas não trazem o campo, e as páginas das editoras recusam a leitura automática ou pedem verificação humana). A técnica 4/3/2 se apoia em De Jong e Perfetti (2011), Boers (2014) e Thai e Boers (2016); a ansiedade, em duas metanálises (Teimouri et al., 2019; Botes et al., 2020) e em duas revisões de intervenções. Swain (1985), capítulo de livro, deu lugar a Swain e Lapkin (1995).
+- **Selos publicados:** capítulo 6, moderada; 8, moderada; 9, moderada para a técnica 4/3/2, fraca para gravar a própria voz (nenhum estudo isola o efeito) e fraca para as cartas ao contrário (poucos experimentos, com palavras soltas, e o resumo da metanálise não diz qual direção ganha); 10, moderada; 11, moderada (as metanálises sobre chatbots são a favor, mas a IA de uso geral no modo de voz é só uma parte do que foi estudado).
+- O capítulo 8 diz que a voz do kit é sintética e indica fala real gratuita, com o texto ao lado, só com link (VOA Learning English e TED).
 
 ### 5.2 Kit de prática
 
@@ -142,6 +151,7 @@ Cada capítulo segue a mesma estrutura, com os componentes do Passaporte:
 - Gravar a própria voz uma vez por semana e comparar com a semana anterior.
 - Uma conversa real por semana (tandem, amigo, colega) e os roteiros de IA nos outros dias.
 - Plano de **12 semanas**, com 20 a 30 minutos por dia.
+- *Fase 1B:* semanas 1 a 6 publicadas, só com as situações 6, 7 e 8, com um passo de 5 minutos por semana para ler o capítulo do guia ligado ao foco da semana. Depois da última semana publicada, a página "Hoje" avisa que as próximas ainda não saíram e oferece repetir a última semana ou treinar as cartas.
 
 **Do zero ao A2**
 - Pronúncia primeiro: os sons que o português não tem (th, vogais curtas e longas, finais de palavra).
@@ -169,7 +179,8 @@ Cada situação tem: **Faixa**, 8 a 12 **Frases** (com tradução e sílaba fort
 Regras de conteúdo sensível:
 - **Imigração e polícia:** o comportamento recomendado (por exemplo, mãos no volante numa abordagem) vem **só de fonte oficial** (manuais de trânsito dos estados ou províncias, sites do CBP e da CBSA), com o link. A página avisa que o material treina o idioma e **não é orientação jurídica nem migratória**.
 - Na imigração, o treino é responder **com clareza e com a verdade**. O kit não ensina o que dizer sobre planos de imigração.
-- Situação 7 inclui a pronúncia de termos técnicos que brasileiros costumam errar (cache, SQL, Nginx, GUI, entre outros), conferida em dicionário com pronúncia.
+- Situação 7 inclui a pronúncia de termos técnicos que brasileiros costumam errar (cache, SQL, Nginx, GUI, entre outros), conferida em dicionário com pronúncia. *Fase 1B:* conferida no Oxford Learner's Dictionaries, porque o Cambridge pede verificação humana; nome de projeto fora do dicionário, na documentação oficial (PostgreSQL, Nginx). Termo sem fonte que diga a pronúncia ficou de fora (regex, async, JSON, SQL, Kubernetes, refactor) e também o que tem duas pronúncias americanas (router).
+- Situação 8 treina dizer a verdade com clareza: nenhuma frase ensina inventar experiência ou esconder fatos.
 
 #### Dados
 
@@ -185,10 +196,11 @@ Um CSV por baralho em `kit/dados/`, UTF-8, com cabeçalho. Colunas:
 | `fonte` | sim | `ngsl`, `tatoeba:<id da frase>` ou `projeto` |
 | `licenca` | sim | `CC BY-SA 4.0`, `CC BY 2.0 FR`, `CC0` |
 | `autor` | quando a licença pede | Usuário ou autor de origem |
+| `leitura` | não | O texto que a voz sintética lê no lugar do `en`, quando a escrita engana a voz (por exemplo, PostgreSQL → "post gress Q L"). Conferido contra o IPA americano do dicionário com o fonemizador do Kokoro. *Fase 1B.* |
 
 O `id` alimenta o identificador da nota no Anki, para que uma correção de tradução atualize a carta de quem já importou o baralho, em vez de duplicar.
 
-Os diálogos ficam em `kit/dialogos/`, um CSV por situação, com as colunas `id`, `situacao`, `ordem`, `falante` (`A` ou `B`), `en`, `pt`, `fonte`, `licenca` e `autor`; os ids são únicos entre baralhos e diálogos, porque viram nome de arquivo de áudio. *(Fase 1A.)*
+Os diálogos ficam em `kit/dialogos/`, um CSV por situação, com as colunas `id`, `situacao`, `ordem`, `falante` (`A` ou `B`), `en`, `pt`, `fonte`, `licenca`, `autor` e `leitura` (opcional, como nos baralhos); os ids são únicos entre baralhos e diálogos, porque viram nome de arquivo de áudio. *(Fase 1A.)*
 
 Os planos ficam em `kit/planos/<trilha>.csv`, uma linha por passo: `semana`, `dia`, `ordem`, `passo`, `minutos`, `link` (página do site ou baralho usado). O script gera a partir deles as páginas "Hoje" e a lista de semanas, e confere se a soma dos minutos de cada dia bate com o limite da trilha.
 
@@ -212,7 +224,9 @@ Os planos ficam em `kit/planos/<trilha>.csv`, uma linha por passo: `semana`, `di
 - **Menu:** Início ("Por onde começar", com a escolha da trilha), Guia, Situações, Trilhas e planos, Sobre e créditos.
 - **Plano do dia:** página "Hoje" de cada trilha com **PassosDoDia**. Na primeira visita, a pessoa escolhe "começar hoje" ou a semana em que está; o site guarda essa data e os passos marcados **só no aparelho** (localStorage), sem login, e calcula o dia do plano. A página avisa que trocar de aparelho ou limpar o navegador zera o progresso, e oferece também a lista completa das semanas para quem preferir seguir sem o "Hoje".
 - **Ficha de progresso:** página da trilha com um registro por semana (data da gravação da voz, tempos da técnica 4/3/2, conversa real feita ou não, confiança de 1 a 5), salvo da mesma forma, só no aparelho.
-- **Áudio:** o botão "Ouvir" toca o arquivo gerado. Sem arquivo, o botão aparece desabilitado com "Sem áudio aqui".
+- **Áudio:** o botão "Ouvir" toca o arquivo gerado. Sem arquivo, o botão aparece desabilitado com "Sem áudio aqui". *Fase 1B:* o botão já nasce desabilitado no HTML, e o script o habilita quando o áudio existe.
+- **Treino de cartas:** o filtro mostra o número e o título de cada situação, lidos de `conteudo/dados/situacoes.json` (gerado). *Fase 1B.*
+- **Tamanho do texto:** tabelas e avisos (`!!! note`) ficam com o tamanho do texto corrido (17 px); o tema os reduzia para 12,8 px. *Fase 1B.*
 - **Busca** do próprio Zensical, conferindo se funciona bem em português. *Conferido na Fase 0:* acha com e sem acento ("evidencia" acha "evidência", "licenca" acha "licença"). Pendência conhecida: o contador de resultados aparece em inglês ("4 results"), porque a interface da busca do Zensical 0.1.1 ainda não é traduzida.
 - **Tema:** o site começa seguindo o tema do aparelho (claro ou escuro); o botão alterna entre automático, claro e escuro, e a escolha vale para todas as páginas. *Decidido na Fase 0:* com só duas opções (claro e escuro), o tema gravava o esquema do primeiro acesso e deixava de acompanhar o aparelho.
 - **Trechos gerados nas páginas:** frases, diálogos e lista de semanas são gerados de `kit/` para `kit/gerado/` e entram nas páginas escritas à mão com `--8<-- "kit/gerado/arquivo.md"` (`pymdownx.snippets`); trecho ausente derruba o build. Link em HTML cru dentro de uma página aponta para o `.md` de origem (`../treinar.md?situacao=6`), porque o Zensical reescreve esses links a partir do arquivo de origem e confere no modo estrito. *Decidido na Fase 1A.*
@@ -227,17 +241,18 @@ ingles-com-evidencia/
 ├── conteudo/                 textos do site (guia, situações, trilhas, sobre)
 │   ├── estilos/              tokens.css (gerado), bundle.css, ponte.css, fontes.css e fontes/
 │   ├── js/                   núcleo, lógica pura (testada no pytest) e scripts de página
-│   ├── dados/                cartas.json e planos em JSON (gerados)
+│   ├── dados/                cartas.json, situacoes.json e planos em JSON (gerados)
 │   └── audio/                MP3 e manifesto (gerados, fora do git)
 ├── design/passaporte/        fonte do design system: tokens.json, guia de componentes, origem das fontes
 ├── docs/                     documentos do projeto, fora do site
+│   ├── pesquisa/             referencias.md: o registro de leitura dos estudos citados no guia
 │   └── superpowers/          specs/ (este documento) e plans/ (planos por fase)
 ├── kit/
 │   ├── dados/                CSVs dos baralhos
 │   ├── dialogos/             CSVs dos diálogos
 │   ├── planos/               CSVs dos planos das trilhas
 │   └── gerado/               trechos HTML e Markdown incluídos nas páginas (gerados)
-├── scripts/                  construir.py, validar.py, estilos.py
+├── scripts/                  construir.py e os módulos que ele chama (guia.py confere os capítulos)
 ├── tests/                    testes (pytest)
 ├── zensical.toml             com docs_dir = "conteudo"
 ├── pyproject.toml            configuração do pytest
