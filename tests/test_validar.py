@@ -131,3 +131,57 @@ def test_pasta_conta_linhas(tmp_path):
 def test_pasta_sem_csv(tmp_path):
     r = validar_pasta(tmp_path)
     assert len(r.erros) == 1 and r.erros[0].linha == 0 and "nenhum CSV" in r.erros[0].mensagem
+
+
+# --- Fase 1A, Tarefa 1: diálogos e ajustes do cabeçalho -------------------
+
+from scripts.validar import DIALOGO  # noqa: E402
+
+CAB_DIALOGO = ["id", "situacao", "ordem", "falante", "en", "pt", "fonte", "licenca", "autor"]
+FALA = {"id": "telefonar-d01", "situacao": "6", "ordem": "1", "falante": "A",
+        "en": "Hi, it's Ana from the data team.", "pt": "Oi, é a Ana do time de dados.",
+        "fonte": "projeto", "licenca": "CC BY-SA 4.0", "autor": ""}
+
+
+def erros_dialogo(tmp_path, texto):
+    return validar_arquivo(gravar(tmp_path, texto), {}, DIALOGO).erros
+
+
+def test_dialogo_valido(tmp_path):
+    texto = montar(FALA, {**FALA, "id": "telefonar-d02", "ordem": "2", "falante": "B"}, cab=CAB_DIALOGO)
+    assert erros_dialogo(tmp_path, texto) == []
+
+
+@pytest.mark.parametrize("linhas, trecho", [
+    ([{**FALA, "falante": "C"}], "falante"),
+    ([FALA, {**FALA, "id": "telefonar-d02"}], "ordem"),
+    ([{**FALA, "ordem": "0"}], "ordem"),
+])
+def test_dialogo_erros(tmp_path, linhas, trecho):
+    e = erros_dialogo(tmp_path, montar(*linhas, cab=CAB_DIALOGO))
+    assert len(e) == 1 and trecho in e[0].mensagem
+
+
+def test_id_repetido_entre_baralho_e_dialogo(tmp_path):
+    (tmp_path / "dados").mkdir()
+    (tmp_path / "dialogos").mkdir()
+    gravar(tmp_path / "dados", montar(BASE), "a.csv")
+    gravar(tmp_path / "dialogos", montar({**FALA, "id": "reuniao-01"}, cab=CAB_DIALOGO), "b.csv")
+    ids = {}
+    assert validar_pasta(tmp_path / "dados", ids_vistos=ids).erros == []
+    e = validar_pasta(tmp_path / "dialogos", DIALOGO, ids_vistos=ids).erros
+    assert len(e) == 1 and "id repetido" in e[0].mensagem
+
+
+@pytest.mark.parametrize("cab, trecho", [
+    (CAB + [""], "sem nome"),
+    (CAB + ["en"], "repetida"),
+])
+def test_cabecalho_coluna_sem_nome_e_repetida(tmp_path, cab, trecho):
+    e = erros(tmp_path, montar(BASE, cab=cab))
+    assert e and all(x.linha == 1 for x in e) and any(trecho in x.mensagem for x in e)
+
+
+def test_digito_de_outro_alfabeto_nao_vale(tmp_path):
+    e = erros(tmp_path, montar({**BASE, "situacao": "６"}))
+    assert len(e) == 1 and "situacao" in e[0].mensagem

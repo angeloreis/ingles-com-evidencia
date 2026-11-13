@@ -1,0 +1,13 @@
+id,situacao,ordem,falante,en,pt,fonte,licenca,autor
+telefonar-d01,6,1,A,"Hi Sam, it's Alex. Do you have a minute?","Oi, Sam, é o Alex. Você tem um minuto?",projeto,CC BY-SA 4.0,
+telefonar-d02,6,2,B,"Sure, Alex. What's up?","Claro, Alex. O que houve?",projeto,CC BY-SA 4.0,
+telefonar-d03,6,3,A,I'd like to set up a quick meeting about the new release.,Eu queria marcar uma reunião rápida sobre a nova versão.,projeto,CC BY-SA 4.0,
+telefonar-d04,6,4,B,Good idea. When works for you?,Boa ideia. Quando fica bom para você?,projeto,CC BY-SA 4.0,
+telefonar-d05,6,5,A,Are you available on Thursday afternoon?,Você está disponível na quinta à tarde?,projeto,CC BY-SA 4.0,
+telefonar-d06,6,6,B,Thursday works. What time were you thinking?,Quinta funciona. Que horário você pensou?,projeto,CC BY-SA 4.0,
+telefonar-d07,6,7,A,How about 3 p.m. Eastern Time?,"Que tal às 15h, no horário do leste dos Estados Unidos?",projeto,CC BY-SA 4.0,
+telefonar-d08,6,8,B,"Sorry, could you say that again a bit more slowly?","Desculpe, você pode repetir um pouco mais devagar?",projeto,CC BY-SA 4.0,
+telefonar-d09,6,9,A,"Sure. Three p.m., Eastern Time.","Claro. Três da tarde, no horário do leste dos Estados Unidos.",projeto,CC BY-SA 4.0,
+telefonar-d10,6,10,B,Perfect. That's noon for me.,Perfeito. Para mim é meio-dia.,projeto,CC BY-SA 4.0,
+telefonar-d11,6,11,A,Great. I'll send you a calendar invite with the link.,Ótimo. Vou te mandar um convite na agenda com o link.,projeto,CC BY-SA 4.0,
+telefonar-d12,6,12,B,"Thanks, Alex. Talk to you on Thursday!","Valeu, Alex. Falamos na quinta!",projeto,CC BY-SA 4.0,

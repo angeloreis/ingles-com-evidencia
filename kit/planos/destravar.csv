@@ -1,0 +1,14 @@
+semana,dia,ordem,passo,minutos,link
+1,1,1,Ouvir e repetir em voz alta as frases da situação 6,10,situacoes/telefonar/
+1,1,2,Treinar as cartas da situação 6,10,treinar/?situacao=6
+1,1,3,Gravar a sua voz lendo as frases e anotar a data na ficha,5,trilhas/destravar/ficha/
+1,2,1,"Shadowing do diálogo: ouvir e falar junto, três vezes",10,situacoes/telefonar/
+1,2,2,Treinar as cartas da situação 6,10,treinar/?situacao=6
+1,3,1,Treinar as cartas da situação 6,10,treinar/?situacao=6
+1,3,2,"Técnica 4/3/2: explicar o seu trabalho em inglês em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+1,4,1,Shadowing do diálogo,10,situacoes/telefonar/
+1,4,2,Roteiro de IA: marcar uma reunião no modo de voz,15,situacoes/telefonar/
+1,5,1,Treinar as cartas da situação 6,10,treinar/?situacao=6
+1,5,2,Reler as notas culturais e repetir as frases que você errou,10,situacoes/telefonar/
+1,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
+1,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/

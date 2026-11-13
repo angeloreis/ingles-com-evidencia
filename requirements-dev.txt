@@ -1,2 +1,4 @@
 -r requirements-site.txt
+-r requirements-kit.txt
 pytest==9.2.0
+mini-racer==0.14.1
