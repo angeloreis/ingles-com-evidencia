@@ -1,0 +1,2 @@
+-r requirements-site.txt
+pytest==9.2.0
