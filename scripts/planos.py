@@ -5,6 +5,7 @@ import csv
 import io
 import json
 import re
+import unicodedata
 from pathlib import Path
 
 from scripts.validar import RE_NUMERO, Erro
@@ -37,14 +38,31 @@ def _inteiro(texto: str, minimo: int, maximo: int) -> int | None:
     return None
 
 
-def _link_existe(link: str, raiz_conteudo: Path) -> bool:
+def _pagina_do_link(link: str, raiz_conteudo: Path) -> Path | None:
+    """A página .md que o link abre (<caminho>.md ou <caminho>/index.md), ou None."""
     caminho = link.split("#", 1)[0].split("?", 1)[0].strip("/")
-    if not caminho:
-        return (raiz_conteudo / "index.md").exists()
-    return (raiz_conteudo / f"{caminho}.md").exists() or (raiz_conteudo / caminho / "index.md").exists()
+    candidatas = [raiz_conteudo / "index.md"] if not caminho else [
+        raiz_conteudo / f"{caminho}.md", raiz_conteudo / caminho / "index.md"]
+    return next((c for c in candidatas if c.exists()), None)
 
 
-def validar_plano(caminho: Path, trilha: str, raiz_conteudo: Path) -> list[Erro]:
+def _slug(titulo: str) -> str:
+    """O id que o Python-Markdown dá a um título (a extensão toc, com o slugify padrão)."""
+    texto = re.sub(r"<[^>]+>", "", titulo).replace("*", "").replace("`", "")
+    texto = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode("ascii")
+    texto = re.sub(r"[^\w\s-]", "", texto).strip().lower()
+    return re.sub(r"[-\s]+", "-", texto)
+
+
+def ancoras(pagina: Path) -> set[str]:
+    """As âncoras dos títulos (# a ######) de uma página .md."""
+    return {_slug(m.group(1)) for m in re.finditer(r"^#{1,6} +(.+?) *#*$",
+                                                    Path(pagina).read_text(encoding="utf-8"), re.M)}
+
+
+def validar_plano(caminho: Path, trilha: str, raiz_conteudo: Path,
+                  situacoes: set[int] | None = None) -> list[Erro]:
+    """situacoes: as situações com cartas; um link ?situacao=N fora delas é erro (None: não confere)."""
     nome = str(caminho)
     config = TRILHAS[trilha]
     try:
@@ -86,9 +104,18 @@ def validar_plano(caminho: Path, trilha: str, raiz_conteudo: Path) -> list[Erro]
             erros.append(Erro(nome, numero, "o link só pode ter letras minúsculas sem acento, números e os sinais "
                                              f"/ - ? # = & _, como treinar/?situacao=6 (veio {link})"))
             continue
-        if link and not _link_existe(link, raiz_conteudo):
+        pagina = _pagina_do_link(link, raiz_conteudo) if link else None
+        if link and pagina is None:
             erros.append(Erro(nome, numero, f"o link {link} não existe em conteudo/"))
             continue
+        # Os dois erros abaixo não tiram os minutos do passo da soma do dia, para não somar um erro falso.
+        pedida = re.search(r"[?&]situacao=([0-9]+)", link)
+        if pedida and situacoes is not None and int(pedida.group(1)) not in situacoes:
+            erros.append(Erro(nome, numero, f"o link pede a situação {int(pedida.group(1))}, que não tem cartas"))
+        trecho = link.split("#", 1)[1] if "#" in link else ""
+        if trecho and trecho not in ancoras(pagina):
+            destino = pagina.relative_to(raiz_conteudo).as_posix()
+            erros.append(Erro(nome, numero, f"a página {destino} não tem o trecho #{trecho}"))
         registro = dias.setdefault((semana, dia), {"linha": numero, "minutos": 0, "ordens": set()})
         if ordem in registro["ordens"]:
             erros.append(Erro(nome, numero, f"ordem repetida: o passo {ordem} já existe no dia {dia} da semana {semana}"))
