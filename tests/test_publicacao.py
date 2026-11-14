@@ -41,3 +41,14 @@ def test_cache_do_audio_nos_dois_jobs():
 def test_release_pode_rodar_de_novo():
     assert "gh release view" in ACTION
     assert re.search(r"gh release upload .*--clobber", ACTION)
+
+
+def test_publicacao_do_site_pode_rodar_de_novo():
+    # Rodar de novo o job que falhou guarda um segundo pacote "github-pages" na mesma execução, e o deploy-pages
+    # recusa quando acha dois (aconteceu no push da v0.3.0). Cada tentativa usa um pacote com nome próprio.
+    upload = re.search(r"uses: actions/upload-pages-artifact@\S+\n\s+with:\n((?:\s+\S.*\n)+)", ACTION)
+    deploy = re.search(r"uses: actions/deploy-pages@\S+\n((?:\s+\S.*\n)+)", ACTION)
+    assert upload and deploy
+    nome = "github-pages-${{ github.run_attempt }}"
+    assert f"name: {nome}" in upload.group(1)
+    assert f"artifact_name: {nome}" in deploy.group(1)
