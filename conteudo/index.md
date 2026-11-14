@@ -12,7 +12,7 @@ Cursos de inglês prometem muita coisa. Aqui, cada técnica que eles vendem é c
 
 ### Destravar a fala
 
-Para quem entende inglês, assiste vídeos sem legenda, mas trava na hora de falar. São 12 semanas, com 20 a 30 minutos por dia; as semanas 1 a 6 já estão no ar.
+Para quem entende inglês, assiste vídeos sem legenda, mas trava na hora de falar. São 12 semanas, com 20 a 30 minutos por dia, e todas já estão no ar.
 
 <p><a class="pp-botao pp-botao--primario" href="trilhas/destravar/hoje.md">Começar a trilha Destravar a fala</a></p>
 
@@ -35,6 +35,6 @@ Cada técnica do guia recebe um selo de evidência, de "evidência forte" a "sem
 
 !!! info "O site está em construção"
 
-    Já estão no ar seis capítulos do guia, as três situações de trabalho (telefonar e marcar reunião, conversar sobre programação, IA e frameworks, e entrevista para trabalho remoto) e as semanas 1 a 6 da trilha Destravar a fala. Os outros capítulos, as situações de viagem e a trilha Do zero ao A2 vão entrando aos poucos, cada um com as referências da pesquisa conferidas.
+    Já estão no ar seis capítulos do guia, as oito situações de treino (cinco de viagem e três de trabalho) e as 12 semanas da trilha Destravar a fala. Os outros capítulos do guia e a trilha Do zero ao A2 vão entrando aos poucos, cada um com as referências da pesquisa conferidas.
 
 <p><a class="pp-botao" href="sobre.md">Conhecer o projeto</a></p>

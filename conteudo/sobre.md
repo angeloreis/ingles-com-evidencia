@@ -12,6 +12,7 @@ O Inglês com Evidência é um projeto aberto e gratuito para quem estuda inglê
 
 - **Conteúdo** (textos, frases, planos): [Creative Commons Atribuição-CompartilhaIgual 4.0 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br). É a licença exigida pela lista de vocabulário NGSL, base do vocabulário do kit: quem reaproveitar o conteúdo precisa dar o crédito e manter a mesma licença.
 - **Código** (scripts e testes): licença MIT.
+- **Frases do Tatoeba:** parte das frases em inglês vem do [Tatoeba](https://tatoeba.org/pt-br/), um banco aberto de frases, sob CC BY 2.0 FR ou CC0. Embaixo de cada uma aparecem o número dela no Tatoeba e o autor; a tradução para o português é do projeto.
 - Nenhum material com licença "não comercial" entra no projeto.
 
 ## Fontes

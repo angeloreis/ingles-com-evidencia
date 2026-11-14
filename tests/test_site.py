@@ -227,6 +227,7 @@ def test_situacao_7_publicada(site):
     tabela = html.split('id="pronuncia-dos-termos"', 1)[1].split("</table>", 1)[0]
     linhas = re.findall(r"<tr>(.*?)</tr>", tabela, re.S)[1:]
     assert len(linhas) >= 10
+    assert "linux" not in tabela.lower()  # duas pronúncias americanas, como router e GUI
     for linha in linhas:
         assert 'href="https://' in linha and 'lang="en"' in linha, linha
 
@@ -246,11 +247,25 @@ def test_entrada_cita_o_que_esta_no_ar(site):
     inicio = _artigo((site / "index.html").read_text(encoding="utf-8"))
     assert 'href="guia/"' in inicio
     assert "a primeira semana já está no ar" not in inicio
+    assert "semanas 1 a 6" not in inicio  # Fase 2A: as 12 semanas estão no ar
     situacoes = _artigo((site / "situacoes/index.html").read_text(encoding="utf-8"))
-    for slug in ("telefonar", "tecnologia", "entrevista"):
+    from scripts.situacoes import SITUACOES
+    for slug, _ in SITUACOES.values():
         assert f'href="{slug}/"' in situacoes, slug
+    trilhas = _artigo((site / "trilhas/index.html").read_text(encoding="utf-8"))
+    assert "semanas 1 a 6" not in trilhas and "12 semanas estão no ar" in trilhas
+    for capitulo in ("frases-chave", "ia-modo-de-voz"):  # capítulos 6 e 11 indicam as oito situações
+        texto = (RAIZ / f"conteudo/guia/{capitulo}.md").read_text(encoding="utf-8")
+        assert "../situacoes/index.md" in texto, capitulo
     sobre = _artigo((site / "sobre/index.html").read_text(encoding="utf-8"))
     assert 'href="../guia/shadowing/"' in sobre  # M15: o capítulo 8 indica a fala real
+    assert "tatoeba.org" in sobre
+
+
+def test_treino_aponta_o_credito_do_tatoeba(site):
+    # O treino mostra o inglês das frases do Tatoeba; o crédito de cada uma fica na página da situação (I1).
+    treino = _artigo((site / "treinar/index.html").read_text(encoding="utf-8"))
+    assert 'href="https://tatoeba.org/pt-br/"' in treino and "página da situação" in treino
 
 
 def test_filtro_do_treino_cabe_na_tela():
@@ -258,3 +273,140 @@ def test_filtro_do_treino_cabe_na_tela():
     ponte = (RAIZ / "conteudo/estilos/ponte.css").read_text(encoding="utf-8")
     regra = re.search(r"\.ice-treino__filtro select\s*\{([^}]*)\}", ponte)
     assert regra and "max-width: 100%;" in regra.group(1)
+
+
+def test_link_do_passo_com_area_de_toque():
+    # M5 da 1A: o link do passo fica fora do label, com área de toque própria
+    ponte = (RAIZ / "conteudo/estilos/ponte.css").read_text(encoding="utf-8")
+    regra = re.search(r"\.pp-passos__abrir\s*\{([^}]*)\}", ponte)
+    assert regra and "min-height: var(--alvo-toque);" in regra.group(1)
+
+
+# --- Fase 2A: situações de viagem -------------------------------------------------------------
+import csv as _csv
+from urllib.parse import urlparse
+
+OFICIAIS = ("github.com", "tatoeba.org", "www.oxfordlearnersdictionaries.com", "creativecommons.org")
+
+
+def _link_oficial(url):
+    host = urlparse(url).hostname or ""
+    if host in OFICIAIS:
+        return url.startswith("https://github.com/angeloreis/ingles-com-evidencia/") or host != "github.com"
+    return (host.endswith(".gov") or host.endswith(".gc.ca") or host.endswith("canada.ca")
+            or host.endswith("ontario.ca") or re.search(r"(^|\.)gov\.[a-z]{2}\.ca$", host) is not None)
+
+
+def _ingles_da_situacao(n):
+    textos = []
+    for pasta in ("dados", "dialogos"):
+        caminho = RAIZ / "kit" / pasta / f"situacao-{n:02d}.csv"
+        with open(caminho, encoding="utf-8", newline="") as f:
+            textos += [l["en"].lower() for l in _csv.DictReader(f)]
+    return textos
+
+
+def _situacao_publicada(site, slug):
+    html = (site / "situacoes" / slug / "index.html").read_text(encoding="utf-8")
+    assert html.count('class="pp-frase"') >= 18
+    assert "data-audio-sequencia" in html and "pp-roteiro" in html
+    return _artigo(html)
+
+
+def _so_links_oficiais(artigo):
+    externos = re.findall(r'href="(https://[^"]+)"', artigo)
+    assert externos
+    for url in externos:
+        assert _link_oficial(url), url
+
+
+def _sem_palavras(n, proibidas):
+    for en in _ingles_da_situacao(n):
+        for palavra in proibidas:
+            assert palavra not in en, (palavra, en)
+
+
+def test_situacao_1_publicada(site):
+    artigo = _situacao_publicada(site, "imigracao")
+    assert "não é orientação jurídica" in artigo
+    assert 'id="o-que-dizem-as-fontes-oficiais"' in artigo
+    assert "cbp.gov" in artigo and "cbsa-asfc.gc.ca" in artigo
+    _so_links_oficiais(artigo)
+    _sem_palavras(1, ("immigrate", "asylum", "green card", "work permit", "permanent resid", "for good"))
+
+
+def test_link_oficial():
+    assert _link_oficial("https://www.cbp.gov/travel")
+    assert _link_oficial("https://www.cbsa-asfc.gc.ca/travel-voyage/ivc-rnc-eng.html")
+    assert _link_oficial("https://www.ontario.ca/document/x")
+    assert _link_oficial("https://www2.gov.bc.ca/x")
+    assert not _link_oficial("https://www.reddit.com/r/x")
+    assert not _link_oficial("https://github.com/outra/coisa")
+    assert not _link_oficial("https://govexemplo.com/x")
+
+
+def test_situacao_2_publicada(site):
+    _situacao_publicada(site, "restaurante")
+
+
+def test_situacao_3_publicada(site):
+    _situacao_publicada(site, "taxi")
+
+
+def test_situacao_4_publicada(site):
+    artigo = _situacao_publicada(site, "policia")
+    assert "não é orientação jurídica" in artigo
+    assert 'id="o-que-dizem-as-fontes-oficiais"' in artigo
+    assert "dmv.ca.gov" in artigo and "ontario.ca" in artigo and "911.gov" in artigo
+    _so_links_oficiais(artigo)
+    _sem_palavras(4, ("lawyer", "attorney", "my rights", "free to go", "search my car", "warrant"))
+
+
+def test_situacao_5_publicada(site):
+    _situacao_publicada(site, "conversa")
+
+
+# --- Revisão final da 2A: notas sem recomendação sem fonte, aviso de privacidade e traduções -----
+VIAGEM = ("imigracao", "restaurante", "taxi", "policia", "conversa")
+
+
+def _notas_culturais(slug):
+    texto = (RAIZ / f"conteudo/situacoes/{slug}.md").read_text(encoding="utf-8")
+    return texto.split("## Notas culturais", 1)[1]
+
+
+@pytest.mark.parametrize("slug,trecho", [
+    ("policia", "Avise antes de se mexer"),       # recomendação de segurança sem fonte oficial (M4)
+    ("policia", "precisa dizer o motivo"),        # obrigação do policial é conteúdo de direitos (M4)
+    ("imigracao", "Responda o que foi perguntado"),  # comportamento na entrevista sem fonte (M5)
+    ("restaurante", "A gorjeta faz parte da conta"),  # título que contradiz o texto (M7)
+])
+def test_situacao_sem_recomendacao_sem_fonte(slug, trecho):
+    assert trecho not in (RAIZ / f"conteudo/situacoes/{slug}.md").read_text(encoding="utf-8")
+
+
+def test_aviso_da_policia_cita_telefone_e_email():
+    # O roteiro da polícia pede um contato: o aviso nomeia telefone e e-mail (M6).
+    texto = (RAIZ / "conteudo/situacoes/policia.md").read_text(encoding="utf-8")
+    aviso = texto.split("## Treinar com IA no modo de voz", 1)[1].split('<div class="pp-roteiro">', 1)[0]
+    assert "telefone" in aviso and "e-mail" in aviso
+
+
+@pytest.mark.parametrize("slug", VIAGEM)
+def test_frase_em_ingles_das_notas_tem_traducao(slug):
+    # Fora dos títulos em negrito, toda frase em inglês das notas vem seguida da tradução entre parênteses (M7).
+    notas = re.sub(r"\*\*.*?\*\*", "", _notas_culturais(slug))
+    for frase, depois in re.findall(r'<span lang="en">([^<]*[.?!])</span>(.{0,2})', notas):
+        assert depois.startswith(" ("), (slug, frase)
+
+
+@pytest.mark.parametrize("arquivo,trecho", [
+    ("kit/dialogos/situacao-05.csv", "I'm here for a conference. I work with data."),  # redundante na fila do evento
+    ("kit/dados/situacao-03.csv", "Is this my ride?"),         # o comum é conferir o nome
+    ("kit/dados/situacao-02.csv", "Can I pay by card?"),        # mais britânico
+    ("kit/dialogos/situacao-01.csv", "I already have my return flight."),
+    ("kit/dialogos/situacao-03.csv", "if traffic is okay"),     # o idiomático é "depending on traffic"
+])
+def test_ingles_revisto_na_revisao_final(arquivo, trecho):
+    # M8 da revisão final da 2A: frases que soariam estranhas a um falante nativo dos EUA ou do Canadá.
+    assert trecho not in (RAIZ / arquivo).read_text(encoding="utf-8")

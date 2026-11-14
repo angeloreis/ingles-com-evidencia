@@ -11,7 +11,7 @@ title: Frases-chave e blocos prontos
 <section class="pp-secao" markdown>
 <span class="pp-secao__rotulo">O que os cursos dizem</span>
 
-"Decore algumas centenas de frases prontas e você vai falar com desenvoltura, sem montar cada frase pela gramática." A promessa costuma vir com uma lista de frases por situação (apresentar-se, pedir ajuda, marcar um horário) e a ideia de que, com elas na ponta da língua, a conversa anda desde o primeiro dia.
+A promessa é que, decorando algumas centenas de frases prontas, você vai falar com desenvoltura, sem montar cada frase pela gramática. Ela costuma vir com uma lista de frases por situação (apresentar-se, pedir ajuda, marcar um horário) e a ideia de que, com elas na ponta da língua, a conversa anda desde o primeiro dia.
 
 </section>
 
@@ -33,10 +33,10 @@ Por isso o selo é moderado: há vários estudos a favor, mas com amostras peque
 <section class="pp-secao" markdown>
 <span class="pp-secao__rotulo">Como praticar</span>
 
-1. **Escolha os blocos da sua situação (5 minutos).** Abra a situação que você mais vai viver: [telefonar e marcar reunião](../situacoes/telefonar.md), [programação, IA e frameworks](../situacoes/tecnologia.md) ou [entrevista para trabalho remoto](../situacoes/entrevista.md). Ouça as frases e repare nos pedaços que servem para muitas conversas, como <span lang="en">Does that work for you?</span> (Isso funciona para você?) ou <span lang="en">Let me give you a concrete example.</span> (Deixa eu dar um exemplo concreto.).
+1. **Escolha os blocos da sua situação (5 minutos).** Abra a situação que você mais vai viver: [telefonar e marcar reunião](../situacoes/telefonar.md), [programação, IA e frameworks](../situacoes/tecnologia.md), [entrevista para trabalho remoto](../situacoes/entrevista.md) ou qualquer uma das [oito situações](../situacoes/index.md). Ouça as frases e repare nos pedaços que servem para muitas conversas, como <span lang="en">Does that work for you?</span> (Isso funciona para você?) ou <span lang="en">Let me give you a concrete example.</span> (Deixa eu dar um exemplo concreto.).
 2. **Diga os blocos a partir do português (10 minutos).** No [treino de cartas](../treinar.md), aparece a frase em português e você fala em inglês, em voz alta, antes de virar a carta. Dá para filtrar pela situação.
 3. **Use os blocos numa fala sua (5 minutos).** Fale um minuto sobre algo real do seu dia, encaixando pelo menos três blocos. Depois, faça o roteiro de IA da mesma situação, que obriga a usar os blocos numa conversa.
-4. **Uma vez por semana, numa conversa real.** Os passos de [Hoje](../trilhas/destravar/hoje.md), na trilha Destravar a fala, já combinam as cartas, o diálogo e a conversa.
+4. **Uma vez por semana, numa conversa real (20 minutos).** Os passos de [Hoje](../trilhas/destravar/hoje.md), na trilha Destravar a fala, já combinam as cartas, o diálogo e a conversa.
 
 </section>
 

@@ -152,6 +152,7 @@ O selo vale para a técnica como o guia propõe praticá-la: fica um nível abai
 - Uma conversa real por semana (tandem, amigo, colega) e os roteiros de IA nos outros dias.
 - Plano de **12 semanas**, com 20 a 30 minutos por dia.
 - *Fase 1B:* semanas 1 a 6 publicadas, só com as situações 6, 7 e 8, com um passo de 5 minutos por semana para ler o capítulo do guia ligado ao foco da semana. Depois da última semana publicada, a página "Hoje" avisa que as próximas ainda não saíram e oferece repetir a última semana ou treinar as cartas.
+- *Fase 2A:* semanas 7 a 12 publicadas, com as situações de viagem: a chegada (situações 1 e 3), o restaurante, a polícia, puxar conversa, a viagem inteira com a IA em papéis diferentes e, na semana 12, a revisão das oito situações, com a gravação e a técnica 4/3/2 comparadas às das semanas 1 e 6. O passo de leitura relê um capítulo já publicado; a 2B troca pelos capítulos novos onde couber. A gravação de toda semana inclui as frases da situação 6, para a comparação com a semana 1 valer. O `construir` confere, em cada link do plano, se a situação pedida em `?situacao=` tem cartas e se o trecho depois do `#` existe na página.
 
 **Do zero ao A2**
 - Pronúncia primeiro: os sons que o português não tem (th, vogais curtas e longas, finais de palavra).
@@ -179,8 +180,15 @@ Cada situação tem: **Faixa**, 8 a 12 **Frases** (com tradução e sílaba fort
 Regras de conteúdo sensível:
 - **Imigração e polícia:** o comportamento recomendado (por exemplo, mãos no volante numa abordagem) vem **só de fonte oficial** (manuais de trânsito dos estados ou províncias, sites do CBP e da CBSA), com o link. A página avisa que o material treina o idioma e **não é orientação jurídica nem migratória**.
 - Na imigração, o treino é responder **com clareza e com a verdade**. O kit não ensina o que dizer sobre planos de imigração.
-- Situação 7 inclui a pronúncia de termos técnicos que brasileiros costumam errar (cache, SQL, Nginx, GUI, entre outros), conferida em dicionário com pronúncia. *Fase 1B:* conferida no Oxford Learner's Dictionaries, porque o Cambridge pede verificação humana; nome de projeto fora do dicionário, na documentação oficial (PostgreSQL, Nginx). Termo sem fonte que diga a pronúncia ficou de fora (regex, async, JSON, SQL, Kubernetes, refactor) e também o que tem duas pronúncias americanas (router).
+- Situação 7 inclui a pronúncia de termos técnicos que brasileiros costumam errar (cache, deploy, query, Nginx, entre outros), conferida em dicionário com pronúncia. *Fase 1B:* conferida no Oxford Learner's Dictionaries, porque o Cambridge pede verificação humana; nome de projeto fora do dicionário, na documentação oficial (PostgreSQL, Nginx). Termo sem fonte que diga a pronúncia ficou de fora (regex, async, JSON, SQL, Kubernetes, refactor) e também o que tem duas pronúncias americanas (router, GUI e Linux).
 - Situação 8 treina dizer a verdade com clareza: nenhuma frase ensina inventar experiência ou esconder fatos.
+- *Decidido na Fase 2A:*
+  - recomendação de segurança só com fonte oficial, e só nas situações 1 e 4; nas outras, as notas culturais tratam de idioma e costume;
+  - o kit não ensina táticas jurídicas (direitos, recusar revista, pedir advogado): a seção de direitos do manual da Califórnia ficou de fora;
+  - número que precise de fonte (porcentagem de gorjeta, multa, prazo) não entra sem a fonte;
+  - as páginas 1 e 4 só ligam para sites oficiais, para o Tatoeba, para o GitHub do projeto e para o Oxford;
+  - fontes oficiais usadas, lidas em 13/11/2026: as páginas do CBP para visitantes (o que esperar, a entrada e a comida), a página da CBSA para visitantes, o manual do DMV da Califórnia (abordagem policial), o manual do MTO de Ontário, as perguntas frequentes do 911.gov e uma página do Governo do Canadá sobre o 9-1-1, porque a do CRTC pede verificação humana;
+  - o roteiro de IA pede para não dizer nome completo, documento, endereço, placa nem cartão, e o da imigração e o da polícia pedem à IA que não dê conselho jurídico.
 
 #### Dados
 
@@ -197,6 +205,16 @@ Um CSV por baralho em `kit/dados/`, UTF-8, com cabeçalho. Colunas:
 | `licenca` | sim | `CC BY-SA 4.0`, `CC BY 2.0 FR`, `CC0` |
 | `autor` | quando a licença pede | Usuário ou autor de origem |
 | `leitura` | não | O texto que a voz sintética lê no lugar do `en`, quando a escrita engana a voz (por exemplo, PostgreSQL → "post gress Q L"). Conferido contra o IPA americano do dicionário com o fonemizador do Kokoro. *Fase 1B.* |
+
+*Decidido na Fase 2A (13/11/2026):* nas situações de viagem, a frase vem do Tatoeba quando existe uma que sirva (lida frase a frase na API pública, sem baixar o arquivo completo), com `fonte` `tatoeba:<id>`, a licença e o autor; o que não existir lá, o projeto escreve.
+
+Regras de escolha:
+- o `en` é idêntico ao texto do Tatoeba; outra redação vira frase do projeto;
+- só frase aprovada e com dono, que vai na coluna `autor`, obrigatória para o Tatoeba mesmo em CC0;
+- licença CC BY 2.0 FR ou CC0, inglês dos Estados Unidos e do Canadá;
+- o `pt` é sempre do projeto, em português do Brasil, sob CC BY-SA 4.0: as traduções do Tatoeba não entram.
+
+O crédito aparece embaixo da frase e da fala na página (o número com link, o autor, a licença e "Tradução do projeto."), na carta do Anki e em `CREDITOS.md`. O comando `python -m scripts.tatoeba` confere cada frase do kit na API: se ainda existe, com o mesmo texto, a mesma licença e o mesmo dono, e se está aprovada. Ele roda à mão, fora do build e da Action, porque o build não depende da rede.
 
 O `id` alimenta o identificador da nota no Anki, para que uma correção de tradução atualize a carta de quem já importou o baralho, em vez de duplicar.
 
@@ -226,6 +244,7 @@ Os planos ficam em `kit/planos/<trilha>.csv`, uma linha por passo: `semana`, `di
 - **Ficha de progresso:** página da trilha com um registro por semana (data da gravação da voz, tempos da técnica 4/3/2, conversa real feita ou não, confiança de 1 a 5), salvo da mesma forma, só no aparelho.
 - **Áudio:** o botão "Ouvir" toca o arquivo gerado. Sem arquivo, o botão aparece desabilitado com "Sem áudio aqui". *Fase 1B:* o botão já nasce desabilitado no HTML, e o script o habilita quando o áudio existe.
 - **Treino de cartas:** o filtro mostra o número e o título de cada situação, lidos de `conteudo/dados/situacoes.json` (gerado). *Fase 1B.*
+- **Teclado e leitor de tela em "Hoje" e no treino** (*Fase 2A*): depois de "Começar hoje" ou "Repetir", o foco vai para o título do dia; tocar no texto do passo marca o passo, e uma linha de status anuncia quantos passos foram feitos e quando o dia termina. O link "Abrir" de cada passo fica fora do rótulo, com área de toque própria: ao lado do passo onde cabe e embaixo dele no celular. No treino, o foco vai para "Mostrar a resposta" a cada carta, e uma falha de rede ao carregar as cartas mostra um aviso. Depois da semana 12, "Hoje" mostra o fim do plano, com o treino de cartas e a ficha de progresso.
 - **Tamanho do texto:** tabelas e avisos (`!!! note`) ficam com o tamanho do texto corrido (17 px); o tema os reduzia para 12,8 px. *Fase 1B.*
 - **Busca** do próprio Zensical, conferindo se funciona bem em português. *Conferido na Fase 0:* acha com e sem acento ("evidencia" acha "evidência", "licenca" acha "licença"). Pendência conhecida: o contador de resultados aparece em inglês ("4 results"), porque a interface da busca do Zensical 0.1.1 ainda não é traduzida.
 - **Tema:** o site começa seguindo o tema do aparelho (claro ou escuro); o botão alterna entre automático, claro e escuro, e a escolha vale para todas as páginas. *Decidido na Fase 0:* com só duas opções (claro e escuro), o tema gravava o esquema do primeiro acesso e deixava de acompanhar o aparelho.
@@ -252,12 +271,15 @@ ingles-com-evidencia/
 │   ├── dialogos/             CSVs dos diálogos
 │   ├── planos/               CSVs dos planos das trilhas
 │   └── gerado/               trechos HTML e Markdown incluídos nas páginas (gerados)
-├── scripts/                  construir.py e os módulos que ele chama (guia.py confere os capítulos)
+├── scripts/                  construir.py e os módulos que ele chama (guia.py confere os capítulos);
+│                             tatoeba.py confere à mão as frases do Tatoeba na API
 ├── tests/                    testes (pytest)
 ├── zensical.toml             com docs_dir = "conteudo"
 ├── pyproject.toml            configuração do pytest
 ├── requirements-site.txt     Zensical (versão fixa)
 ├── requirements-dev.txt      o anterior mais o pytest
+├── requirements-kit.txt      voz e baralhos (kokoro-onnx, genanki)
+├── requirements-travado.txt  todas as versões travadas, usadas pela Action (Fase 2A)
 ├── CREDITOS.md               gerado (a partir da Fase 1)
 ├── LICENSE                   CC BY-SA 4.0 (conteúdo)
 ├── LICENSE-codigo            MIT (scripts)
@@ -274,7 +296,7 @@ Cada fase termina com a validação do mantenedor antes da próxima.
 |---|---|---|
 | 0. Esqueleto | Repositório, licenças, Zensical com Passaporte, Action do Pages, `construir.py` validando um CSV de exemplo | O site está no ar com a página inicial, no celular e no computador, nos dois temas |
 | 1. Destravar a fala e trabalho | Situações 6, 7 e 8; capítulos 1, 6, 8, 9, 10 e 11; semanas 1 a 6 do plano, usando só essas situações; baralhos dessas situações | Uma pessoa consegue seguir a semana 1 inteira só pelo site (critério revisto na Fase 1A, porque o AnkiWeb não importa baralhos). Dividida em **1A, o motor** (áudio, baralhos, treino de cartas, "Hoje", ficha e a situação 6 como piloto) e **1B, o conteúdo** (situações 7 e 8, capítulos e semanas 1 a 6) |
-| 2. Viagem | Situações 1 a 5; capítulos 2, 3, 4, 5, 7, 12 e 13; semanas 7 a 12 do plano | Todas as situações e capítulos publicados, com referências conferidas |
+| 2. Viagem | Situações 1 a 5; capítulos 2, 3, 4, 5, 7, 12 e 13; semanas 7 a 12 do plano | Todas as situações e capítulos publicados, com referências conferidas. Dividida pelo mantenedor em 13/11/2026 em **2A, viagem** (situações 1 a 5, semanas 7 a 12 e as pendências de acessibilidade da página "Hoje", de robustez do build e de texto da 1B) e **2B, o guia** (capítulos 2, 3, 4, 5, 7, 12 e 13, com o `guia.py` pronto para eles). A 2A foi entregue em 13/11/2026, com a Release v0.3.0 |
 | 3. Do zero ao A2 | Pronúncia, faixas da NGSL (começando pelas primeiras 500), leituras, plano por fases | Uma pessoa iniciante consegue seguir as duas primeiras semanas sem ajuda |
 | 4. Extras | Ideias para depois: baralho temático "inglês para fãs de doramas", versão para imprimir da ficha de progresso | A decidir |
 
