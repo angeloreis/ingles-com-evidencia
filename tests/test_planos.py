@@ -4,7 +4,7 @@ import re
 import pytest
 
 from scripts import RAIZ
-from scripts.planos import dados_do_plano, validar_plano
+from scripts.planos import ancoras, dados_do_plano, validar_plano
 
 CAB = "semana,dia,ordem,passo,minutos,link\n"
 
@@ -13,7 +13,7 @@ CAB = "semana,dia,ordem,passo,minutos,link\n"
 def conteudo(tmp_path):
     pasta = tmp_path / "conteudo"
     (pasta / "situacoes").mkdir(parents=True)
-    (pasta / "situacoes" / "telefonar.md").write_text("# Telefonar\n", encoding="utf-8")
+    (pasta / "situacoes" / "telefonar.md").write_text("# Telefonar\n\n## Diálogo\n", encoding="utf-8")
     (pasta / "treinar.md").write_text("# Treinar\n", encoding="utf-8")
     return pasta
 
@@ -78,15 +78,31 @@ def test_link_do_plano_so_aceita_caminho_simples(tmp_path, conteudo, link):
     assert len(erros) == 1 and "o link só pode ter" in erros[0].mensagem
 
 
-# Semanas 2 a 6 da trilha Destravar a fala (plano da 1B, Tarefa 15).
+# Semanas 2 a 12 da trilha Destravar a fala (planos da 1B, Tarefa 15, e da 2A, Tarefa 11).
 LEITURAS = {2: {"guia/como-usar/", "guia/shadowing/"}, 3: {"guia/fluencia/"}, 4: {"guia/frases-chave/"},
-            5: {"guia/medo-de-falar/"}, 6: {"guia/ia-modo-de-voz/"}}
+            5: {"guia/medo-de-falar/"}, 6: {"guia/ia-modo-de-voz/"}, 7: {"guia/medo-de-falar/"},
+            8: {"guia/frases-chave/"}, 9: {"guia/shadowing/"}, 10: {"guia/fluencia/"},
+            11: {"guia/ia-modo-de-voz/"}, 12: {"guia/como-usar/"}}
+# Situações que cada semana de viagem precisa ligar (tabela da Tarefa 11 do plano da 2A).
+SITUACOES_DA_SEMANA = {7: {1, 3}, 8: {2, 1}, 9: {4, 3}, 10: {5, 2}, 11: {1, 2, 3, 4, 5}, 12: set(range(1, 9))}
 
 
-def test_semanas_1_a_6_do_destravar():
+def _situacoes_ligadas(passos):
+    from scripts.situacoes import SITUACOES
+    numero = {slug: n for n, (slug, _) in SITUACOES.items()}
+    ligadas = set()
+    for p in passos:
+        ligadas |= {int(n) for n in re.findall(r"situacao=([0-9]+)", p["link"])}
+        if p["link"].startswith("situacoes/"):
+            ligadas.add(numero[p["link"].split("/")[1]])
+    return ligadas
+
+
+def test_semanas_1_a_12_do_destravar():
+    from scripts.situacoes import SITUACOES
     passos = dados_do_plano(RAIZ / "kit/planos/destravar.csv", "destravar")["passos"]
-    assert {p["semana"] for p in passos} == set(range(1, 7))
-    for semana in range(1, 7):
+    assert {p["semana"] for p in passos} == set(range(1, 13))
+    for semana in range(1, 13):
         da_semana = [p for p in passos if p["semana"] == semana]
         assert {p["dia"] for p in da_semana} == set(range(1, 7)), semana
 
@@ -100,8 +116,42 @@ def test_semanas_1_a_6_do_destravar():
         if semana >= 2:
             assert len(com("Roteiro de IA")) >= 2, semana
             assert LEITURAS[semana] <= {p["link"] for p in da_semana}, semana
+            # A gravação relê as frases da situação 6, como na semana 1, para a comparação valer.
+            assert "situação 6" in gravar[0]["passo"], semana
+        if semana >= 7:
+            assert SITUACOES_DA_SEMANA[semana] <= _situacoes_ligadas(da_semana), semana
+    slugs = {slug for slug, _ in SITUACOES.values()}
     for p in passos:
         for n in re.findall(r"situacao=([0-9]+)", p["link"]):
-            assert n in {"6", "7", "8"}, p
+            assert int(n) in SITUACOES, p
         if p["link"].startswith("situacoes/"):
-            assert p["link"].split("/")[1] in {"telefonar", "tecnologia", "entrevista"}, p
+            assert p["link"].split("/")[1] in slugs, p
+
+
+# --- Fase 2A: o link do plano confere a situação e o trecho ------------------------------------
+def test_link_com_situacao_sem_cartas(tmp_path, conteudo):
+    p = plano(tmp_path, ["1,1,1,Treinar as cartas,20,treinar/?situacao=3"])
+    erros = validar_plano(p, "destravar", conteudo, {6})
+    assert [e.mensagem for e in erros] == ["o link pede a situação 3, que não tem cartas"]
+    assert validar_plano(p, "destravar", conteudo, {3, 6}) == []
+
+
+def test_link_com_ancora_que_nao_existe(tmp_path, conteudo):
+    erros = validar_plano(plano(tmp_path, ["1,1,1,Ouvir o diálogo,20,situacoes/telefonar/#nada"]), "destravar", conteudo)
+    assert len(erros) == 1 and "#nada" in erros[0].mensagem and "situacoes/telefonar" in erros[0].mensagem
+
+
+def test_link_com_ancora_que_existe(tmp_path, conteudo):
+    p = plano(tmp_path, ["1,1,1,Ouvir o diálogo,20,situacoes/telefonar/#dialogo"])
+    assert validar_plano(p, "destravar", conteudo, {6}) == []
+
+
+def test_ancoras_das_paginas_do_repositorio():
+    assert {"frases", "dialogo", "pronuncia-dos-termos", "treinar", "treinar-com-ia-no-modo-de-voz",
+            "notas-culturais"} <= ancoras(RAIZ / "conteudo/situacoes/tecnologia.md")
+
+
+def test_ancora_ignora_tags_e_sinais(tmp_path):
+    pagina = tmp_path / "p.md"
+    pagina.write_text('# Título\n\n## O <span lang="en">*shadowing*</span> e o `4/3/2`\n', encoding="utf-8")
+    assert ancoras(pagina) == {"titulo", "o-shadowing-e-o-432"}

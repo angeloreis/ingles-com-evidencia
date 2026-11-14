@@ -127,7 +127,7 @@
       "semana": 2,
       "dia": 1,
       "ordem": 3,
-      "passo": "Gravar a sua voz lendo as frases da situação 7 e anotar a data na ficha",
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e da situação 7 e anotar a data na ficha",
       "minutos": 5,
       "link": "trilhas/destravar/ficha/"
     },
@@ -247,7 +247,7 @@
       "semana": 3,
       "dia": 1,
       "ordem": 3,
-      "passo": "Gravar a sua voz lendo os termos e as frases da situação 7 e anotar a data na ficha",
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e os termos e as frases da situação 7 e anotar a data na ficha",
       "minutos": 5,
       "link": "trilhas/destravar/ficha/"
     },
@@ -359,7 +359,7 @@
       "semana": 4,
       "dia": 1,
       "ordem": 3,
-      "passo": "Gravar a sua voz lendo as frases da situação 8 e anotar a data na ficha",
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e da situação 8 e anotar a data na ficha",
       "minutos": 5,
       "link": "trilhas/destravar/ficha/"
     },
@@ -471,7 +471,7 @@
       "semana": 5,
       "dia": 1,
       "ordem": 3,
-      "passo": "Gravar a sua voz se apresentando como numa entrevista e anotar a data na ficha",
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e se apresentando como numa entrevista, e anotar a data na ficha",
       "minutos": 5,
       "link": "trilhas/destravar/ficha/"
     },
@@ -664,6 +664,662 @@
       "dia": 6,
       "ordem": 2,
       "passo": "Registrar a semana na ficha de progresso",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 7,
+      "dia": 1,
+      "ordem": 1,
+      "passo": "Ouvir e repetir em voz alta as frases da situação 1",
+      "minutos": 10,
+      "link": "situacoes/imigracao/"
+    },
+    {
+      "semana": 7,
+      "dia": 1,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 1",
+      "minutos": 10,
+      "link": "treinar/?situacao=1"
+    },
+    {
+      "semana": 7,
+      "dia": 1,
+      "ordem": 3,
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e da situação 1 e anotar a data na ficha",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 7,
+      "dia": 2,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 1: ouvir e falar junto, três vezes",
+      "minutos": 10,
+      "link": "situacoes/imigracao/#dialogo"
+    },
+    {
+      "semana": 7,
+      "dia": 2,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 1",
+      "minutos": 10,
+      "link": "treinar/?situacao=1"
+    },
+    {
+      "semana": 7,
+      "dia": 2,
+      "ordem": 3,
+      "passo": "Ler o capítulo 10 do guia: medo de falar e confiança",
+      "minutos": 5,
+      "link": "guia/medo-de-falar/"
+    },
+    {
+      "semana": 7,
+      "dia": 3,
+      "ordem": 1,
+      "passo": "Ouvir e repetir em voz alta as frases da situação 3",
+      "minutos": 10,
+      "link": "situacoes/taxi/"
+    },
+    {
+      "semana": 7,
+      "dia": 3,
+      "ordem": 2,
+      "passo": "Técnica 4/3/2: contar a viagem que você quer fazer (para onde, por quanto tempo e o que quer ver) em 4, 3 e 2 minutos e anotar os tempos",
+      "minutos": 12,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 7,
+      "dia": 4,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 3",
+      "minutos": 10,
+      "link": "situacoes/taxi/#dialogo"
+    },
+    {
+      "semana": 7,
+      "dia": 4,
+      "ordem": 2,
+      "passo": "Roteiro de IA: as perguntas da chegada na imigração no modo de voz",
+      "minutos": 15,
+      "link": "situacoes/imigracao/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 7,
+      "dia": 5,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 3",
+      "minutos": 10,
+      "link": "treinar/?situacao=3"
+    },
+    {
+      "semana": 7,
+      "dia": 5,
+      "ordem": 2,
+      "passo": "Roteiro de IA: a corrida do aeroporto ao hotel no modo de voz",
+      "minutos": 15,
+      "link": "situacoes/taxi/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 7,
+      "dia": 6,
+      "ordem": 1,
+      "passo": "Conversa real: uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",
+      "minutos": 20,
+      "link": ""
+    },
+    {
+      "semana": 7,
+      "dia": 6,
+      "ordem": 2,
+      "passo": "Registrar a semana na ficha de progresso",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 8,
+      "dia": 1,
+      "ordem": 1,
+      "passo": "Ouvir e repetir em voz alta as frases da situação 2",
+      "minutos": 10,
+      "link": "situacoes/restaurante/"
+    },
+    {
+      "semana": 8,
+      "dia": 1,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 2",
+      "minutos": 10,
+      "link": "treinar/?situacao=2"
+    },
+    {
+      "semana": 8,
+      "dia": 1,
+      "ordem": 3,
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e da situação 2 e anotar a data na ficha",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 8,
+      "dia": 2,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 2: ouvir e falar junto, três vezes",
+      "minutos": 10,
+      "link": "situacoes/restaurante/#dialogo"
+    },
+    {
+      "semana": 8,
+      "dia": 2,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 2",
+      "minutos": 10,
+      "link": "treinar/?situacao=2"
+    },
+    {
+      "semana": 8,
+      "dia": 2,
+      "ordem": 3,
+      "passo": "Ler o capítulo 6 do guia: frases-chave e blocos prontos",
+      "minutos": 5,
+      "link": "guia/frases-chave/"
+    },
+    {
+      "semana": 8,
+      "dia": 3,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 1 (revisão)",
+      "minutos": 10,
+      "link": "treinar/?situacao=1"
+    },
+    {
+      "semana": 8,
+      "dia": 3,
+      "ordem": 2,
+      "passo": "Técnica 4/3/2: descrever um restaurante de que você gosta (onde fica, o que você pede e por quê) em 4, 3 e 2 minutos e anotar os tempos",
+      "minutos": 12,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 8,
+      "dia": 4,
+      "ordem": 1,
+      "passo": "Reler as notas culturais da situação 2 (conta, gorjeta e refil) e repetir as frases",
+      "minutos": 10,
+      "link": "situacoes/restaurante/#notas-culturais"
+    },
+    {
+      "semana": 8,
+      "dia": 4,
+      "ordem": 2,
+      "passo": "Roteiro de IA: pedir, trocar o acompanhamento e pagar num restaurante no modo de voz",
+      "minutos": 15,
+      "link": "situacoes/restaurante/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 8,
+      "dia": 5,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 2",
+      "minutos": 10,
+      "link": "treinar/?situacao=2"
+    },
+    {
+      "semana": 8,
+      "dia": 5,
+      "ordem": 2,
+      "passo": "Roteiro de IA: as perguntas da chegada na imigração no modo de voz (revisão da situação 1)",
+      "minutos": 15,
+      "link": "situacoes/imigracao/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 8,
+      "dia": 6,
+      "ordem": 1,
+      "passo": "Conversa real: uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",
+      "minutos": 20,
+      "link": ""
+    },
+    {
+      "semana": 8,
+      "dia": 6,
+      "ordem": 2,
+      "passo": "Registrar a semana na ficha de progresso",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 9,
+      "dia": 1,
+      "ordem": 1,
+      "passo": "Ouvir e repetir em voz alta as frases da situação 4",
+      "minutos": 10,
+      "link": "situacoes/policia/"
+    },
+    {
+      "semana": 9,
+      "dia": 1,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 4",
+      "minutos": 10,
+      "link": "treinar/?situacao=4"
+    },
+    {
+      "semana": 9,
+      "dia": 1,
+      "ordem": 3,
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e da situação 4 e anotar a data na ficha",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 9,
+      "dia": 2,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 4: ouvir e falar junto, três vezes",
+      "minutos": 10,
+      "link": "situacoes/policia/#dialogo"
+    },
+    {
+      "semana": 9,
+      "dia": 2,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 4",
+      "minutos": 10,
+      "link": "treinar/?situacao=4"
+    },
+    {
+      "semana": 9,
+      "dia": 2,
+      "ordem": 3,
+      "passo": "Ler o capítulo 8 do guia: shadowing",
+      "minutos": 5,
+      "link": "guia/shadowing/"
+    },
+    {
+      "semana": 9,
+      "dia": 3,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 3 (revisão)",
+      "minutos": 10,
+      "link": "treinar/?situacao=3"
+    },
+    {
+      "semana": 9,
+      "dia": 3,
+      "ordem": 2,
+      "passo": "Técnica 4/3/2: contar como foi chegar num lugar novo (uma cidade, um bairro ou um emprego) em 4, 3 e 2 minutos e anotar os tempos",
+      "minutos": 12,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 9,
+      "dia": 4,
+      "ordem": 1,
+      "passo": "Reler o que dizem as fontes oficiais e as notas culturais da situação 4 e repetir as frases",
+      "minutos": 10,
+      "link": "situacoes/policia/#o-que-dizem-as-fontes-oficiais"
+    },
+    {
+      "semana": 9,
+      "dia": 4,
+      "ordem": 2,
+      "passo": "Roteiro de IA: avisar da perda do celular no balcão da delegacia no modo de voz",
+      "minutos": 15,
+      "link": "situacoes/policia/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 9,
+      "dia": 5,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 3",
+      "minutos": 10,
+      "link": "situacoes/taxi/#dialogo"
+    },
+    {
+      "semana": 9,
+      "dia": 5,
+      "ordem": 2,
+      "passo": "Roteiro de IA: a corrida do aeroporto ao hotel no modo de voz (revisão da situação 3)",
+      "minutos": 15,
+      "link": "situacoes/taxi/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 9,
+      "dia": 6,
+      "ordem": 1,
+      "passo": "Conversa real: uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",
+      "minutos": 20,
+      "link": ""
+    },
+    {
+      "semana": 9,
+      "dia": 6,
+      "ordem": 2,
+      "passo": "Registrar a semana na ficha de progresso",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 10,
+      "dia": 1,
+      "ordem": 1,
+      "passo": "Ouvir e repetir em voz alta as frases da situação 5",
+      "minutos": 10,
+      "link": "situacoes/conversa/"
+    },
+    {
+      "semana": 10,
+      "dia": 1,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 5",
+      "minutos": 10,
+      "link": "treinar/?situacao=5"
+    },
+    {
+      "semana": 10,
+      "dia": 1,
+      "ordem": 3,
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e da situação 5 e anotar a data na ficha",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 10,
+      "dia": 2,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 5: ouvir e falar junto, três vezes",
+      "minutos": 10,
+      "link": "situacoes/conversa/#dialogo"
+    },
+    {
+      "semana": 10,
+      "dia": 2,
+      "ordem": 2,
+      "passo": "Treinar as cartas da situação 5",
+      "minutos": 10,
+      "link": "treinar/?situacao=5"
+    },
+    {
+      "semana": 10,
+      "dia": 2,
+      "ordem": 3,
+      "passo": "Ler o capítulo 9 do guia: fluência na fala",
+      "minutos": 5,
+      "link": "guia/fluencia/"
+    },
+    {
+      "semana": 10,
+      "dia": 3,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 2 (revisão)",
+      "minutos": 10,
+      "link": "treinar/?situacao=2"
+    },
+    {
+      "semana": 10,
+      "dia": 3,
+      "ordem": 2,
+      "passo": "Técnica 4/3/2: apresentar-se a alguém que você acabou de conhecer (de onde você é, o que faz e o que traz você ali) em 4, 3 e 2 minutos e anotar os tempos",
+      "minutos": 12,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 10,
+      "dia": 4,
+      "ordem": 1,
+      "passo": "Reler as notas culturais da situação 5 (assuntos e sinais de saída) e repetir as frases",
+      "minutos": 10,
+      "link": "situacoes/conversa/#notas-culturais"
+    },
+    {
+      "semana": 10,
+      "dia": 4,
+      "ordem": 2,
+      "passo": "Roteiro de IA: puxar conversa no saguão do hotel no modo de voz, prestando atenção aos sinais de saída",
+      "minutos": 15,
+      "link": "situacoes/conversa/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 10,
+      "dia": 5,
+      "ordem": 1,
+      "passo": "Treinar as cartas da situação 5",
+      "minutos": 10,
+      "link": "treinar/?situacao=5"
+    },
+    {
+      "semana": 10,
+      "dia": 5,
+      "ordem": 2,
+      "passo": "Roteiro de IA: pedir, trocar o acompanhamento e pagar num restaurante no modo de voz (revisão da situação 2)",
+      "minutos": 15,
+      "link": "situacoes/restaurante/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 10,
+      "dia": 6,
+      "ordem": 1,
+      "passo": "Conversa real: puxar uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",
+      "minutos": 20,
+      "link": "situacoes/conversa/#notas-culturais"
+    },
+    {
+      "semana": 10,
+      "dia": 6,
+      "ordem": 2,
+      "passo": "Registrar a semana na ficha de progresso",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 11,
+      "dia": 1,
+      "ordem": 1,
+      "passo": "Treinar todas as cartas (situações 1 a 8)",
+      "minutos": 15,
+      "link": "treinar/"
+    },
+    {
+      "semana": 11,
+      "dia": 1,
+      "ordem": 2,
+      "passo": "Gravar a sua voz lendo as frases da situação 6 e da situação 1 e anotar a data na ficha",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 11,
+      "dia": 1,
+      "ordem": 3,
+      "passo": "Ler o capítulo 11 do guia: treinar com IA no modo de voz",
+      "minutos": 5,
+      "link": "guia/ia-modo-de-voz/"
+    },
+    {
+      "semana": 11,
+      "dia": 2,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 1",
+      "minutos": 10,
+      "link": "situacoes/imigracao/#dialogo"
+    },
+    {
+      "semana": 11,
+      "dia": 2,
+      "ordem": 2,
+      "passo": "Roteiro de IA: as perguntas da chegada na imigração, com a IA no papel do agente",
+      "minutos": 15,
+      "link": "situacoes/imigracao/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 11,
+      "dia": 3,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 3",
+      "minutos": 10,
+      "link": "situacoes/taxi/#dialogo"
+    },
+    {
+      "semana": 11,
+      "dia": 3,
+      "ordem": 2,
+      "passo": "Roteiro de IA: a corrida do aeroporto ao hotel, com a IA no papel do motorista",
+      "minutos": 15,
+      "link": "situacoes/taxi/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 11,
+      "dia": 4,
+      "ordem": 1,
+      "passo": "Técnica 4/3/2: contar uma viagem inteira, real ou imaginada, da chegada no aeroporto ao jantar, em 4, 3 e 2 minutos e anotar os tempos",
+      "minutos": 12,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 11,
+      "dia": 4,
+      "ordem": 2,
+      "passo": "Roteiro de IA: o almoço no restaurante, com a IA no papel de quem atende a mesa",
+      "minutos": 15,
+      "link": "situacoes/restaurante/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 11,
+      "dia": 5,
+      "ordem": 1,
+      "passo": "Roteiro de IA: avisar da perda do celular na delegacia, com a IA no papel do policial",
+      "minutos": 15,
+      "link": "situacoes/policia/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 11,
+      "dia": 5,
+      "ordem": 2,
+      "passo": "Shadowing do diálogo da situação 5",
+      "minutos": 10,
+      "link": "situacoes/conversa/#dialogo"
+    },
+    {
+      "semana": 11,
+      "dia": 6,
+      "ordem": 1,
+      "passo": "Conversa real: puxar uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",
+      "minutos": 20,
+      "link": "situacoes/conversa/#notas-culturais"
+    },
+    {
+      "semana": 11,
+      "dia": 6,
+      "ordem": 2,
+      "passo": "Registrar a semana na ficha de progresso",
+      "minutos": 5,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 12,
+      "dia": 1,
+      "ordem": 1,
+      "passo": "Treinar todas as cartas (situações 1 a 8)",
+      "minutos": 15,
+      "link": "treinar/"
+    },
+    {
+      "semana": 12,
+      "dia": 1,
+      "ordem": 2,
+      "passo": "Gravar a sua voz lendo as frases da situação 6, comparar com as gravações das semanas 1 e 6 e anotar a data na ficha",
+      "minutos": 10,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 12,
+      "dia": 2,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 6",
+      "minutos": 10,
+      "link": "situacoes/telefonar/#dialogo"
+    },
+    {
+      "semana": 12,
+      "dia": 2,
+      "ordem": 2,
+      "passo": "Roteiro de IA: as perguntas da chegada na imigração no modo de voz (revisão da situação 1)",
+      "minutos": 15,
+      "link": "situacoes/imigracao/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 12,
+      "dia": 3,
+      "ordem": 1,
+      "passo": "Técnica 4/3/2: explicar o seu trabalho em 4, 3 e 2 minutos, como nas semanas 1 e 6, e comparar os tempos na ficha",
+      "minutos": 12,
+      "link": "trilhas/destravar/ficha/"
+    },
+    {
+      "semana": 12,
+      "dia": 3,
+      "ordem": 2,
+      "passo": "Shadowing do diálogo da situação 7",
+      "minutos": 10,
+      "link": "situacoes/tecnologia/#dialogo"
+    },
+    {
+      "semana": 12,
+      "dia": 3,
+      "ordem": 3,
+      "passo": "Reler o capítulo 1 do guia: como usar o guia, para escolher o que treinar depois",
+      "minutos": 5,
+      "link": "guia/como-usar/"
+    },
+    {
+      "semana": 12,
+      "dia": 4,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 8",
+      "minutos": 10,
+      "link": "situacoes/entrevista/#dialogo"
+    },
+    {
+      "semana": 12,
+      "dia": 4,
+      "ordem": 2,
+      "passo": "Roteiro de IA: pedir, trocar o acompanhamento e pagar num restaurante no modo de voz (revisão da situação 2)",
+      "minutos": 15,
+      "link": "situacoes/restaurante/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 12,
+      "dia": 5,
+      "ordem": 1,
+      "passo": "Shadowing do diálogo da situação 3",
+      "minutos": 10,
+      "link": "situacoes/taxi/#dialogo"
+    },
+    {
+      "semana": 12,
+      "dia": 5,
+      "ordem": 2,
+      "passo": "Roteiro de IA: avisar da perda do celular no balcão da delegacia no modo de voz (revisão da situação 4)",
+      "minutos": 15,
+      "link": "situacoes/policia/#treinar-com-ia-no-modo-de-voz"
+    },
+    {
+      "semana": 12,
+      "dia": 6,
+      "ordem": 1,
+      "passo": "Conversa real: puxar uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",
+      "minutos": 20,
+      "link": "situacoes/conversa/#notas-culturais"
+    },
+    {
+      "semana": 12,
+      "dia": 6,
+      "ordem": 2,
+      "passo": "Registrar a semana na ficha e comparar com as semanas 1 e 6: a gravação, os tempos da 4/3/2 e a confiança",
       "minutos": 5,
       "link": "trilhas/destravar/ficha/"
     }

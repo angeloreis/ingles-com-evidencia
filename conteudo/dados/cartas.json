@@ -1,5 +1,485 @@
 [
   {
+    "id": "imigracao-01",
+    "en": "I'm here on vacation.",
+    "pt": "Estou aqui de férias.",
+    "silaba": "va·CA·tion",
+    "situacao": 1,
+    "audio": "ice-imigracao-01.mp3"
+  },
+  {
+    "id": "imigracao-02",
+    "en": "I'll be here for three weeks.",
+    "pt": "Vou ficar aqui três semanas.",
+    "silaba": "",
+    "situacao": 1,
+    "audio": "ice-imigracao-02.mp3"
+  },
+  {
+    "id": "imigracao-03",
+    "en": "I'm staying at a hotel near the beach.",
+    "pt": "Vou ficar num hotel perto da praia.",
+    "silaba": "ho·TEL",
+    "situacao": 1,
+    "audio": "ice-imigracao-03.mp3"
+  },
+  {
+    "id": "imigracao-04",
+    "en": "My return flight is next Sunday.",
+    "pt": "Meu voo de volta é no próximo domingo.",
+    "silaba": "re·TURN",
+    "situacao": 1,
+    "audio": "ice-imigracao-04.mp3"
+  },
+  {
+    "id": "imigracao-05",
+    "en": "I work as a manager.",
+    "pt": "Trabalho como gerente.",
+    "silaba": "MAN·a·ger",
+    "situacao": 1,
+    "audio": "ice-imigracao-05.mp3"
+  },
+  {
+    "id": "imigracao-06",
+    "en": "Could you repeat that, please?",
+    "pt": "Pode repetir, por favor?",
+    "silaba": "re·PEAT",
+    "situacao": 1,
+    "audio": "ice-imigracao-06.mp3"
+  },
+  {
+    "id": "imigracao-07",
+    "en": "Could you speak more slowly, please?",
+    "pt": "Pode falar mais devagar, por favor?",
+    "silaba": "SLOW·ly",
+    "situacao": 1,
+    "audio": "ice-imigracao-07.mp3"
+  },
+  {
+    "id": "imigracao-08",
+    "en": "I have some food to declare.",
+    "pt": "Tenho comida para declarar.",
+    "silaba": "de·CLARE",
+    "situacao": 1,
+    "audio": "ice-imigracao-08.mp3"
+  },
+  {
+    "id": "imigracao-09",
+    "en": "It's just some cheese and chocolate.",
+    "pt": "São só queijo e chocolate.",
+    "silaba": "CHOC·o·late",
+    "situacao": 1,
+    "audio": "ice-imigracao-09.mp3"
+  },
+  {
+    "id": "imigracao-10",
+    "en": "Here's my passport.",
+    "pt": "Aqui está o meu passaporte.",
+    "silaba": "PASS·port",
+    "situacao": 1,
+    "audio": "ice-imigracao-10.mp3"
+  },
+  {
+    "id": "imigracao-11",
+    "en": "I'm visiting my friends.",
+    "pt": "Estou visitando meus amigos.",
+    "silaba": "VIS·it·ing",
+    "situacao": 1,
+    "audio": "ice-imigracao-11.mp3"
+  },
+  {
+    "id": "imigracao-12",
+    "en": "This is my first trip to the United States.",
+    "pt": "É a minha primeira viagem aos Estados Unidos.",
+    "silaba": "u·NIT·ed",
+    "situacao": 1,
+    "audio": "ice-imigracao-12.mp3"
+  },
+  {
+    "id": "restaurante-01",
+    "en": "A table for two, please.",
+    "pt": "Uma mesa para dois, por favor.",
+    "silaba": "TA·ble",
+    "situacao": 2,
+    "audio": "ice-restaurante-01.mp3"
+  },
+  {
+    "id": "restaurante-02",
+    "en": "Could we have a few more minutes?",
+    "pt": "Pode nos dar mais alguns minutos?",
+    "silaba": "MIN·utes",
+    "situacao": 2,
+    "audio": "ice-restaurante-02.mp3"
+  },
+  {
+    "id": "restaurante-03",
+    "en": "I'll have the chicken.",
+    "pt": "Vou querer o frango.",
+    "silaba": "CHICK·en",
+    "situacao": 2,
+    "audio": "ice-restaurante-03.mp3"
+  },
+  {
+    "id": "restaurante-04",
+    "en": "I'm allergic to peanuts.",
+    "pt": "Tenho alergia a amendoim.",
+    "silaba": "al·LER·gic",
+    "situacao": 2,
+    "audio": "ice-restaurante-04.mp3"
+  },
+  {
+    "id": "restaurante-05",
+    "en": "Does this have meat in it?",
+    "pt": "Isto tem carne?",
+    "silaba": "",
+    "situacao": 2,
+    "audio": "ice-restaurante-05.mp3"
+  },
+  {
+    "id": "restaurante-06",
+    "en": "Could I get a salad instead of fries?",
+    "pt": "Posso trocar a batata frita por uma salada?",
+    "silaba": "in·STEAD",
+    "situacao": 2,
+    "audio": "ice-restaurante-06.mp3"
+  },
+  {
+    "id": "restaurante-07",
+    "en": "This isn't what I ordered.",
+    "pt": "Não foi isto que eu pedi.",
+    "silaba": "OR·dered",
+    "situacao": 2,
+    "audio": "ice-restaurante-07.mp3"
+  },
+  {
+    "id": "restaurante-08",
+    "en": "Could we get the check, please?",
+    "pt": "Pode trazer a conta, por favor?",
+    "silaba": "",
+    "situacao": 2,
+    "audio": "ice-restaurante-08.mp3"
+  },
+  {
+    "id": "restaurante-09",
+    "en": "We'd like separate checks, please.",
+    "pt": "Queremos contas separadas, por favor.",
+    "silaba": "SEP·a·rate",
+    "situacao": 2,
+    "audio": "ice-restaurante-09.mp3"
+  },
+  {
+    "id": "restaurante-10",
+    "en": "Is the tip included?",
+    "pt": "A gorjeta está incluída?",
+    "silaba": "in·CLUD·ed",
+    "situacao": 2,
+    "audio": "ice-restaurante-10.mp3"
+  },
+  {
+    "id": "restaurante-11",
+    "en": "Do you take credit cards?",
+    "pt": "Vocês aceitam cartão de crédito?",
+    "silaba": "",
+    "situacao": 2,
+    "audio": "ice-restaurante-11.mp3"
+  },
+  {
+    "id": "restaurante-12",
+    "en": "Could I get a box for the rest?",
+    "pt": "Pode me dar uma embalagem para levar o resto?",
+    "silaba": "",
+    "situacao": 2,
+    "audio": "ice-restaurante-12.mp3"
+  },
+  {
+    "id": "taxi-01",
+    "en": "Hi, are you here for Casey?",
+    "pt": "Oi, você veio buscar a Casey?",
+    "silaba": "",
+    "situacao": 3,
+    "audio": "ice-taxi-01.mp3"
+  },
+  {
+    "id": "taxi-02",
+    "en": "Take me to this address, please.",
+    "pt": "Me leve a este endereço, por favor.",
+    "silaba": "",
+    "situacao": 3,
+    "audio": "ice-taxi-02.mp3"
+  },
+  {
+    "id": "taxi-03",
+    "en": "How long will it take to get downtown?",
+    "pt": "Quanto tempo leva para chegar ao centro?",
+    "silaba": "down·TOWN",
+    "situacao": 3,
+    "audio": "ice-taxi-03.mp3"
+  },
+  {
+    "id": "taxi-04",
+    "en": "Could you drop me off at the main entrance?",
+    "pt": "Pode me deixar na entrada principal?",
+    "silaba": "EN·trance",
+    "situacao": 3,
+    "audio": "ice-taxi-04.mp3"
+  },
+  {
+    "id": "taxi-05",
+    "en": "Can you turn on the air conditioning?",
+    "pt": "Pode ligar o ar-condicionado?",
+    "silaba": "con·DI·tion·ing",
+    "situacao": 3,
+    "audio": "ice-taxi-05.mp3"
+  },
+  {
+    "id": "taxi-06",
+    "en": "Could you turn down the music, please?",
+    "pt": "Pode abaixar a música, por favor?",
+    "silaba": "MU·sic",
+    "situacao": 3,
+    "audio": "ice-taxi-06.mp3"
+  },
+  {
+    "id": "taxi-07",
+    "en": "I think we missed the exit.",
+    "pt": "Acho que passamos a saída.",
+    "silaba": "EX·it",
+    "situacao": 3,
+    "audio": "ice-taxi-07.mp3"
+  },
+  {
+    "id": "taxi-08",
+    "en": "Please stop here.",
+    "pt": "Pare aqui, por favor.",
+    "silaba": "",
+    "situacao": 3,
+    "audio": "ice-taxi-08.mp3"
+  },
+  {
+    "id": "taxi-09",
+    "en": "Can I pay with a credit card?",
+    "pt": "Posso pagar com cartão de crédito?",
+    "silaba": "CRED·it",
+    "situacao": 3,
+    "audio": "ice-taxi-09.mp3"
+  },
+  {
+    "id": "taxi-10",
+    "en": "I'll add the tip in the app.",
+    "pt": "Vou dar a gorjeta pelo aplicativo.",
+    "silaba": "",
+    "situacao": 3,
+    "audio": "ice-taxi-10.mp3"
+  },
+  {
+    "id": "taxi-11",
+    "en": "To the airport, please.",
+    "pt": "Para o aeroporto, por favor.",
+    "silaba": "AIR·port",
+    "situacao": 3,
+    "audio": "ice-taxi-11.mp3"
+  },
+  {
+    "id": "taxi-12",
+    "en": "Which terminal are you flying from?",
+    "pt": "De qual terminal sai o seu voo?",
+    "silaba": "TER·mi·nal",
+    "situacao": 3,
+    "audio": "ice-taxi-12.mp3"
+  },
+  {
+    "id": "policia-01",
+    "en": "Can you help me?",
+    "pt": "Pode me ajudar?",
+    "silaba": "",
+    "situacao": 4,
+    "audio": "ice-policia-01.mp3"
+  },
+  {
+    "id": "policia-02",
+    "en": "I lost my phone.",
+    "pt": "Perdi o meu celular.",
+    "silaba": "",
+    "situacao": 4,
+    "audio": "ice-policia-02.mp3"
+  },
+  {
+    "id": "policia-03",
+    "en": "Someone stole my wallet.",
+    "pt": "Alguém roubou a minha carteira.",
+    "silaba": "WAL·let",
+    "situacao": 4,
+    "audio": "ice-policia-03.mp3"
+  },
+  {
+    "id": "policia-04",
+    "en": "Where is the nearest police station?",
+    "pt": "Onde fica a delegacia mais próxima?",
+    "silaba": "po·LICE",
+    "situacao": 4,
+    "audio": "ice-policia-04.mp3"
+  },
+  {
+    "id": "policia-05",
+    "en": "I'd like to report a theft.",
+    "pt": "Quero registrar um furto.",
+    "silaba": "",
+    "situacao": 4,
+    "audio": "ice-policia-05.mp3"
+  },
+  {
+    "id": "policia-06",
+    "en": "I don't understand.",
+    "pt": "Não entendi.",
+    "silaba": "un·der·STAND",
+    "situacao": 4,
+    "audio": "ice-policia-06.mp3"
+  },
+  {
+    "id": "policia-07",
+    "en": "Please say that again.",
+    "pt": "Por favor, repita.",
+    "silaba": "a·GAIN",
+    "situacao": 4,
+    "audio": "ice-policia-07.mp3"
+  },
+  {
+    "id": "policia-08",
+    "en": "I'm a tourist.",
+    "pt": "Sou turista.",
+    "silaba": "TOUR·ist",
+    "situacao": 4,
+    "audio": "ice-policia-08.mp3"
+  },
+  {
+    "id": "policia-09",
+    "en": "Good evening, officer.",
+    "pt": "Boa noite, policial.",
+    "silaba": "OF·fi·cer",
+    "situacao": 4,
+    "audio": "ice-policia-09.mp3"
+  },
+  {
+    "id": "policia-10",
+    "en": "Here's my driver's license.",
+    "pt": "Aqui está a minha habilitação.",
+    "silaba": "LI·cense",
+    "situacao": 4,
+    "audio": "ice-policia-10.mp3"
+  },
+  {
+    "id": "policia-11",
+    "en": "This is a rental car. Here's the rental agreement.",
+    "pt": "Este carro é alugado. Aqui está o contrato do aluguel.",
+    "silaba": "a·GREE·ment",
+    "situacao": 4,
+    "audio": "ice-policia-11.mp3"
+  },
+  {
+    "id": "policia-12",
+    "en": "The papers are in the glove compartment. May I get them?",
+    "pt": "Os documentos estão no porta-luvas. Posso pegar?",
+    "silaba": "com·PART·ment",
+    "situacao": 4,
+    "audio": "ice-policia-12.mp3"
+  },
+  {
+    "id": "conversa-01",
+    "en": "This place is great.",
+    "pt": "Este lugar é ótimo.",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-01.mp3"
+  },
+  {
+    "id": "conversa-02",
+    "en": "Is this your first time here?",
+    "pt": "É a sua primeira vez aqui?",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-02.mp3"
+  },
+  {
+    "id": "conversa-03",
+    "en": "Where are you from?",
+    "pt": "De onde você é?",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-03.mp3"
+  },
+  {
+    "id": "conversa-04",
+    "en": "What brings you here?",
+    "pt": "O que traz você aqui?",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-04.mp3"
+  },
+  {
+    "id": "conversa-05",
+    "en": "How about you?",
+    "pt": "E você?",
+    "silaba": "a·BOUT",
+    "situacao": 5,
+    "audio": "ice-conversa-05.mp3"
+  },
+  {
+    "id": "conversa-06",
+    "en": "Are you enjoying the city?",
+    "pt": "Está gostando da cidade?",
+    "silaba": "en·JOY·ing",
+    "situacao": 5,
+    "audio": "ice-conversa-06.mp3"
+  },
+  {
+    "id": "conversa-07",
+    "en": "Nice to meet you.",
+    "pt": "Prazer em conhecer você.",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-07.mp3"
+  },
+  {
+    "id": "conversa-08",
+    "en": "I'm here for a conference.",
+    "pt": "Estou aqui para uma conferência.",
+    "silaba": "CON·fer·ence",
+    "situacao": 5,
+    "audio": "ice-conversa-08.mp3"
+  },
+  {
+    "id": "conversa-09",
+    "en": "I'm from Brazil. Have you ever been there?",
+    "pt": "Sou do Brasil. Você já foi para lá?",
+    "silaba": "bra·ZIL",
+    "situacao": 5,
+    "audio": "ice-conversa-09.mp3"
+  },
+  {
+    "id": "conversa-10",
+    "en": "It was nice talking to you.",
+    "pt": "Foi bom conversar com você.",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-10.mp3"
+  },
+  {
+    "id": "conversa-11",
+    "en": "I should get going.",
+    "pt": "Preciso ir andando.",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-11.mp3"
+  },
+  {
+    "id": "conversa-12",
+    "en": "Have a good one.",
+    "pt": "Tudo de bom.",
+    "silaba": "",
+    "situacao": 5,
+    "audio": "ice-conversa-12.mp3"
+  },
+  {
     "id": "telefonar-01",
     "en": "Hi, this is Alex from the data team.",
     "pt": "Oi, aqui é o Alex, do time de dados.",

@@ -14,7 +14,7 @@ semana,dia,ordem,passo,minutos,link
 1,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
 2,1,1,Ouvir e repetir em voz alta as frases da situação 7,10,situacoes/tecnologia/
 2,1,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
-2,1,3,Gravar a sua voz lendo as frases da situação 7 e anotar a data na ficha,5,trilhas/destravar/ficha/
+2,1,3,Gravar a sua voz lendo as frases da situação 6 e da situação 7 e anotar a data na ficha,5,trilhas/destravar/ficha/
 2,2,1,"Shadowing do diálogo da situação 7: ouvir e falar junto, três vezes",10,situacoes/tecnologia/#dialogo
 2,2,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
 2,2,3,Ler o capítulo 1 do guia: como usar o guia e o que significam os selos,5,guia/como-usar/
@@ -29,7 +29,7 @@ semana,dia,ordem,passo,minutos,link
 2,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
 3,1,1,"Ler em voz alta os termos da tabela de pronúncia da situação 7, marcando a sílaba forte",10,situacoes/tecnologia/#pronuncia-dos-termos
 3,1,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
-3,1,3,Gravar a sua voz lendo os termos e as frases da situação 7 e anotar a data na ficha,5,trilhas/destravar/ficha/
+3,1,3,Gravar a sua voz lendo as frases da situação 6 e os termos e as frases da situação 7 e anotar a data na ficha,5,trilhas/destravar/ficha/
 3,2,1,"Técnica 4/3/2: explicar um projeto em que você trabalhou em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
 3,2,2,Treinar as cartas da situação 7,10,treinar/?situacao=7
 3,3,1,Shadowing do diálogo da situação 7,10,situacoes/tecnologia/#dialogo
@@ -43,7 +43,7 @@ semana,dia,ordem,passo,minutos,link
 3,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
 4,1,1,Ouvir e repetir em voz alta as frases da situação 8,10,situacoes/entrevista/
 4,1,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
-4,1,3,Gravar a sua voz lendo as frases da situação 8 e anotar a data na ficha,5,trilhas/destravar/ficha/
+4,1,3,Gravar a sua voz lendo as frases da situação 6 e da situação 8 e anotar a data na ficha,5,trilhas/destravar/ficha/
 4,2,1,"Shadowing do diálogo da situação 8: ouvir e falar junto, três vezes",10,situacoes/entrevista/#dialogo
 4,2,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
 4,2,3,Ler o capítulo 6 do guia: frases-chave e blocos prontos,5,guia/frases-chave/
@@ -57,7 +57,7 @@ semana,dia,ordem,passo,minutos,link
 4,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
 5,1,1,Reler as notas culturais da situação 8 (salário e perguntas no fim) e repetir as frases,10,situacoes/entrevista/#notas-culturais
 5,1,2,Treinar as cartas da situação 8,10,treinar/?situacao=8
-5,1,3,Gravar a sua voz se apresentando como numa entrevista e anotar a data na ficha,5,trilhas/destravar/ficha/
+5,1,3,"Gravar a sua voz lendo as frases da situação 6 e se apresentando como numa entrevista, e anotar a data na ficha",5,trilhas/destravar/ficha/
 5,2,1,Shadowing do diálogo da situação 8,10,situacoes/entrevista/#dialogo
 5,2,2,"Roteiro de IA: entrevista no modo de voz, pedindo à IA perguntas difíceis e uma sobre salário",15,situacoes/entrevista/#treinar-com-ia-no-modo-de-voz
 5,3,1,"Técnica 4/3/2: contar um problema difícil que você resolveu no trabalho em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
@@ -82,3 +82,85 @@ semana,dia,ordem,passo,minutos,link
 6,5,2,Anotar as frases que a IA apontou e repetir em voz alta,5,situacoes/entrevista/
 6,6,1,Conversa real: uma ligação curta com alguém que fale inglês,20,
 6,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+7,1,1,Ouvir e repetir em voz alta as frases da situação 1,10,situacoes/imigracao/
+7,1,2,Treinar as cartas da situação 1,10,treinar/?situacao=1
+7,1,3,Gravar a sua voz lendo as frases da situação 6 e da situação 1 e anotar a data na ficha,5,trilhas/destravar/ficha/
+7,2,1,"Shadowing do diálogo da situação 1: ouvir e falar junto, três vezes",10,situacoes/imigracao/#dialogo
+7,2,2,Treinar as cartas da situação 1,10,treinar/?situacao=1
+7,2,3,Ler o capítulo 10 do guia: medo de falar e confiança,5,guia/medo-de-falar/
+7,3,1,Ouvir e repetir em voz alta as frases da situação 3,10,situacoes/taxi/
+7,3,2,"Técnica 4/3/2: contar a viagem que você quer fazer (para onde, por quanto tempo e o que quer ver) em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+7,4,1,Shadowing do diálogo da situação 3,10,situacoes/taxi/#dialogo
+7,4,2,Roteiro de IA: as perguntas da chegada na imigração no modo de voz,15,situacoes/imigracao/#treinar-com-ia-no-modo-de-voz
+7,5,1,Treinar as cartas da situação 3,10,treinar/?situacao=3
+7,5,2,Roteiro de IA: a corrida do aeroporto ao hotel no modo de voz,15,situacoes/taxi/#treinar-com-ia-no-modo-de-voz
+7,6,1,"Conversa real: uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",20,
+7,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+8,1,1,Ouvir e repetir em voz alta as frases da situação 2,10,situacoes/restaurante/
+8,1,2,Treinar as cartas da situação 2,10,treinar/?situacao=2
+8,1,3,Gravar a sua voz lendo as frases da situação 6 e da situação 2 e anotar a data na ficha,5,trilhas/destravar/ficha/
+8,2,1,"Shadowing do diálogo da situação 2: ouvir e falar junto, três vezes",10,situacoes/restaurante/#dialogo
+8,2,2,Treinar as cartas da situação 2,10,treinar/?situacao=2
+8,2,3,Ler o capítulo 6 do guia: frases-chave e blocos prontos,5,guia/frases-chave/
+8,3,1,Treinar as cartas da situação 1 (revisão),10,treinar/?situacao=1
+8,3,2,"Técnica 4/3/2: descrever um restaurante de que você gosta (onde fica, o que você pede e por quê) em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+8,4,1,"Reler as notas culturais da situação 2 (conta, gorjeta e refil) e repetir as frases",10,situacoes/restaurante/#notas-culturais
+8,4,2,"Roteiro de IA: pedir, trocar o acompanhamento e pagar num restaurante no modo de voz",15,situacoes/restaurante/#treinar-com-ia-no-modo-de-voz
+8,5,1,Treinar as cartas da situação 2,10,treinar/?situacao=2
+8,5,2,Roteiro de IA: as perguntas da chegada na imigração no modo de voz (revisão da situação 1),15,situacoes/imigracao/#treinar-com-ia-no-modo-de-voz
+8,6,1,"Conversa real: uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",20,
+8,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+9,1,1,Ouvir e repetir em voz alta as frases da situação 4,10,situacoes/policia/
+9,1,2,Treinar as cartas da situação 4,10,treinar/?situacao=4
+9,1,3,Gravar a sua voz lendo as frases da situação 6 e da situação 4 e anotar a data na ficha,5,trilhas/destravar/ficha/
+9,2,1,"Shadowing do diálogo da situação 4: ouvir e falar junto, três vezes",10,situacoes/policia/#dialogo
+9,2,2,Treinar as cartas da situação 4,10,treinar/?situacao=4
+9,2,3,Ler o capítulo 8 do guia: shadowing,5,guia/shadowing/
+9,3,1,Treinar as cartas da situação 3 (revisão),10,treinar/?situacao=3
+9,3,2,"Técnica 4/3/2: contar como foi chegar num lugar novo (uma cidade, um bairro ou um emprego) em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+9,4,1,Reler o que dizem as fontes oficiais e as notas culturais da situação 4 e repetir as frases,10,situacoes/policia/#o-que-dizem-as-fontes-oficiais
+9,4,2,Roteiro de IA: avisar da perda do celular no balcão da delegacia no modo de voz,15,situacoes/policia/#treinar-com-ia-no-modo-de-voz
+9,5,1,Shadowing do diálogo da situação 3,10,situacoes/taxi/#dialogo
+9,5,2,Roteiro de IA: a corrida do aeroporto ao hotel no modo de voz (revisão da situação 3),15,situacoes/taxi/#treinar-com-ia-no-modo-de-voz
+9,6,1,"Conversa real: uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",20,
+9,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+10,1,1,Ouvir e repetir em voz alta as frases da situação 5,10,situacoes/conversa/
+10,1,2,Treinar as cartas da situação 5,10,treinar/?situacao=5
+10,1,3,Gravar a sua voz lendo as frases da situação 6 e da situação 5 e anotar a data na ficha,5,trilhas/destravar/ficha/
+10,2,1,"Shadowing do diálogo da situação 5: ouvir e falar junto, três vezes",10,situacoes/conversa/#dialogo
+10,2,2,Treinar as cartas da situação 5,10,treinar/?situacao=5
+10,2,3,Ler o capítulo 9 do guia: fluência na fala,5,guia/fluencia/
+10,3,1,Treinar as cartas da situação 2 (revisão),10,treinar/?situacao=2
+10,3,2,"Técnica 4/3/2: apresentar-se a alguém que você acabou de conhecer (de onde você é, o que faz e o que traz você ali) em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+10,4,1,Reler as notas culturais da situação 5 (assuntos e sinais de saída) e repetir as frases,10,situacoes/conversa/#notas-culturais
+10,4,2,"Roteiro de IA: puxar conversa no saguão do hotel no modo de voz, prestando atenção aos sinais de saída",15,situacoes/conversa/#treinar-com-ia-no-modo-de-voz
+10,5,1,Treinar as cartas da situação 5,10,treinar/?situacao=5
+10,5,2,"Roteiro de IA: pedir, trocar o acompanhamento e pagar num restaurante no modo de voz (revisão da situação 2)",15,situacoes/restaurante/#treinar-com-ia-no-modo-de-voz
+10,6,1,"Conversa real: puxar uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",20,situacoes/conversa/#notas-culturais
+10,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+11,1,1,Treinar todas as cartas (situações 1 a 8),15,treinar/
+11,1,2,Gravar a sua voz lendo as frases da situação 6 e da situação 1 e anotar a data na ficha,5,trilhas/destravar/ficha/
+11,1,3,Ler o capítulo 11 do guia: treinar com IA no modo de voz,5,guia/ia-modo-de-voz/
+11,2,1,Shadowing do diálogo da situação 1,10,situacoes/imigracao/#dialogo
+11,2,2,"Roteiro de IA: as perguntas da chegada na imigração, com a IA no papel do agente",15,situacoes/imigracao/#treinar-com-ia-no-modo-de-voz
+11,3,1,Shadowing do diálogo da situação 3,10,situacoes/taxi/#dialogo
+11,3,2,"Roteiro de IA: a corrida do aeroporto ao hotel, com a IA no papel do motorista",15,situacoes/taxi/#treinar-com-ia-no-modo-de-voz
+11,4,1,"Técnica 4/3/2: contar uma viagem inteira, real ou imaginada, da chegada no aeroporto ao jantar, em 4, 3 e 2 minutos e anotar os tempos",12,trilhas/destravar/ficha/
+11,4,2,"Roteiro de IA: o almoço no restaurante, com a IA no papel de quem atende a mesa",15,situacoes/restaurante/#treinar-com-ia-no-modo-de-voz
+11,5,1,"Roteiro de IA: avisar da perda do celular na delegacia, com a IA no papel do policial",15,situacoes/policia/#treinar-com-ia-no-modo-de-voz
+11,5,2,Shadowing do diálogo da situação 5,10,situacoes/conversa/#dialogo
+11,6,1,"Conversa real: puxar uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",20,situacoes/conversa/#notas-culturais
+11,6,2,Registrar a semana na ficha de progresso,5,trilhas/destravar/ficha/
+12,1,1,Treinar todas as cartas (situações 1 a 8),15,treinar/
+12,1,2,"Gravar a sua voz lendo as frases da situação 6, comparar com as gravações das semanas 1 e 6 e anotar a data na ficha",10,trilhas/destravar/ficha/
+12,2,1,Shadowing do diálogo da situação 6,10,situacoes/telefonar/#dialogo
+12,2,2,Roteiro de IA: as perguntas da chegada na imigração no modo de voz (revisão da situação 1),15,situacoes/imigracao/#treinar-com-ia-no-modo-de-voz
+12,3,1,"Técnica 4/3/2: explicar o seu trabalho em 4, 3 e 2 minutos, como nas semanas 1 e 6, e comparar os tempos na ficha",12,trilhas/destravar/ficha/
+12,3,2,Shadowing do diálogo da situação 7,10,situacoes/tecnologia/#dialogo
+12,3,3,"Reler o capítulo 1 do guia: como usar o guia, para escolher o que treinar depois",5,guia/como-usar/
+12,4,1,Shadowing do diálogo da situação 8,10,situacoes/entrevista/#dialogo
+12,4,2,"Roteiro de IA: pedir, trocar o acompanhamento e pagar num restaurante no modo de voz (revisão da situação 2)",15,situacoes/restaurante/#treinar-com-ia-no-modo-de-voz
+12,5,1,Shadowing do diálogo da situação 3,10,situacoes/taxi/#dialogo
+12,5,2,Roteiro de IA: avisar da perda do celular no balcão da delegacia no modo de voz (revisão da situação 4),15,situacoes/policia/#treinar-com-ia-no-modo-de-voz
+12,6,1,"Conversa real: puxar uma conversa curta com alguém que fale inglês, ao vivo ou por ligação",20,situacoes/conversa/#notas-culturais
+12,6,2,"Registrar a semana na ficha e comparar com as semanas 1 e 6: a gravação, os tempos da 4/3/2 e a confiança",5,trilhas/destravar/ficha/

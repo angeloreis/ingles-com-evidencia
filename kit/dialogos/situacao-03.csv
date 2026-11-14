@@ -1,0 +1,15 @@
+id,situacao,ordem,falante,en,pt,fonte,licenca,autor,leitura
+taxi-d01,3,1,B,"Hi, are you Casey?","Oi, você é a Casey?",projeto,CC BY-SA 4.0,,
+taxi-d02,3,2,A,"Yes, that's me. You must be Drew.","Sim, sou eu. Você deve ser o Drew.",projeto,CC BY-SA 4.0,,
+taxi-d03,3,3,B,That's right. Do you need help with your bags?,Isso. Precisa de ajuda com as malas?,projeto,CC BY-SA 4.0,,
+taxi-d04,3,4,A,"No, thanks. I'm going to the Harbor Hotel, downtown.","Não, obrigada. Vou para o Harbor Hotel, no centro.",projeto,CC BY-SA 4.0,,"No, thanks. I'm going to the Harbor Hotel, down-town."
+taxi-d05,3,5,B,Got it. It's already in the app.,Entendi. Já está no aplicativo.,projeto,CC BY-SA 4.0,,
+taxi-d06,3,6,A,How long will it take to get downtown?,Quanto tempo leva para chegar ao centro?,tatoeba:8341144,CC BY 2.0 FR,CK,How long will it take to get down-town?
+taxi-d07,3,7,B,"About twenty-five minutes, depending on traffic.","Uns vinte e cinco minutos, dependendo do trânsito.",projeto,CC BY-SA 4.0,,
+taxi-d08,3,8,A,Can you turn on the air conditioning?,Pode ligar o ar-condicionado?,tatoeba:3329741,CC BY 2.0 FR,CK,
+taxi-d09,3,9,B,Sure. Is that better?,Claro. Melhorou?,projeto,CC BY-SA 4.0,,
+taxi-d10,3,10,A,"Yes, thanks. Wait, I think we missed the exit.","Sim, obrigada. Espera, acho que passamos a saída.",projeto,CC BY-SA 4.0,,
+taxi-d11,3,11,B,"Don't worry, the next exit works too.","Não se preocupe, a próxima saída também serve.",projeto,CC BY-SA 4.0,,
+taxi-d12,3,12,A,Could you drop me off at the main entrance?,Pode me deixar na entrada principal?,projeto,CC BY-SA 4.0,,
+taxi-d13,3,13,B,Of course. Here we are.,Claro. Chegamos.,projeto,CC BY-SA 4.0,,
+taxi-d14,3,14,A,Thank you! I'll add the tip in the app.,Obrigada! Vou dar a gorjeta pelo aplicativo.,projeto,CC BY-SA 4.0,,

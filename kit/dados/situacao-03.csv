@@ -1,0 +1,13 @@
+id,en,pt,silaba,situacao,fonte,licenca,autor,leitura
+taxi-01,"Hi, are you here for Casey?","Oi, você veio buscar a Casey?",,3,projeto,CC BY-SA 4.0,,
+taxi-02,"Take me to this address, please.","Me leve a este endereço, por favor.",,3,tatoeba:10646968,CC BY 2.0 FR,CK,
+taxi-03,How long will it take to get downtown?,Quanto tempo leva para chegar ao centro?,down·TOWN,3,tatoeba:8341144,CC BY 2.0 FR,CK,How long will it take to get down-town?
+taxi-04,Could you drop me off at the main entrance?,Pode me deixar na entrada principal?,EN·trance,3,projeto,CC BY-SA 4.0,,
+taxi-05,Can you turn on the air conditioning?,Pode ligar o ar-condicionado?,con·DI·tion·ing,3,tatoeba:3329741,CC BY 2.0 FR,CK,
+taxi-06,"Could you turn down the music, please?","Pode abaixar a música, por favor?",MU·sic,3,tatoeba:4440516,CC BY 2.0 FR,AlanF_US,
+taxi-07,I think we missed the exit.,Acho que passamos a saída.,EX·it,3,projeto,CC BY-SA 4.0,,
+taxi-08,Please stop here.,"Pare aqui, por favor.",,3,tatoeba:6358139,CC BY 2.0 FR,CK,
+taxi-09,Can I pay with a credit card?,Posso pagar com cartão de crédito?,CRED·it,3,tatoeba:434376,CC BY 2.0 FR,lukaszpp,
+taxi-10,I'll add the tip in the app.,Vou dar a gorjeta pelo aplicativo.,,3,projeto,CC BY-SA 4.0,,
+taxi-11,"To the airport, please.","Para o aeroporto, por favor.",AIR·port,3,tatoeba:10646998,CC BY 2.0 FR,CK,
+taxi-12,Which terminal are you flying from?,De qual terminal sai o seu voo?,TER·mi·nal,3,projeto,CC BY-SA 4.0,,

@@ -42,6 +42,11 @@ nav = [
   ] },
   { "Situações" = [
     { "Visão geral" = "situacoes/index.md" },
+    { "Imigração no aeroporto ou na fronteira" = "situacoes/imigracao.md" },
+    { "Restaurante" = "situacoes/restaurante.md" },
+    { "Táxi ou carro de aplicativo" = "situacoes/taxi.md" },
+    { "Polícia: pedir ajuda e abordagem" = "situacoes/policia.md" },
+    { "Puxar conversa" = "situacoes/conversa.md" },
     { "Telefonar e marcar reunião" = "situacoes/telefonar.md" },
     { "Programação, IA e frameworks" = "situacoes/tecnologia.md" },
     { "Entrevista para trabalho remoto" = "situacoes/entrevista.md" },
