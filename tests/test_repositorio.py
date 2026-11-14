@@ -24,8 +24,8 @@ def test_workflow_testa_antes_de_publicar():
 
 FORA_DO_GIT = {".venv", "site", ".cache", ".pytest_cache", ".superpowers", "__pycache__", ".git"}
 TEXTO = {".md", ".py", ".toml", ".txt", ".yml", ".csv", ".css", ".json", ".html", ""}
-# montados por partes para este arquivo não acusar a si mesmo
-PESSOAIS = ["ingles-" + "pessoal", "/ho" + "me/", "/tm" + "p/", "espo" + "sa", "Ang" + "elo"]
+# Os termos ficam em scripts/ganchos.py, que também barra a edição com eles antes de chegar ao disco.
+from scripts.ganchos import PESSOAIS  # noqa: E402
 
 
 def test_repositorio_sem_dados_pessoais():

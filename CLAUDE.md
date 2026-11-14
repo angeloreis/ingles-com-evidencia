@@ -33,6 +33,7 @@ Para a arquitetura em detalhe, veja [docs/CODEBASE_MAP.md](docs/CODEBASE_MAP.md)
 - **Licenças:** conteúdo em CC BY-SA 4.0 e código em MIT. Toda linha de CSV tem `fonte` e `licenca`, e material com licença NC nunca entra.
 - **Gerados:** não se editam à mão. São eles `kit/gerado/`, `conteudo/dados/`, `CREDITOS.md` e `conteudo/estilos/tokens.css`. Depois de mudar um CSV, rode `python -m scripts.construir`.
 - **Git:** o mantenedor faz commit, push, tags e deploy.
+- **Ganchos do Claude Code:** `scripts/ganchos.py` barra a edição à mão de um gerado e o texto com dado pessoal, e roda o `construir` depois de cada edição em `kit/`, `scripts/` ou `conteudo/`. A ligação fica em `.claude/settings.json`, fora do git, e só vale numa sessão aberta na pasta do projeto.
 
 ## Comandos
 
