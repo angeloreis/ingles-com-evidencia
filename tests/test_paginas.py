@@ -121,3 +121,25 @@ def test_ouvir_nasce_desabilitado():
         assert botoes
         for b in botoes:
             assert "data-audio" in b and " disabled" in b, b
+
+
+def test_frase_do_tatoeba_traz_o_credito():
+    cc_by = {**FRASE, "id": "t-01", "en": "Check, please.", "fonte": "tatoeba:21098",
+             "licenca": "CC BY 2.0 FR", "autor": "CK"}
+    cc0 = {**FRASE, "id": "t-02", "en": "Thanks.", "fonte": "tatoeba:555", "licenca": "CC0", "autor": "a<b"}
+    html = trecho_frases([cc_by, cc0])
+    assert '<a href="https://tatoeba.org/pt-br/sentences/show/21098">Tatoeba nº 21098</a>' in html
+    # A CC BY 2.0 pede o endereço da licença em cada cópia: o nome da licença leva o link (revisão final da 2A, I1).
+    assert ('de CK, sob <a href="https://creativecommons.org/licenses/by/2.0/fr/">CC BY 2.0 FR</a>. '
+            "Tradução do projeto.") in html
+    assert ('de a&lt;b, em domínio público (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>). '
+            "Tradução do projeto.") in html
+    assert html.count('class="pp-frase__fonte"') == 2
+    assert html.index("pp-frase__fonte") < html.index("data-audio=")
+    assert "pp-frase__fonte" not in trecho_frases([FRASE])
+
+
+def test_fala_do_tatoeba_traz_o_credito():
+    fala = {**FRASE, "id": "t-d01", "ordem": "1", "falante": "A", "fonte": "tatoeba:21098",
+            "licenca": "CC BY 2.0 FR", "autor": "CK"}
+    assert "Tatoeba nº 21098" in trecho_dialogo([fala])

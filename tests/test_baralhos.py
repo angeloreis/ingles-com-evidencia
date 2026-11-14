@@ -67,3 +67,21 @@ def test_baralho_tem_descricao(tmp_path, audio):
     desc = next(d["desc"] for d in decks if d["name"].startswith("Inglês com Evidência::"))
     for parte in ("Inglês com Evidência", "https://angeloreis.github.io/ingles-com-evidencia/", "CC BY-SA 4.0"):
         assert parte in desc
+
+
+def test_credito_da_carta_do_tatoeba():
+    from scripts.baralhos import _credito
+    linha = {**LINHAS[1], "fonte": "tatoeba:21098"}
+    assert _credito(linha) == ("Tatoeba nº 21098, de CK, CC BY 2.0 FR "
+                               "(https://creativecommons.org/licenses/by/2.0/fr/). Tradução do projeto.")
+    cc0 = {**linha, "licenca": "CC0"}
+    assert _credito(cc0) == ("Tatoeba nº 21098, de CK, CC0 "
+                             "(https://creativecommons.org/publicdomain/zero/1.0/). Tradução do projeto.")
+    assert _credito(LINHAS[0]) == "projeto · CC BY-SA 4.0"
+
+
+def test_descricao_do_baralho_ressalva_o_tatoeba():
+    # O texto em inglês do Tatoeba não está sob CC BY-SA 4.0 (revisão final da 2A, I1).
+    from scripts.baralhos import DESCRICAO
+    assert "exceto o texto em inglês das frases do Tatoeba" in DESCRICAO
+    assert "CC BY 2.0 FR" in DESCRICAO and "CC0" in DESCRICAO

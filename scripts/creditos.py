@@ -52,6 +52,9 @@ def gerar_creditos(raiz: Path) -> str:
                          key=lambda l: int(l["fonte"].split(":")[1]))
         if tatoeba:
             dados.append("\n### Frases do Tatoeba\n")
+            dados.append("O texto em inglês destas frases vem do [Tatoeba](https://tatoeba.org/pt-br/), sob "
+                         "[CC BY 2.0 FR](https://creativecommons.org/licenses/by/2.0/fr/) ou CC0, como indicado "
+                         "em cada uma. A tradução para o português é do projeto, sob CC BY-SA 4.0.\n")
             for l in tatoeba:
                 numero = l["fonte"].split(":")[1]
                 autor = f", de {l['autor']}" if l.get("autor") else ""

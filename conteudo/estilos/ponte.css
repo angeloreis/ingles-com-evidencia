@@ -213,6 +213,34 @@
   min-height: 1.5em;
 }
 
+/* "Hoje": o link do passo fica fora do label (tocar no texto marca o passo), com área de toque própria,
+   ao lado do cartão do passo onde cabe; no celular, embaixo dele, para o texto não virar uma coluna estreita. */
+.md-typeset .pp-passos > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--espaco-2);
+}
+
+.md-typeset .pp-passos > li > label {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.pp-passos__abrir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: var(--alvo-toque);
+  min-width: var(--alvo-toque);
+}
+
+.ice-hoje__status {
+  margin: var(--espaco-3) 0;
+  min-height: 1.5em;
+}
+
 .ice-hoje__rodape {
   margin-top: var(--espaco-6);
   color: var(--tinta-suave);
@@ -295,4 +323,13 @@
     display: flex;
     align-items: center;
   }
+}
+
+/* Crédito da frase do Tatoeba: no mesmo tamanho e cor da tradução, abaixo dela. */
+.pp-frase__fonte {
+  grid-column: 1;
+  margin: 0;
+  font-size: var(--apoio-tamanho);
+  line-height: 1.5;
+  color: var(--tinta-suave);
 }

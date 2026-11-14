@@ -13,6 +13,7 @@ import genanki
 
 from scripts.paginas import nome_audio, silaba_html
 from scripts.situacoes import SITUACOES
+from scripts.validar import ENDERECO_DA_LICENCA
 
 # Gerados uma vez com random.randrange(1 << 30, 1 << 31). Nunca mudar: o Anki usa para reconhecer
 # o modelo e os baralhos já importados.
@@ -52,7 +53,8 @@ MODELO = genanki.Model(
 DESCRICAO = ("Do projeto aberto Inglês com Evidência: "
              '<a href="https://angeloreis.github.io/ingles-com-evidencia/">'
              "https://angeloreis.github.io/ingles-com-evidencia/</a>. "
-             "Frases e áudio sob a licença CC BY-SA 4.0; os créditos de cada frase estão no verso da carta.")
+             "Frases e áudio sob a licença CC BY-SA 4.0, exceto o texto em inglês das frases do Tatoeba, "
+             "sob CC BY 2.0 FR ou CC0, como indicado no verso de cada carta, onde estão os créditos de cada frase.")
 
 
 class Nota(genanki.Note):
@@ -62,6 +64,10 @@ class Nota(genanki.Note):
 
 
 def _credito(linha: dict) -> str:
+    if linha["fonte"].startswith("tatoeba:"):
+        numero = linha["fonte"].split(":", 1)[1]
+        licenca = f"{linha['licenca']} ({ENDERECO_DA_LICENCA[linha['licenca']]})"
+        return escape(f"Tatoeba nº {numero}, de {linha['autor']}, {licenca}. Tradução do projeto.")
     partes = [linha["fonte"], linha["licenca"]]
     if linha.get("autor"):
         partes.append(linha["autor"])

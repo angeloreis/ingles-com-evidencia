@@ -23,3 +23,10 @@ def test_sem_ngsl_nao_cita_ngsl(tmp_path):
 
 def test_creditos_do_repositorio_em_dia():
     assert (RAIZ / "CREDITOS.md").read_text(encoding="utf-8") == gerar_creditos(RAIZ)
+
+
+def test_creditos_explicam_a_traducao(tmp_path):
+    texto = gerar_creditos(kit(tmp_path, ["t-1,Hi,Oi,6,tatoeba:123,CC BY 2.0 FR,CK"]))
+    depois = texto.split("### Frases do Tatoeba", 1)[1]
+    assert "A tradução para o português é do projeto, sob CC BY-SA 4.0." in depois
+    assert "(https://creativecommons.org/licenses/by/2.0/fr/)" in depois

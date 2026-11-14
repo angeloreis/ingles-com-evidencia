@@ -31,6 +31,12 @@ OPCIONAIS = BARALHO.opcionais
 CONHECIDAS = BARALHO.conhecidas
 
 LICENCAS = ("CC BY-SA 4.0", "CC BY 2.0 FR", "CC0")
+# O endereço de cada licença, que vai no crédito da frase e da carta (a CC BY 2.0 pede o endereço em cada cópia).
+ENDERECO_DA_LICENCA = {
+    "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "CC BY 2.0 FR": "https://creativecommons.org/licenses/by/2.0/fr/",
+    "CC0": "https://creativecommons.org/publicdomain/zero/1.0/",
+}
 LICENCAS_POR_FONTE = {
     "ngsl": ("CC BY-SA 4.0",),
     "projeto": ("CC BY-SA 4.0",),
@@ -222,6 +228,8 @@ def _conferir_linha(campos: dict, esquema: Esquema, numericas: list[str],
     if v["licenca"] not in LICENCAS_POR_FONTE[tipo]:
         aceitas = " ou ".join(LICENCAS_POR_FONTE[tipo])
         return f"a fonte {tipo} só aceita a licença {aceitas}, não {v['licenca']}"
+    if tipo == "tatoeba" and not v["autor"]:
+        return "frase do Tatoeba precisa do autor na coluna autor (o usuário dono da frase no Tatoeba)"
     if v["licenca"] in LICENCAS_COM_AUTOR and not v["autor"]:
         return f"a licença {v['licenca']} exige o nome do autor na coluna autor"
 

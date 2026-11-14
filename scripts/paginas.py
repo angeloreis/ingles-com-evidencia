@@ -13,6 +13,7 @@ from pathlib import Path
 
 from scripts.planos import RE_LINK, TRILHAS, dados_do_plano
 from scripts.situacoes import SITUACOES
+from scripts.validar import ENDERECO_DA_LICENCA
 
 
 def nome_audio(id_: str) -> str:
@@ -40,6 +41,16 @@ def silaba_html(silaba: str) -> str:
     return f'<span lang="en">{"·".join(partes)}</span>'
 
 
+def _fonte_tatoeba(linha: dict) -> str:
+    """Crédito da frase do Tatoeba: o texto em inglês é de lá; a tradução, do projeto.
+    O nome da licença leva o endereço dela, que a CC BY 2.0 pede em cada cópia."""
+    numero = linha["fonte"].split(":", 1)[1]
+    link = f'<a href="{ENDERECO_DA_LICENCA[linha["licenca"]]}">{_e(linha["licenca"])}</a>'
+    licenca = f"em domínio público ({link})" if linha["licenca"] == "CC0" else f"sob {link}"
+    return (f'<p class="pp-frase__fonte">Frase do <a href="https://tatoeba.org/pt-br/sentences/show/{numero}">'
+            f"Tatoeba nº {numero}</a>, de {_e(linha['autor'])}, {licenca}. Tradução do projeto.</p>")
+
+
 def _frase_li(linha: dict, falante: str | None = None) -> str:
     partes = ['<li class="pp-frase">']
     if falante:
@@ -48,6 +59,8 @@ def _frase_li(linha: dict, falante: str | None = None) -> str:
     partes.append(f'<p class="pp-frase__pt">{_e(linha["pt"])}</p>')
     if linha.get("silaba"):
         partes.append(f'<p class="pp-frase__silaba">Sílaba forte: {silaba_html(linha["silaba"])}</p>')
+    if linha.get("fonte", "").startswith("tatoeba:"):
+        partes.append(_fonte_tatoeba(linha))
     partes.append(f'<button type="button" class="pp-botao" data-audio="{nome_audio(linha["id"])}" disabled>Ouvir</button>')
     partes.append("</li>")
     return "\n".join(partes)

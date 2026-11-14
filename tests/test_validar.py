@@ -45,7 +45,7 @@ def test_arquivo_valido(tmp_path):
     "﻿" + montar(BASE).replace("\n", "\r\n") + "\r\n\r\n",
     montar(BASE) + ",,,,,,,\n,  ,,,,,,\n",
     montar({**BASE, "fonte": "tatoeba:123", "licenca": "CC BY 2.0 FR", "autor": "CK"}),
-    montar({**BASE, "fonte": "tatoeba:123", "licenca": "CC0"}),
+    montar({**BASE, "fonte": "tatoeba:123", "licenca": "CC0", "autor": "CK"}),
     montar({"id": "ngsl-0001", "en": "time", "pt": "tempo", "faixa": "1",
             "fonte": "ngsl", "licenca": "CC BY-SA 4.0"},
            cab=["id", "en", "pt", "faixa", "fonte", "licenca"]),
@@ -197,3 +197,9 @@ def test_leitura_e_coluna_opcional(tmp_path):
     dialogo = montar({**FALA, "leitura": "Hi, it's Ana."},
                      {**FALA, "id": "telefonar-d02", "ordem": "2", "falante": "B"}, cab=CAB_DIALOGO + ["leitura"])
     assert erros_dialogo(tmp_path, dialogo) == []
+
+
+def test_tatoeba_exige_autor(tmp_path):
+    # Fase 2A: o crédito na frase e na carta cita o dono da frase, mesmo em CC0
+    texto = montar({**BASE, "fonte": "tatoeba:21098", "licenca": "CC0", "autor": ""})
+    assert any("autor" in e.mensagem for e in erros(tmp_path, texto))
