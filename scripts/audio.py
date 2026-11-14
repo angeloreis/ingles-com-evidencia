@@ -19,6 +19,7 @@ from scripts.paginas import _ler_csvs, nome_audio
 VOZ_PRINCIPAL = "af_heart"   # frases e pessoa A do diálogo
 VOZ_PARCEIRA = "am_michael"  # pessoa B do diálogo
 VELOCIDADE = 0.9
+TEMPO_LIMITE = 60  # segundos sem resposta antes de desistir do download (M12 da 1A)
 
 _RELEASE = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1"
 MODELO = {"arquivo": "kokoro-v1.0.onnx", "url": f"{_RELEASE}/kokoro-v1.0.onnx",
@@ -58,7 +59,7 @@ def baixar_modelos(pasta: Path, arquivos: tuple[dict, ...] = (MODELO, VOZES)) ->
             continue
         parcial = destino.with_name(destino.name + ".parcial")
         try:
-            with urllib.request.urlopen(a["url"]) as resposta, open(parcial, "wb") as saida:
+            with urllib.request.urlopen(a["url"], timeout=TEMPO_LIMITE) as resposta, open(parcial, "wb") as saida:
                 for bloco in iter(lambda: resposta.read(1 << 20), b""):
                     saida.write(bloco)
             obtido = _sha256(parcial)

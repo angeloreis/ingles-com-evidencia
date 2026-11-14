@@ -31,7 +31,8 @@ O site abre em <http://localhost:8000>.
 
 ## Conferir os dados e os estilos
 
-- Validar os CSVs dos baralhos: `.venv/bin/python -m scripts.construir`
+- Conferir os CSVs, os planos e o guia e gerar as páginas e os créditos: `.venv/bin/python -m scripts.construir` (com `--audio` gera também o áudio, e com `--audio --baralhos`, os baralhos do Anki)
+- Só conferir um CSV ou uma pasta de fora do projeto, sem gerar nada: `.venv/bin/python -m scripts.construir --dados caminho/do/arquivo.csv`
 - Gerar de novo o `conteudo/estilos/tokens.css` depois de mudar `design/passaporte/tokens.json`: `.venv/bin/python -m scripts.estilos`
 - Rodar os testes: `.venv/bin/python -m pytest`
 
@@ -42,6 +43,8 @@ O arquivo precisa estar em UTF-8 e separado por vírgula. O Excel em português 
 ## Publicação
 
 Cada push na `main` roda os testes e publica o site no GitHub Pages (`.github/workflows/site.yml`).
+
+A Action instala as dependências com as versões de `requirements-travado.txt`. Ao mudar um `requirements-*.txt`, gere esse arquivo de novo com `.venv/bin/python -m pip freeze --exclude-editable`, sem as linhas com ` @ ` e com o comentário da primeira linha.
 
 ## Licenças
 
