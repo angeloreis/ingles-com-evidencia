@@ -73,21 +73,32 @@
       var feitas = 0;
       var total = fila.length;
 
-      function fim() {
+      /* focar: a carta nova veio de "Acertei" ou "Errei"; sem isso, o foco caía no body (M4 da 1A). */
+      function fim(focar) {
         area.textContent = "";
-        area.appendChild(el("p", "ice-carta__pt",
-          feitas ? "Treino de hoje feito. Volte amanhã." : "Nenhuma carta para hoje. Volte amanhã."));
+        var mensagem = el("p", "ice-carta__pt",
+          feitas ? "Treino de hoje feito. Volte amanhã." : "Nenhuma carta para hoje. Volte amanhã.");
+        mensagem.tabIndex = -1;
+        area.appendChild(mensagem);
+        if (focar) mensagem.focus();
       }
 
-      function mostrar() {
+      function mostrar(focar) {
         area.textContent = "";
-        if (!fila.length) { fim(); return; }
+        if (!fila.length) { fim(focar); return; }
         var carta = porId[fila[0]];
-        area.appendChild(el("p", "ice-carta__progresso", "Carta " + (feitas + 1) + " de " + total));
-        area.appendChild(el("p", "ice-carta__pt", carta.pt));
+        var progresso = el("p", "ice-carta__progresso", "Carta " + (feitas + 1) + " de " + total);
+        progresso.id = "ice-carta-progresso";
+        area.appendChild(progresso);
+        var pergunta = el("p", "ice-carta__pt", carta.pt);
+        pergunta.id = "ice-carta-pt";
+        area.appendChild(pergunta);
         area.appendChild(el("p", "ice-carta__dica", "Fale em inglês, em voz alta."));
         var revelar = botao("Mostrar a resposta", true);
+        /* Com o foco no botão, o leitor de tela ouve também o número da carta e a frase a traduzir. */
+        revelar.setAttribute("aria-describedby", "ice-carta-progresso ice-carta-pt");
         area.appendChild(revelar);
+        if (focar) revelar.focus();
         revelar.addEventListener("click", function () {
           revelar.remove();
           var en = el("p", "ice-carta__en", carta.en);
@@ -118,7 +129,7 @@
               total += 1;
             }
             feitas += 1;
-            mostrar();
+            mostrar(true);
           }
           acertei.addEventListener("click", function () { responder(true); });
           errei.addEventListener("click", function () { responder(false); });

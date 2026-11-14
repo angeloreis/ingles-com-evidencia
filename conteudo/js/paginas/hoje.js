@@ -11,6 +11,14 @@
     return e;
   }
 
+  /* O primeiro elemento de cada estado: recebe o foco quando a página é redesenhada por uma ação da pessoa,
+     para o teclado e o leitor de tela não voltarem ao começo da página (M4 da 1A). */
+  function inicio(e) {
+    e.classList.add("ice-hoje__inicio");
+    e.tabIndex = -1;
+    return e;
+  }
+
   function botao(texto, primario) {
     var b = el("button", "pp-botao" + (primario ? " pp-botao--primario" : ""), texto);
     b.type = "button";
@@ -38,7 +46,7 @@
           if (window.confirm("Apagar o progresso deste aparelho e escolher de novo o começo do plano?")) {
             estado = { versao: 1, inicio: null, feitos: {} };
             salvar();
-            desenhar();
+            desenhar(true);
           }
         });
         alvo.appendChild(recomecar);
@@ -46,29 +54,34 @@
     }
 
     function escolherInicio() {
-      alvo.appendChild(el("p", "", "Escolha quando o plano começa para você. O site calcula o dia do plano a partir dessa data."));
+      alvo.appendChild(inicio(el("p", "", "Escolha quando o plano começa para você. O site calcula o dia do plano a partir dessa data.")));
       var acoes = el("div", "ice-carta__acoes");
       var hojeBotao = botao("Começar hoje", true);
       hojeBotao.addEventListener("click", function () {
         estado.inicio = hoje;
         salvar();
-        desenhar();
+        desenhar(true);
       });
       acoes.appendChild(hojeBotao);
       alvo.appendChild(acoes);
 
-      var rotulo = el("label", "ice-treino__filtro", "Já estou na semana ");
+      /* O botão fica fora do label: dentro dele, o leitor de tela lia o botão como parte do rótulo (M3 da 1A). */
+      var linha = el("div", "ice-treino__filtro");
+      var rotulo = el("label", "", "Já estou na semana");
+      rotulo.htmlFor = "ice-hoje-semana";
       var seletor = el("select");
+      seletor.id = "ice-hoje-semana";
       for (var s = 1; s <= plano.semanas; s++) seletor.appendChild(new Option(String(s), String(s)));
-      rotulo.appendChild(seletor);
       var continuar = botao("Continuar dessa semana");
       continuar.addEventListener("click", function () {
         estado.inicio = ICE.plano.inicioParaSemana(hoje, Number(seletor.value));
         salvar();
-        desenhar();
+        desenhar(true);
       });
-      rotulo.appendChild(continuar);
-      alvo.appendChild(rotulo);
+      linha.appendChild(rotulo);
+      linha.appendChild(seletor);
+      linha.appendChild(continuar);
+      alvo.appendChild(linha);
     }
 
     /* Semana atual depois da última publicada: repetir a última ou seguir no treino (M9 da 1A). */
@@ -76,8 +89,8 @@
       var faltam = ultima + 1 === plano.semanas
         ? "A semana " + plano.semanas + " ainda não foi publicada."
         : "As semanas " + (ultima + 1) + " a " + plano.semanas + " ainda não foram publicadas.";
-      alvo.appendChild(el("p", "ice-carta__pt",
-        faltam + " Enquanto isso, repita a semana " + ultima + " ou siga no treino de cartas."));
+      alvo.appendChild(inicio(el("p", "ice-carta__pt",
+        faltam + " Enquanto isso, repita a semana " + ultima + " ou siga no treino de cartas.")));
       var acoes = el("div", "ice-carta__acoes");
       var repetir = botao("Repetir a semana " + ultima, true);
       repetir.addEventListener("click", function () {
@@ -86,7 +99,7 @@
           if (chaveDia.indexOf("s" + ultima + "d") === 0) delete estado.feitos[chaveDia];
         });
         salvar();
-        desenhar();
+        desenhar(true);
       });
       acoes.appendChild(repetir);
       var treinar = el("a", "pp-botao", "Treinar as cartas");
@@ -95,14 +108,29 @@
       alvo.appendChild(acoes);
     }
 
+    /* Depois da última semana do plano completo: o que fazer para manter a fala, em vez de uma frase sem saída. */
+    function fimDoPlano() {
+      alvo.appendChild(inicio(el("p", "ice-carta__pt",
+        "Você chegou ao fim das " + plano.semanas + " semanas. Para manter a fala em dia, siga no treino de cartas, " +
+        "faça uma conversa real por semana e grave a sua voz de vez em quando para comparar com a da semana 1.")));
+      var acoes = el("div", "ice-carta__acoes");
+      var treinar = el("a", "pp-botao pp-botao--primario", "Treinar as cartas");
+      treinar.href = ICE.url("treinar/");
+      acoes.appendChild(treinar);
+      var ficha = el("a", "pp-botao", "Abrir a ficha de progresso");
+      ficha.href = ICE.url("trilhas/" + trilha + "/ficha/");
+      acoes.appendChild(ficha);
+      alvo.appendChild(acoes);
+    }
+
     function dia() {
       var pos = ICE.plano.posicao(estado.inicio, hoje, plano.semanas);
       if (pos.terminou) {
         if (ICE.plano.depoisDoPublicado(plano, pos.semana)) { depoisDaUltima(ICE.plano.ultimaSemana(plano)); return; }
-        alvo.appendChild(el("p", "ice-carta__pt", "Você chegou ao fim das " + plano.semanas + " semanas."));
+        fimDoPlano();
         return;
       }
-      alvo.appendChild(el("h2", "", "Semana " + pos.semana + ", dia " + pos.dia));
+      alvo.appendChild(inicio(el("h2", "", "Semana " + pos.semana + ", dia " + pos.dia)));
       var passos = ICE.plano.passosDoDia(plano, pos.semana, pos.dia);
       if (!passos.length) {
         if (ICE.plano.depoisDoPublicado(plano, pos.semana)) { depoisDaUltima(ICE.plano.ultimaSemana(plano)); return; }
@@ -137,17 +165,10 @@
         caixa.type = "checkbox";
         caixa.id = id;
         caixa.checked = feitos.indexOf(p.ordem) >= 0;
+        /* O label leva só o texto e o tempo, para tocar no texto marcar o passo; o link vem à parte (M5 da 1A). */
         var rotulo = el("label");
         rotulo.htmlFor = id;
-        var texto = el("span", "pp-passos__texto");
-        if (p.link) {
-          var a = el("a", "", p.passo);
-          a.href = ICE.url(p.link);
-          texto.appendChild(a);
-        } else {
-          texto.textContent = p.passo;
-        }
-        rotulo.appendChild(texto);
+        rotulo.appendChild(el("span", "pp-passos__texto", p.passo));
         rotulo.appendChild(el("span", "pp-passos__tempo", p.minutos + " min"));
         caixa.addEventListener("change", function () {
           var i = feitos.indexOf(p.ordem);
@@ -155,30 +176,52 @@
           if (!caixa.checked && i >= 0) feitos.splice(i, 1);
           salvar();
           atualizarBarra();
+          atualizarStatus();
         });
         li.appendChild(caixa);
         li.appendChild(rotulo);
+        if (p.link) {
+          var abrir = el("a", "pp-passos__abrir", "Abrir");
+          abrir.href = ICE.url(p.link);
+          abrir.setAttribute("aria-label", "Abrir: " + p.passo);
+          li.appendChild(abrir);
+        }
         lista.appendChild(li);
         caixas.push(caixa);
       });
       alvo.appendChild(lista);
+      /* O resultado de cada marcação é anunciado, e o botão desliga com o dia completo (M10 da 1A). */
+      var status = el("p", "ice-hoje__status");
+      status.setAttribute("role", "status");
+      alvo.appendChild(status);
       var proximo = botao("Marcar o próximo passo", true);
       proximo.addEventListener("click", function () {
-        var aberta = caixas.filter(function (c) { return !c.checked; })[0];
+        var ordem = ICE.plano.proximoAberto(passos, feitos);
+        var aberta = caixas[passos.map(function (p) { return p.ordem; }).indexOf(ordem)];
         if (aberta) {
           aberta.checked = true;
           aberta.dispatchEvent(new Event("change"));
+          /* Com o dia completo, o botão desliga; o foco vai para o passo marcado, e não para o body. */
+          if (proximo.disabled) aberta.focus();
         }
       });
       alvo.appendChild(proximo);
+      function atualizarStatus() {
+        status.textContent = ICE.plano.resumoDoDia(passos, feitos);
+        proximo.disabled = ICE.plano.proximoAberto(passos, feitos) === null;
+      }
       atualizarBarra();
+      atualizarStatus();
     }
 
-    function desenhar() {
+    /* focar: o redesenho veio de uma ação da pessoa; na abertura da página, nada recebe foco. */
+    function desenhar(focar) {
       alvo.textContent = "";
       if (!guarda) alvo.appendChild(ICE.avisoSemArmazenamento());
       if (!estado.inicio) escolherInicio(); else dia();
       rodape();
+      var primeiro = focar && alvo.querySelector(".ice-hoje__inicio");
+      if (primeiro) primeiro.focus();
     }
     desenhar();
   }
@@ -188,8 +231,8 @@
     if (!alvo) return;
     var trilha = alvo.dataset.trilha;
     alvo.textContent = "Carregando o plano…";
-    ICE.json("dados/" + trilha + ".json").then(function (plano) { montar(alvo, trilha, plano); }, function () {
-      alvo.textContent = "O plano desta trilha ainda não foi publicado.";
+    ICE.json("dados/" + trilha + ".json").then(function (plano) { montar(alvo, trilha, plano); }, function (erro) {
+      alvo.textContent = ICE.plano.mensagemDeFalha(erro);
     });
   });
 })(globalThis.ICE = globalThis.ICE || {});

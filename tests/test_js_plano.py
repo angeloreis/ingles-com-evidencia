@@ -1,6 +1,6 @@
 import pytest
 
-from js import chamar, contexto
+from js import avaliar, chamar, contexto
 
 
 @pytest.fixture
@@ -105,3 +105,47 @@ def test_depois_do_publicado(ctx):
     assert chamar(ctx, "ICE.plano.depoisDoPublicado", seis, 13) is True
     assert chamar(ctx, "ICE.plano.depoisDoPublicado", doze, 13) is False
     assert chamar(ctx, "ICE.plano.depoisDoPublicado", {"semanas": 12, "passos": []}, 13) is False
+
+
+VAZIO = {"versao": 1, "inicio": None, "feitos": {}}
+
+
+@pytest.mark.parametrize("inicio", ['"13/11/2026"', '"2026-02-30"', "20261113"])
+def test_ler_plano_com_inicio_invalido(ctx, inicio):
+    texto = '{"versao": 1, "inicio": ' + inicio + ', "feitos": {}}'
+    assert chamar(ctx, "ICE.plano.ler", texto) == VAZIO
+
+
+def test_ler_plano_com_inicio_valido(ctx):
+    texto = '{"versao": 1, "inicio": "2026-11-13", "feitos": {"s1d1": [1]}}'
+    assert chamar(ctx, "ICE.plano.ler", texto) == {"versao": 1, "inicio": "2026-11-13", "feitos": {"s1d1": [1]}}
+
+
+PASSOS = [{"ordem": 1}, {"ordem": 2}, {"ordem": 3}]
+
+
+@pytest.mark.parametrize("feitos, esperado", [([], 1), ([1], 2), ([2], 1), ([1, 2, 3], None)])
+def test_proximo_aberto(ctx, feitos, esperado):
+    assert chamar(ctx, "ICE.plano.proximoAberto", PASSOS, feitos) == esperado
+
+
+@pytest.mark.parametrize("feitos, esperado", [
+    ([], "0 de 3 passos feitos."),
+    ([1, 3], "2 de 3 passos feitos."),
+    ([1, 2, 3], "Dia concluído: todos os passos de hoje estão feitos."),
+])
+def test_resumo_do_dia(ctx, feitos, esperado):
+    assert chamar(ctx, "ICE.plano.resumoDoDia", PASSOS, feitos) == esperado
+
+
+def test_mensagem_de_falha(ctx):
+    # o chamar passa os argumentos por JSON, que não leva um Error
+    assert avaliar(ctx, 'ICE.plano.mensagemDeFalha(new Error("HTTP 404"))') == \
+        "O plano desta trilha ainda não foi publicado."
+    assert avaliar(ctx, 'ICE.plano.mensagemDeFalha(new TypeError("Failed to fetch"))') == \
+        "Não foi possível carregar o plano. Confira a conexão e recarregue a página."
+
+
+def test_depois_do_publicado_com_o_plano_completo(ctx):
+    completo = {"semanas": 12, "passos": [{"semana": 1, "dia": 1, "ordem": 1}, {"semana": 12, "dia": 1, "ordem": 1}]}
+    assert chamar(ctx, "ICE.plano.depoisDoPublicado", completo, 13) is False

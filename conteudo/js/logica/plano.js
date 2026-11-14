@@ -6,6 +6,11 @@
   /* Objeto de verdade: typeof null também é "object" (M11 da 1A). */
   function objeto(x) { return x !== null && typeof x === "object"; }
 
+  /* Data AAAA-MM-DD que existe no calendário (2026-02-30 não existe). */
+  function dataValida(x) {
+    return typeof x === "string" && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(x) && ICE.datas.somarDias(x, 0) === x;
+  }
+
   ICE.plano = {
     chave: function (trilha) { return "ice:plano:" + trilha + ":v1"; },
 
@@ -15,6 +20,7 @@
       try {
         var estado = JSON.parse(texto);
         if (!objeto(estado) || estado.versao !== 1 || !objeto(estado.feitos)) return vazio;
+        if (estado.inicio !== null && !dataValida(estado.inicio)) return vazio;
         return estado;
       } catch (e) {
         return vazio;
@@ -58,6 +64,26 @@
     depoisDoPublicado: function (plano, semana) {
       var ultima = ICE.plano.ultimaSemana(plano);
       return ultima > 0 && ultima < plano.semanas && semana > ultima;
+    },
+
+    /* A ordem do primeiro passo ainda não marcado, ou null com o dia completo. */
+    proximoAberto: function (passos, feitos) {
+      var abertos = passos.filter(function (p) { return feitos.indexOf(p.ordem) < 0; })
+                          .sort(function (a, b) { return a.ordem - b.ordem; });
+      return abertos.length ? abertos[0].ordem : null;
+    },
+
+    /* O que a página anuncia (role="status") a cada passo marcado. */
+    resumoDoDia: function (passos, feitos) {
+      var feitosHoje = passos.filter(function (p) { return feitos.indexOf(p.ordem) >= 0; }).length;
+      if (passos.length && feitosHoje === passos.length) return "Dia concluído: todos os passos de hoje estão feitos.";
+      return feitosHoje + " de " + passos.length + " passos feitos.";
+    },
+
+    /* O plano que não existe (404) e a falha de rede pedem mensagens diferentes (M6 da 1A). */
+    mensagemDeFalha: function (erro) {
+      if (erro && erro.message === "HTTP 404") return "O plano desta trilha ainda não foi publicado.";
+      return "Não foi possível carregar o plano. Confira a conexão e recarregue a página.";
     },
 
     totalDeDias: function (plano) {
