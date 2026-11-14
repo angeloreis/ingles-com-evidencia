@@ -18,14 +18,14 @@ Este capítulo trata de três técnicas, e cada uma tem o seu selo:
 <section class="pp-secao" markdown>
 <span class="pp-secao__rotulo">O que os cursos dizem</span>
 
-"Para destravar, fale sozinho todos os dias: conte a mesma história várias vezes, cada vez mais rápido, grave a sua voz e treine as frases do português para o inglês. Em poucas semanas, a fala sai sem travar." As três técnicas costumam vir juntas, como um pacote para quem não tem com quem conversar.
+A receita para destravar é falar sozinho todos os dias: contar a mesma história várias vezes, cada vez mais rápido, gravar a sua voz e treinar as frases do português para o inglês. A promessa é que, em poucas semanas, a fala sai sem travar. As três técnicas costumam vir juntas, como um pacote para quem não tem com quem conversar.
 
 </section>
 
 <section class="pp-secao" markdown>
 <span class="pp-secao__rotulo">O que a pesquisa diz</span>
 
-**Técnica 4/3/2.** Você conta a mesma coisa três vezes, em 4, depois 3, depois 2 minutos. De Jong e Perfetti (2011) acompanharam 24 alunos de inglês que gravaram três falas assim: uns repetiam o mesmo tema, outros mudavam de tema a cada vez. A fluência melhorou nos dois grupos durante o treino, mas só se manteve nos testes posteriores em quem repetiu o tema. Boers (2014), com 10 adultos, e Thai e Boers (2016), com 20 estudantes vietnamitas, confirmaram o ganho de fluência e acharam o limite: com o tempo encolhendo, as pessoas repetem trechos inteiros da primeira versão, e a fala não fica mais correta nem mais elaborada. No estudo de Thai e Boers (2016), quem repetiu com o mesmo tempo nas três vezes ganhou menos fluência, mas teve pequenos ganhos de correção e de complexidade. O selo é moderado: há estudos controlados a favor da fluência, mas todos pequenos.
+**Técnica 4/3/2.** Você conta a mesma coisa três vezes, em 4, depois 3, depois 2 minutos. De Jong e Perfetti (2011) acompanharam 24 alunos de inglês que gravaram três falas assim: uns repetiam o mesmo tema, outros mudavam de tema a cada vez. A fluência melhorou nos dois grupos durante o treino, mas só se manteve nos testes posteriores em quem repetiu o tema. Boers (2014), com 10 adultos, e Thai e Boers (2016), com 20 estudantes vietnamitas, confirmaram o ganho de fluência e acharam o limite: com o tempo encolhendo, as pessoas repetem trechos inteiros da primeira versão, e a fala não fica mais correta nem mais elaborada. No estudo de Thai e Boers (2016), quem repetiu com o mesmo tempo nas três vezes ganhou menos fluência, mas teve pequenos ganhos de correção e de complexidade. O selo é moderado: há estudos comparativos a favor da fluência, mas todos pequenos.
 
 **Gravar a própria voz.** Não achamos estudo que meça o efeito de se gravar separado do resto do treino. A gravação aparece como parte de treinos que deram certo, como no estudo de Foote e McDonough (2017), em que os participantes se gravavam enquanto faziam <span lang="en">shadowing</span>, mas aí não dá para saber quanto do ganho veio dela. Por isso o selo é fraco: os estudos são indiretos. A gravação serve, antes de tudo, para você ver o próprio progresso de uma semana para outra.
 
@@ -37,7 +37,7 @@ Este capítulo trata de três técnicas, e cada uma tem o seu selo:
 <span class="pp-secao__rotulo">Como praticar</span>
 
 1. **Técnica 4/3/2 com um tema seu (12 minutos).** Escolha um tema da vida real: o seu trabalho, o fim de semana, um projeto. Com o cronômetro, fale sobre ele por 4 minutos, depois conte de novo em 3 e de novo em 2. Anote na [ficha de progresso](../trilhas/destravar/ficha.md) quanto tempo você conseguiu falar em cada rodada.
-2. **Ajuste antes de acelerar.** De vez em quando, entre a primeira e a segunda rodada, anote as palavras que faltaram e procure como se diz. Ou refaça a fala três vezes com o mesmo tempo, corrigindo o que saiu errado. A pressão do tempo puxa a fluência. Repetir com o mesmo tempo deu só pequenos ganhos de correção no estudo de Thai e Boers (2016), mas é o que abre espaço para corrigir a fala.
+2. **Ajuste antes de acelerar (5 minutos).** De vez em quando, entre a primeira e a segunda rodada, anote as palavras que faltaram e procure como se diz. Ou refaça a fala três vezes com o mesmo tempo, corrigindo o que saiu errado. A pressão do tempo puxa a fluência. Repetir com o mesmo tempo deu só pequenos ganhos de correção no estudo de Thai e Boers (2016), mas é o que abre espaço para corrigir a fala.
 3. **Grave-se uma vez por semana (5 minutos).** Leia as frases de uma situação ou fale um minuto sobre o mesmo tema. Ouça a gravação e compare com a da semana anterior. Anote a data na [ficha de progresso](../trilhas/destravar/ficha.md).
 4. **Cartas ao contrário (10 minutos).** No [treino de cartas](../treinar.md), aparece a frase em português: diga em inglês, em voz alta, e só então vire a carta. Volte às cartas nos dias seguintes: o treino mostra de novo as que você errou.
 

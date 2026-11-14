@@ -11,7 +11,7 @@ title: Shadowing
 <section class="pp-secao" markdown>
 <span class="pp-secao__rotulo">O que os cursos dizem</span>
 
-"Fale junto com o áudio, como uma sombra, alguns minutos por dia, e você vai pegar o sotaque e o ritmo de um nativo." A técnica costuma ser vendida como o atalho para destravar a fala e soar natural sem precisar de ninguém para conversar.
+A promessa é que, falando junto com o áudio, como uma sombra, alguns minutos por dia, você vai pegar o sotaque e o ritmo de um nativo. A técnica costuma ser vendida como o atalho para destravar a fala e soar natural sem precisar de ninguém para conversar.
 
 </section>
 

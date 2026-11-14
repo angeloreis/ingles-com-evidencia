@@ -124,6 +124,7 @@ def _linha(arquivo, ident):
 @pytest.mark.parametrize("arquivo, ident, trecho", [
     ("dados/situacao-08.csv", "entrevista-06", "A-synchronously"),  # /eɪˈsɪŋkrənəs/, não "uh-sink"
     ("dados/situacao-07.csv", "tecnologia-09", "algorhythm"),       # /ˈælɡərɪðəm/, com ð e não θ
+    ("dados/situacao-07.csv", "tecnologia-04", "queery"),           # /ˈkwɪri/, e não "kway-ree"
 ])
 def test_leitura_segue_o_dicionario(arquivo, ident, trecho):
     assert trecho in _linha(arquivo, ident)["leitura"]
@@ -133,3 +134,19 @@ def test_dialogo_da_situacao_7_concorda_o_pronome():
     fala = _linha("dialogos/situacao-07.csv", "tecnologia-d05")
     assert fala["en"] == "The AI wrote the first drafts, and I fixed two of them."
     assert fala["pt"] == "A IA escreveu as primeiras versões, e eu corrigi duas delas."
+
+
+def test_baixar_usa_tempo_limite(tmp_path, monkeypatch):
+    # M12 da 1A: sem tempo limite, uma conexão parada travava o build para sempre
+    import io
+    import urllib.request
+
+    pedidos = []
+
+    def abrir(url, timeout=None):
+        pedidos.append(timeout)
+        return io.BytesIO(b"x")
+
+    monkeypatch.setattr(urllib.request, "urlopen", abrir)
+    baixar_modelos(tmp_path, ({"arquivo": "m", "url": "https://exemplo", "sha256": hashlib.sha256(b"x").hexdigest()},))
+    assert pedidos == [60]

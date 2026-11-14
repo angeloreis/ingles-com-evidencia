@@ -11,7 +11,7 @@ title: Medo de falar e confiança
 <section class="pp-secao" markdown>
 <span class="pp-secao__rotulo">O que os cursos dizem</span>
 
-"O que trava você é o medo de errar. Perca a vergonha, fale desde o primeiro dia, e a fluência vem junto." Alguns cursos prometem acabar com a timidez em poucas aulas, como se a confiança fosse uma chave que se vira de uma vez.
+A ideia é que o que trava você é o medo de errar: perdendo a vergonha e falando desde o primeiro dia, a fluência vem junto. Alguns cursos prometem acabar com a timidez em poucas aulas, como se a confiança fosse uma chave que se vira de uma vez.
 
 </section>
 

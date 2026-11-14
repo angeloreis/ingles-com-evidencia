@@ -22,7 +22,7 @@ Duas pessoas desenvolvedoras numa chamada: Jordan pede para Riley revisar uma mu
 
 ## Pronúncia dos termos
 
-A pronúncia americana de cada termo foi conferida no dicionário Oxford Advanced Learner's ou na documentação oficial do projeto. Toque no termo para abrir a fonte; no dicionário, o alto-falante toca uma pessoa dizendo a palavra.
+A pronúncia americana de cada termo foi conferida no dicionário Oxford Advanced Learner's ou na documentação oficial do projeto. Toque no termo para abrir a fonte; no dicionário, o alto-falante toca uma pessoa dizendo a palavra. Termos que o dicionário dá com duas pronúncias americanas ficaram de fora, porque as duas servem.
 
 | Termo | Sílaba forte |
 |---|---|
@@ -33,7 +33,6 @@ A pronúncia americana de cada termo foi conferida no dicionário Oxford Advance
 | [<span lang="en">schema</span>](https://www.oxfordlearnersdictionaries.com/definition/english/schema) | <span lang="en"><b>SCHE</b>·ma</span>, com som de "sk" |
 | [<span lang="en">database</span>](https://www.oxfordlearnersdictionaries.com/definition/english/database) | <span lang="en"><b>DA</b>·ta·base</span> |
 | [<span lang="en">PostgreSQL</span>](https://wiki.postgresql.org/wiki/FAQ) | <span lang="en">Post-Gres-Q-L</span>, letra por letra no fim |
-| [<span lang="en">Linux</span>](https://www.oxfordlearnersdictionaries.com/definition/english/linuxtm) | <span lang="en"><b>LI</b>·nux</span> |
 | [<span lang="en">Nginx</span>](https://nginx.org/en/) | diz-se <span lang="en">engine x</span> |
 | [<span lang="en">suite</span>](https://www.oxfordlearnersdictionaries.com/definition/english/suite) | uma sílaba só, igual a <span lang="en">sweet</span> |
 | [<span lang="en">algorithm</span>](https://www.oxfordlearnersdictionaries.com/definition/english/algorithm) | <span lang="en"><b>AL</b>·go·rithm</span> |

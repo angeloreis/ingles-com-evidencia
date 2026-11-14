@@ -282,7 +282,52 @@ def test_como_usar_explica_o_selo_pela_pratica_proposta():
     ("fluencia", "o ajuste dá correção"),              # Thai e Boers (2016): só pequenos ganhos
     ("fluencia", "O selo é moderado: poucos experimentos"),
     ("ia-modo-de-voz", "invente"),                     # a situação 8 pede a experiência real
+    ("fluencia", "estudos controlados"),               # revisão da 1B: são estudos comparativos
+    ("ia-modo-de-voz", "Uma IA que conversa por voz dá muitas"),  # agora marcada como conclusão do guia
 ])
 def test_trecho_corrigido_na_revisao_final(slug, trecho):
     texto = (RAIZ / "conteudo" / "guia" / f"{slug}.md").read_text(encoding="utf-8")
     assert trecho not in texto
+
+
+# --- Fase 2A, ajustes de texto da revisão da 1B ----------------------------------------------
+def _secao_do_capitulo(texto, rotulo):
+    depois = texto.split(f'pp-secao__rotulo">{rotulo}</span>', 1)
+    return depois[1].split("</section>", 1)[0] if len(depois) == 2 else None
+
+
+def _capitulos_publicados():
+    for slug in guia.CAPITULOS:
+        caminho = RAIZ / "conteudo" / "guia" / f"{slug}.md"
+        if caminho.exists():
+            yield slug, caminho.read_text(encoding="utf-8")
+
+
+def test_inferencia_do_guia_marcada():
+    texto = (RAIZ / "conteudo" / "guia" / "ia-modo-de-voz.md").read_text(encoding="utf-8")
+    assert "conclusão própria, que os estudos não testaram" in _secao_do_capitulo(texto, "O que a pesquisa diz")
+
+
+def test_passos_de_como_praticar_com_tempo():
+    vistos = 0
+    for slug, texto in _capitulos_publicados():
+        praticar = _secao_do_capitulo(texto, "Como praticar")
+        if praticar is None:
+            continue
+        for negrito in re.findall(r"^[0-9]+\. \*\*(.+?)\*\*", praticar, re.M):
+            vistos += 1
+            assert re.search(r"\([0-9]+ minutos?", negrito), (slug, negrito)
+    assert vistos >= 20
+
+
+def test_cursos_dizem_sem_aspas():
+    vistos = 0
+    for slug, texto in _capitulos_publicados():
+        cursos = _secao_do_capitulo(texto, "O que os cursos dizem")
+        if cursos is None:
+            continue
+        vistos += 1
+        sem_tags = re.sub(r"<[^>]+>", "", cursos)
+        for aspa in ('"', "“", "”"):
+            assert aspa not in sem_tags, (slug, aspa)
+    assert vistos == 5
